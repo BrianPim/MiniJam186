@@ -1,6 +1,7 @@
+using CamLib;
 using UnityEngine;
 
-public class GameManager : MonoBehaviour
+public class GameManager : Singleton<GameManager>
 {
     void Start()
     {
