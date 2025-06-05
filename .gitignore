@@ -77,3 +77,5 @@ crashlytics-build.properties
 /[Aa]ssets/[Ss]treamingAssets/aa.meta
 /[Aa]ssets/[Ss]treamingAssets/aa/*
 Packages/com.singularitygroup.hotreload/
+Assets/com.singularitygroup.hotreload.meta
+Assets/com.singularitygroup.hotreload/
