@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7486861143768891187}
   - component: {fileID: 7486861143768891184}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Circle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -99,7 +99,7 @@ GameObject:
   - component: {fileID: 7486861143885982337}
   - component: {fileID: 7486861143885982336}
   - component: {fileID: 7486861143885982339}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: LightningProjectile
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -134,6 +134,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 270fa42defaf18046a6a4724c27643d3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ProjectileDamage: 10
   ProjectileSpeed: 20
   Lifetime: 3
   RigidBody: {fileID: 7486861143885982336}

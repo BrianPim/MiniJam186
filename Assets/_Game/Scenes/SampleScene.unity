@@ -131,7 +131,8 @@ GameObject:
   - component: {fileID: 48025874}
   - component: {fileID: 48025873}
   - component: {fileID: 48025872}
-  m_Layer: 0
+  - component: {fileID: 48025876}
+  m_Layer: 7
   m_Name: EnemyTest (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -257,6 +258,33 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!50 &48025876
+Rigidbody2D:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 48025871}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDamping: 0
+  m_AngularDamping: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!114 &307096541 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 6269474084448481966, guid: 526b15a27193945468dc10f58dbd1d4e, type: 3}
@@ -659,6 +687,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 6269474084448481966, guid: 526b15a27193945468dc10f58dbd1d4e, type: 3}
+      propertyPath: 'Upgrades.Array.data[0]'
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 6269474084448481966, guid: 526b15a27193945468dc10f58dbd1d4e, type: 3}
+      propertyPath: 'Upgrades.Array.data[1]'
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 6269474084448481966, guid: 526b15a27193945468dc10f58dbd1d4e, type: 3}
+      propertyPath: 'Upgrades.Array.data[2]'
+      value: 15
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -676,7 +716,8 @@ GameObject:
   - component: {fileID: 1665223597}
   - component: {fileID: 1665223596}
   - component: {fileID: 1665223595}
-  m_Layer: 0
+  - component: {fileID: 1665223599}
+  m_Layer: 7
   m_Name: EnemyTest (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -802,6 +843,33 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!50 &1665223599
+Rigidbody2D:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1665223594}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDamping: 0
+  m_AngularDamping: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!1 &1934280449
 GameObject:
   m_ObjectHideFlags: 0
@@ -814,7 +882,8 @@ GameObject:
   - component: {fileID: 1934280452}
   - component: {fileID: 1934280451}
   - component: {fileID: 1934280450}
-  m_Layer: 0
+  - component: {fileID: 1934280454}
+  m_Layer: 7
   m_Name: EnemyTest
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -940,6 +1009,33 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!50 &1934280454
+Rigidbody2D:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1934280449}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDamping: 0
+  m_AngularDamping: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!1 &2010958648
 GameObject:
   m_ObjectHideFlags: 0
@@ -952,7 +1048,8 @@ GameObject:
   - component: {fileID: 2010958651}
   - component: {fileID: 2010958650}
   - component: {fileID: 2010958649}
-  m_Layer: 0
+  - component: {fileID: 2010958653}
+  m_Layer: 7
   m_Name: EnemyTest (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1078,6 +1175,33 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!50 &2010958653
+Rigidbody2D:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2010958648}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDamping: 0
+  m_AngularDamping: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!1001 &4160260598665654185
 PrefabInstance:
   m_ObjectHideFlags: 0

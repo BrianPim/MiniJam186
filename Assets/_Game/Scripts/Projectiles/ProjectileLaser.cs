@@ -1,4 +1,6 @@
 using Enemies;
+using UnityEditor.Graphs;
+using UnityEngine;
 
 namespace Projectiles
 {
@@ -6,7 +8,7 @@ namespace Projectiles
     {
         protected override void OnHit(EnemyController enemy)
         {
-            enemy.TakeDamage(ProjectileDamage * DamageModifier);
+            enemy.TakeDamage(ProjectileDamage * DamageModifier, Color.white);
             Destroy(gameObject);
         }
     }

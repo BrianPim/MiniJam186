@@ -127,3 +127,5 @@ MonoBehaviour:
   Player: {fileID: 0}
   MovementBoundaries: {fileID: 5389687261668679879}
   Background: {fileID: 0}
+  Enemies: []
+  PulseTextPrefab: {fileID: 1954870665688662231, guid: 50a04248daa0a9648add49428ffa7835, type: 3}
