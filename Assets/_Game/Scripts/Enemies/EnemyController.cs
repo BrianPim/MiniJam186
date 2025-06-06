@@ -5,7 +5,7 @@ namespace Enemies
 {
     public class EnemyController : MonoBehaviour
     {
-        public int Health;
+        public float Health;
 
         protected virtual void Awake()
         {
@@ -13,7 +13,7 @@ namespace Enemies
                 GameManager.Instance.Enemies.Add(this);
         }
 
-        public void TakeDamage(int damage)
+        public void TakeDamage(float damage)
         {
             Health -= damage;
 

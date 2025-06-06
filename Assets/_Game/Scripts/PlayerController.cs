@@ -57,7 +57,7 @@ using UnityEngine;
         private const float LightningCooldown2Modifier = .5f;
         private const float LightningCooldown3Modifier = .25f;
 
-        private const float LightningDamage1Modifier = 1.25f;
+        private const float LightningDamage1Modifier = 1f;
         private const float LightningDamage2Modifier = 1.5f;
         private const float LightningDamage3Modifier = 2f;
         

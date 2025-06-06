@@ -23,6 +23,7 @@ namespace Projectiles
         {
             if (IllegalTargets.Contains(enemy)) return;
             
+            enemy.TakeDamage(ProjectileDamage * DamageModifier);
             EnemiesHit++;
             
             if (EnemiesHit <= Chain)

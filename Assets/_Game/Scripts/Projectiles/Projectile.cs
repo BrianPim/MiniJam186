@@ -12,6 +12,7 @@ namespace Projectiles
 
         //-------------------------------------------
 
+        public float ProjectileDamage = 10;
         public float ProjectileSpeed = 10;
         public float Lifetime = 5;
 
