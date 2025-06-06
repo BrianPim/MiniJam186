@@ -1,3 +1,4 @@
+using System;
 using CamLib;
 using System.Collections;
 using System.Collections.Generic;
@@ -17,6 +18,8 @@ public class HudManager : Singleton<HudManager>
     public Image WeaponWheelSelected;
 
     public TextMeshProUGUI ScoreText;
+
+    private Coroutine ActiveWeaponWheelRoutine;
 
     protected override void Awake()
     {
@@ -69,5 +72,60 @@ public class HudManager : Singleton<HudManager>
         }
 
         StartCoroutine(FadeRoutine());
+    }
+
+    public void UpdateWeaponWheel(int oldIndex)
+    {
+        var newIndex = GameManager.Instance.Player.GetCurrentWeaponIndex();
+        
+        IEnumerator WeaponWheelRoutine()
+        {
+            //var speedModifier = Math.Abs(newIndex - oldIndex);
+
+            WeaponWheelSelected.enabled = false;
+            var targetRotation = 0f;
+
+            switch (newIndex)
+            {
+                case 1:
+                    targetRotation = -90f;
+                    break;
+                case 2:
+                    targetRotation = -180f;
+                    break;
+                case 3:
+                    targetRotation = -270f;
+                    break;
+                default:
+                    targetRotation = -360f;
+                    break;
+            }
+            
+            while (WeaponWheelRotator.rotation != Quaternion.Euler(0, 0, targetRotation))
+            {
+                WeaponWheelRotator.Rotate(Vector3.forward, -1);
+                
+                yield return new WaitForSeconds(.002f);
+            }
+
+            if (newIndex == 0)
+            {
+                WeaponWheelRotator.rotation = Quaternion.identity;    
+            }
+            
+            WeaponWheelSelected.enabled = true;
+        }
+        
+        if (newIndex == 0 && oldIndex == 0)
+        {
+            return;
+        }
+
+        if (ActiveWeaponWheelRoutine != null)
+        {
+            StopCoroutine(ActiveWeaponWheelRoutine);    
+        }
+        
+        ActiveWeaponWheelRoutine = StartCoroutine(WeaponWheelRoutine());
     }
 }

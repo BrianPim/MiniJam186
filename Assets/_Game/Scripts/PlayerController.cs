@@ -338,13 +338,9 @@ public enum Upgrade
                 StopShooting();
             }
 
-            if (Input.GetAxis("Mouse ScrollWheel") < 0)
+            if (Input.GetAxis("Mouse ScrollWheel") > 0)
             {
                 NextWeapon();
-            }
-            else if (Input.GetAxis("Mouse ScrollWheel") > 0)
-            {
-                PreviousWeapon();
             }
 
             InputDirection = Vector2.zero;
@@ -352,12 +348,17 @@ public enum Upgrade
             InputDirection.y += Input.GetAxisRaw("Vertical");
             InputDirection = InputDirection.normalized;
         }
-        public void FixedUpdate()
+        private void FixedUpdate()
         {
             RigidBody.linearVelocity = BaseShipSpeed * SpeedModifier * InputDirection;
         }
+
+        public int GetCurrentWeaponIndex()
+        {
+            return CurrentWeaponIndex;
+        }
         
-        public void Shoot()
+        private void Shoot()
         {
             switch (CurrentWeaponIndex)
             {
@@ -379,12 +380,12 @@ public enum Upgrade
             }
         }
 
-        public void StopShooting()
+        private void StopShooting()
         {   
             FlamethrowerCone.gameObject.SetActive(false);
         }
 
-        public void ShootLaser()
+        private void ShootLaser()
         {
             if (CurrentLaserCooldown > 0)
                 return;
@@ -399,7 +400,7 @@ public enum Upgrade
             CurrentLaserCooldown = BaseLaserCooldown * LaserCooldownModifier;
         }
 
-        public void ShootShotgun()
+        private void ShootShotgun()
         {
             if (CurrentLaserCooldown > 0)
                 return;
@@ -423,7 +424,7 @@ public enum Upgrade
             CurrentLaserCooldown = BaseLaserCooldown * LaserCooldownModifier;
         }
 
-        public void ShootFlamethrower()
+        private void ShootFlamethrower()
         {
             FlamethrowerCone.pointLightOuterRadius = FlamethrowerConeDistanceModifier;
             FlamethrowerCone.pointLightInnerAngle = FlamethrowerConeAngleModifier;
@@ -445,7 +446,7 @@ public enum Upgrade
             CurrentFlamethrowerDamageCooldown = BaseFlamethrowerDamageCooldown;
         }
 
-        public void ShootCryoGun()
+        private void ShootCryoGun()
         {
             if (CurrentCryoDamageCooldown > 0)
                 return;
@@ -467,7 +468,7 @@ public enum Upgrade
             CurrentCryoDamageCooldown = BaseCryoDamageCooldown;
         }
 
-        public void ShootLightningGun()
+        private void ShootLightningGun()
         {
             if (CurrentLightningCooldown > 0)
                 return;
@@ -484,6 +485,8 @@ public enum Upgrade
         
         private void NextWeapon()
         {
+            var oldIndex = CurrentWeaponIndex;
+            
             if (CurrentWeaponIndex == 3)
             {
                 CurrentWeaponIndex = 0;
@@ -521,44 +524,6 @@ public enum Upgrade
                 }
             }
             
-            Debug.Log($"Weapon Index: {CurrentWeaponIndex}");
-        }
-        
-        private void PreviousWeapon()
-        {
-            if (CurrentWeaponIndex == 0)
-            {
-                CurrentWeaponIndex = 3;
-            }
-            else
-            {
-                CurrentWeaponIndex--;
-            }
-            
-            switch (CurrentWeaponIndex)
-            {
-                case 1: //Flamethrower
-                    if (!Upgrades.Contains(Upgrade.Flamethrower1))
-                    {
-                        PreviousWeapon();
-                    }
-                    break;
-                
-                case 2: //Cryo
-                    if (!Upgrades.Contains(Upgrade.Cryo1))
-                    {
-                        PreviousWeapon();
-                    }
-                    break;
-                
-                case 3: //Lightning
-                    if (!Upgrades.Contains(Upgrade.Lightning1))
-                    {
-                        PreviousWeapon();
-                    }
-                    break;
-            }
-            
-            Debug.Log($"Weapon Index: {CurrentWeaponIndex}");
+            HudManager.Instance.UpdateWeaponWheel(oldIndex);
         }
     }

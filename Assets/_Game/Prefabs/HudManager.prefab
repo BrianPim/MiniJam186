@@ -237,9 +237,13 @@ MonoBehaviour:
   MainMenu: {fileID: 3105952674490559125}
   GameHudCanvas: {fileID: 3105952674535465231}
   ColourOverlay: {fileID: 3105952673008326508}
-  WeaponWheelRotator: {fileID: 0}
-  WeaponWheelImages: []
-  WeaponWheelSelected: {fileID: 0}
+  WeaponWheelRotator: {fileID: 8949619889714235390}
+  WeaponWheelImages:
+  - {fileID: 5773319430348865082}
+  - {fileID: 5523702179783195228}
+  - {fileID: 2534657612111147592}
+  - {fileID: 3221913624922661683}
+  WeaponWheelSelected: {fileID: 5450036115599992741}
   ScoreText: {fileID: 3105952673891505742}
 --- !u!1 &3105952673008326506
 GameObject:
