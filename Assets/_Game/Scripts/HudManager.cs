@@ -8,9 +8,13 @@ using UnityEngine.UI;
 public class HudManager : Singleton<HudManager>
 {
     public MainMenu MainMenu;
-
+    [Space]
     public Canvas GameHudCanvas;
     public Image ColourOverlay;
+    [Space]
+    public Transform WeaponWheelRotator;
+    public Image[] WeaponWheelImages;
+    public Image WeaponWheelSelected;
 
     public TextMeshProUGUI ScoreText;
 

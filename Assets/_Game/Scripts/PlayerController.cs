@@ -1,11 +1,13 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using CamLib;
 using Enemies;
 using Projectiles;
 using UnityEngine;
+using UnityEngine.Rendering.Universal;
 
-    public enum Upgrade
+public enum Upgrade
     {
         EngineSpeed1,
         EngineSpeed2,
@@ -56,12 +58,20 @@ using UnityEngine;
         private const int ShotgunHowMany = 3;
         
         //Flamethrower
-        private const float BaseFlamethrowerDamageCooldown = .5f;
-        private const float BaseFlamethrowerDamage = 10f;
+        private const float BaseFlamethrowerDamageCooldown = .2f;
+        private const float BaseFlamethrowerDamage = 4f;
         
         private const float FlamethrowerDamage1Modifier = 1f;
         private const float FlamethrowerDamage2Modifier = 1.5f;
         private const float FlamethrowerDamage3Modifier = 2f;
+        
+        private const float FlamethrowerConeDistance1Modifier = 5f;
+        private const float FlamethrowerConeDistance2Modifier = 7.5f;
+        private const float FlamethrowerConeDistance3Modifier = 10f;
+        
+        private const float FlamethrowerConeAngle1Modifier = 30f;
+        private const float FlamethrowerConeAngle2Modifier = 37.5f;
+        private const float FlamethrowerConeAngle3Modifier = 45f;
         
         //Cryo
         private const float BaseCryoDamageCooldown = .2f;
@@ -106,7 +116,7 @@ using UnityEngine;
         public Rigidbody2D RigidBody;
         public Transform ProjectileSpawnPosition;
 
-        public GameObject FlamethrowerCone;
+        public Light2D FlamethrowerCone;
 
         public List<Upgrade> Upgrades = new List<Upgrade>();
 
@@ -159,6 +169,51 @@ using UnityEngine;
                     return LaserDamage2Modifier;
                 if (Upgrades.Contains(Upgrade.LaserDamage1))
                     return LaserDamage1Modifier;
+
+                return 1;
+            }
+        }
+        
+        private float FlamethrowerDamageModifier
+        {
+            get
+            {
+                if (Upgrades.Contains(Upgrade.Flamethrower3))
+                    return FlamethrowerDamage3Modifier;
+                if (Upgrades.Contains(Upgrade.Flamethrower2))
+                    return FlamethrowerDamage2Modifier;
+                if (Upgrades.Contains(Upgrade.Flamethrower1))
+                    return FlamethrowerDamage1Modifier;
+
+                return 1;
+            }
+        }
+        
+        private float FlamethrowerConeDistanceModifier
+        {
+            get
+            {
+                if (Upgrades.Contains(Upgrade.Flamethrower3))
+                    return FlamethrowerConeDistance3Modifier;
+                if (Upgrades.Contains(Upgrade.Flamethrower2))
+                    return FlamethrowerConeDistance2Modifier;
+                if (Upgrades.Contains(Upgrade.Flamethrower1))
+                    return FlamethrowerConeDistance1Modifier;
+
+                return 1;
+            }
+        }
+        
+        private float FlamethrowerConeAngleModifier
+        {
+            get
+            {
+                if (Upgrades.Contains(Upgrade.Flamethrower3))
+                    return FlamethrowerConeAngle3Modifier;
+                if (Upgrades.Contains(Upgrade.Flamethrower2))
+                    return FlamethrowerConeAngle2Modifier;
+                if (Upgrades.Contains(Upgrade.Flamethrower1))
+                    return FlamethrowerConeAngle1Modifier;
 
                 return 1;
             }
@@ -257,13 +312,16 @@ using UnityEngine;
 
         public void Awake()
         {
-            
+            FlamethrowerCone.gameObject.SetActive(false);
         }
 
         public void Update()
         {
             if (CurrentLaserCooldown > 0)
                 CurrentLaserCooldown -= Time.deltaTime;
+            
+            if (CurrentFlamethrowerDamageCooldown > 0)
+                CurrentFlamethrowerDamageCooldown -= Time.deltaTime;
             
             if (CurrentCryoDamageCooldown > 0)
                 CurrentCryoDamageCooldown -= Time.deltaTime;
@@ -323,7 +381,7 @@ using UnityEngine;
 
         public void StopShooting()
         {   
-            FlamethrowerCone.SetActive(false);
+            FlamethrowerCone.gameObject.SetActive(false);
         }
 
         public void ShootLaser()
@@ -367,7 +425,24 @@ using UnityEngine;
 
         public void ShootFlamethrower()
         {
-            FlamethrowerCone.SetActive(true);
+            FlamethrowerCone.pointLightOuterRadius = FlamethrowerConeDistanceModifier;
+            FlamethrowerCone.pointLightInnerAngle = FlamethrowerConeAngleModifier;
+            FlamethrowerCone.pointLightOuterAngle = FlamethrowerConeAngleModifier;
+            
+            FlamethrowerCone.gameObject.SetActive(true);
+
+            if (CurrentFlamethrowerDamageCooldown > 0)
+                return;
+
+            foreach (var enemy in GameManager.Instance.Enemies)
+            {
+                if (FlamethrowerCone.IsInLight(enemy.transform.position))
+                {
+                    enemy.HitByFlamethrower(BaseFlamethrowerDamage * FlamethrowerDamageModifier);
+                }
+            }
+            
+            CurrentFlamethrowerDamageCooldown = BaseFlamethrowerDamageCooldown;
         }
 
         public void ShootCryoGun()

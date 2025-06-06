@@ -5,17 +5,22 @@ using UnityEngine;
 public class PulseText : MonoBehaviour
 {
     public TextMeshPro Text;
+    [Space] 
+    public float DefaultTextSize = 6f;
     public float VerticalDistance = 1;
     public float Duration = 1;
     public Vector2 DestinationRandomOffset = new Vector2(0.1f, 0.1f);
 
     private Sequence Sequence;
 
-    public void ShowText(string text, Color color)
+    public void ShowText(string text, Color color, float textSizeMultiplier = 1f)
     {
         Text.text = text;
         Text.color = color;
+        Text.fontSize = DefaultTextSize * textSizeMultiplier;
         transform.position += new Vector3(0, 0, -0.01f);
+        
+        Debug.Log(Text.fontSize.ToString());
 
         var destination = transform.position;
         destination.x += Random.Range(-DestinationRandomOffset.x, DestinationRandomOffset.x);

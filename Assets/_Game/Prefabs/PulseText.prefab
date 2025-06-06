@@ -60,7 +60,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 5637142305046661576, guid: 1e5e3cd1b11995340a0981a822e6b370, type: 2}
+  - {fileID: -5764801114467444248, guid: da01103203b11094aaf89bb4b4401e6b, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -104,8 +104,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: PULSE TEXT!
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 1e5e3cd1b11995340a0981a822e6b370, type: 2}
-  m_sharedMaterial: {fileID: 5637142305046661576, guid: 1e5e3cd1b11995340a0981a822e6b370, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: da01103203b11094aaf89bb4b4401e6b, type: 2}
+  m_sharedMaterial: {fileID: -5764801114467444248, guid: da01103203b11094aaf89bb4b4401e6b, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -135,11 +135,11 @@ MonoBehaviour:
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
-  m_fontStyle: 1
+  m_fontStyle: 0
   m_HorizontalAlignment: 2
   m_VerticalAlignment: 512
   m_textAlignment: 65535
-  m_characterSpacing: -7
+  m_characterSpacing: 0
   m_wordSpacing: 0
   m_lineSpacing: 0
   m_lineSpacingMax: 0
@@ -222,6 +222,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Text: {fileID: 4992160482970079812}
+  DefaultTextSize: 4
   VerticalDistance: 1
   Duration: 1
   DestinationRandomOffset: {x: 0.1, y: 0.1}
