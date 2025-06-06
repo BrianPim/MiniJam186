@@ -35,7 +35,7 @@ namespace Projectiles
                 Destroy(gameObject);
             }
             
-            enemy.TakeDamage(ProjectileDamage * DamageModifier);
+            enemy.TakeDamage(ProjectileDamage * DamageModifier, Color.yellow);
             EnemiesHit++;
         }
         

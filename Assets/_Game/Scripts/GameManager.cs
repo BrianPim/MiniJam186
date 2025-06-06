@@ -8,11 +8,14 @@ using UnityEngine;
 public class GameManager : Singleton<GameManager>
 {
     public PlayerController Player;
-    
+
      public EdgeCollider2D MovementBoundaries;
      public Transform Background;
 
      public List<EnemyController> Enemies = new List<EnemyController>();
+     
+     [Space]
+     public PulseText PulseTextPrefab;
      
      private bool GameInProgress;
      private bool Paused;

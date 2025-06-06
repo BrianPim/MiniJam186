@@ -34,12 +34,14 @@ using UnityEngine;
         //Constants
         //-------------------------------------------
 
-        private const float BaseShipSpeed = 5;
+        //Speed
+        private const float BaseShipSpeed = 5f;
 
         private const float Speed1Modifier = 1.2f;
         private const float Speed2Modifier = 1.4f;
         private const float Speed3Modifier = 1.6f;
 
+        //Lasers
         private const float BaseLaserCooldown = .33f;
 
         private const float LaserCooldown1Modifier = .75f;
@@ -53,6 +55,33 @@ using UnityEngine;
         private const float ShotgunSpread = 5f;
         private const int ShotgunHowMany = 3;
         
+        //Flamethrower
+        private const float BaseFlamethrowerDamageCooldown = .5f;
+        private const float BaseFlamethrowerDamage = 10f;
+        
+        private const float FlamethrowerDamage1Modifier = 1f;
+        private const float FlamethrowerDamage2Modifier = 1.5f;
+        private const float FlamethrowerDamage3Modifier = 2f;
+        
+        //Cryo
+        private const float BaseCryoDamageCooldown = .2f;
+        private const float BaseCryoDamage = 4f;
+        
+        private const float CryoDamage1Modifier = 1f;
+        private const float CryoDamage2Modifier = 1.5f;
+        private const float CryoDamage3Modifier = 2f;
+        
+        private const float CryoFrozen1Modifier = 1f;
+        private const float CryoFrozen2Modifier = 1.5f;
+        private const float CryoFrozen3Modifier = 2f;
+        
+        private const float CryoCircleCastRadius1Modifier = .5f;
+        private const float CryoCircleCastRadius2Modifier = 1f;
+        private const float CryoCircleCastRadius3Modifier = 1.5f;
+        
+        private const float CryoCircleCastRange = 100f;
+        
+        //Lightning
         private const float LightningCooldown1Modifier = .75f;
         private const float LightningCooldown2Modifier = .5f;
         private const float LightningCooldown3Modifier = .25f;
@@ -77,12 +106,16 @@ using UnityEngine;
         public Rigidbody2D RigidBody;
         public Transform ProjectileSpawnPosition;
 
+        public GameObject FlamethrowerCone;
+
         public List<Upgrade> Upgrades = new List<Upgrade>();
 
         private int CurrentWeaponIndex;
 
         private Vector2 InputDirection = Vector2.zero;
         private float CurrentLaserCooldown;
+        private float CurrentFlamethrowerDamageCooldown;
+        private float CurrentCryoDamageCooldown;
         private float CurrentLightningCooldown;
 
         #region Modifiers
@@ -128,6 +161,51 @@ using UnityEngine;
                     return LaserDamage1Modifier;
 
                 return 1;
+            }
+        }
+        
+        private float CryoDamageModifier
+        {
+            get
+            {
+                if (Upgrades.Contains(Upgrade.Cryo3))
+                    return CryoDamage3Modifier;
+                if (Upgrades.Contains(Upgrade.Cryo2))
+                    return CryoDamage2Modifier;
+                if (Upgrades.Contains(Upgrade.Cryo1))
+                    return CryoDamage1Modifier;
+
+                return 1;
+            }
+        }
+        
+        private float CryoFrozenModifier
+        {
+            get
+            {
+                if (Upgrades.Contains(Upgrade.Cryo3))
+                    return CryoFrozen3Modifier;
+                if (Upgrades.Contains(Upgrade.Cryo2))
+                    return CryoFrozen2Modifier;
+                if (Upgrades.Contains(Upgrade.Cryo1))
+                    return CryoFrozen1Modifier;
+
+                return 1;
+            }
+        }
+        
+        private float CryoCircleCastRadiusModifier
+        {
+            get
+            {
+                if (Upgrades.Contains(Upgrade.Cryo3))
+                    return CryoCircleCastRadius3Modifier;
+                if (Upgrades.Contains(Upgrade.Cryo2))
+                    return CryoCircleCastRadius2Modifier;
+                if (Upgrades.Contains(Upgrade.Cryo1))
+                    return CryoCircleCastRadius1Modifier;
+
+                return .5f;
             }
         }
         
@@ -187,12 +265,19 @@ using UnityEngine;
             if (CurrentLaserCooldown > 0)
                 CurrentLaserCooldown -= Time.deltaTime;
             
+            if (CurrentCryoDamageCooldown > 0)
+                CurrentCryoDamageCooldown -= Time.deltaTime;
+            
             if (CurrentLightningCooldown > 0)
                 CurrentLightningCooldown -= Time.deltaTime;
 
             if (Input.GetMouseButton(0)) //TODO Change this to use input system
             {
                 Shoot();
+            }
+            else
+            {
+                StopShooting();
             }
 
             if (Input.GetAxis("Mouse ScrollWheel") < 0)
@@ -219,8 +304,10 @@ using UnityEngine;
             switch (CurrentWeaponIndex)
             {
                 case 1: //Flamethrower
+                    ShootFlamethrower();
                     break;
                 case 2: //Cryo
+                    ShootCryoGun();
                     break;
                 case 3: //Lightning
                     ShootLightningGun();
@@ -232,6 +319,11 @@ using UnityEngine;
                         ShootLaser();
                     break;
             }
+        }
+
+        public void StopShooting()
+        {   
+            FlamethrowerCone.SetActive(false);
         }
 
         public void ShootLaser()
@@ -275,12 +367,29 @@ using UnityEngine;
 
         public void ShootFlamethrower()
         {
-            
+            FlamethrowerCone.SetActive(true);
         }
 
         public void ShootCryoGun()
         {
+            if (CurrentCryoDamageCooldown > 0)
+                return;
             
+            RaycastHit2D[] results = Physics2D.CircleCastAll(transform.position, CryoCircleCastRadiusModifier, Vector3.right, CryoCircleCastRange, LayerMask.GetMask("Enemy"));
+
+            foreach (var hit in results)
+            {
+                if (!hit.collider) continue;
+
+                hit.transform.gameObject.TryGetComponent<EnemyController>(out var enemy);
+
+                if (enemy)
+                {
+                    enemy.HitByCryo(BaseCryoDamage * CryoDamageModifier, CryoFrozenModifier);
+                }
+            }
+
+            CurrentCryoDamageCooldown = BaseCryoDamageCooldown;
         }
 
         public void ShootLightningGun()
