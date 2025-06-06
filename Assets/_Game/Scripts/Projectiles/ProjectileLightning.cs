@@ -23,10 +23,7 @@ namespace Projectiles
         {
             if (IllegalTargets.Contains(enemy)) return;
             
-            enemy.TakeDamage(ProjectileDamage * DamageModifier);
-            EnemiesHit++;
-            
-            if (EnemiesHit <= Chain)
+            if (EnemiesHit < Chain)
             {
                 IllegalTargets.Add(enemy);
                 var newEnemy = GetNearestEnemy();
@@ -37,6 +34,9 @@ namespace Projectiles
             {
                 Destroy(gameObject);
             }
+            
+            enemy.TakeDamage(ProjectileDamage * DamageModifier);
+            EnemiesHit++;
         }
         
         //Returns the closest valid enemy target.

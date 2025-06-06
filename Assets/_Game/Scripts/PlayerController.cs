@@ -40,7 +40,7 @@ using UnityEngine;
         private const float Speed2Modifier = 1.4f;
         private const float Speed3Modifier = 1.6f;
 
-        private const float BaseLaserCooldown = .75f;
+        private const float BaseLaserCooldown = .33f;
 
         private const float LaserCooldown1Modifier = .75f;
         private const float LaserCooldown2Modifier = .5f;
