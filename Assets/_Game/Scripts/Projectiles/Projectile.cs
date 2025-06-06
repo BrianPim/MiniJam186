@@ -1,3 +1,4 @@
+using Enemies;
 using UnityEngine;
 
 namespace Projectiles
@@ -15,12 +16,13 @@ namespace Projectiles
         public float Lifetime = 5;
 
         public Rigidbody2D RigidBody;
+    
+        protected float DamageModifier;
+        protected Vector2 Direction;
+        protected bool Active;
 
         private float Elapsed;
-        private float DamageModifier;
-        private Vector2 Direction;
-        private bool Active;
-
+    
         public void Setup(Vector2 direction, float damageModifier)
         {
             Direction = direction;
@@ -45,7 +47,7 @@ namespace Projectiles
             if (!Active)
                 return;
 
-            RigidBody.linearVelocity = Direction * ProjectileSpeed;
+            RigidBody.linearVelocity = Direction.normalized * ProjectileSpeed;
         }
 
         public void OnTriggerEnter2D(Collider2D collision)
@@ -58,7 +60,7 @@ namespace Projectiles
             OnHit(enemy);
         }
 
-        public virtual void OnHit(EnemyController enemy)
+        protected virtual void OnHit(EnemyController enemy)
         {
 
         }
