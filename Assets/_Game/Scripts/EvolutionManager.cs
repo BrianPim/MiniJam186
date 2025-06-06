@@ -36,6 +36,22 @@ public class EvolutionManager : Singleton<EvolutionManager>
         public float NormalizedWeight;
     }
 
+    [ContextMenu("AddNormal")]
+    public void AddNormal() => Increment(Element.Normal);
+    [ContextMenu("AddFire")]
+    public void AddFire() => Increment(Element.Fire);
+    [ContextMenu("AddIce")]
+    public void AddIce() => Increment(Element.Ice);
+    [ContextMenu("AddElectric")]
+    public void AddElectric() => Increment(Element.Electric);
+    
+    public void Increment(Element element, int value = 1)
+    {
+        EvolutionInstance evo = _elements.Find(p => p.Element == element);
+        evo.Value++;
+        EvaluateNormalizedWeights();
+    }
+    
     public void EvaluateNormalizedWeights()
     {
         float totalSum = _elements.Sum(e => e.Value);
