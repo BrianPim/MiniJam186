@@ -1,6 +1,8 @@
 using System;
 using System.Collections;
+using System.Collections.Generic;
 using CamLib;
+using Enemies;
 using UnityEngine;
 
 public class GameManager : Singleton<GameManager>
@@ -9,7 +11,9 @@ public class GameManager : Singleton<GameManager>
     
      public EdgeCollider2D MovementBoundaries;
      public Transform Background;
-    
+
+     public List<EnemyController> Enemies = new List<EnemyController>();
+     
      private bool GameInProgress;
      private bool Paused;
      private int Score;
