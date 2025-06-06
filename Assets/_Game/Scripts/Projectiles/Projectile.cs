@@ -1,66 +1,66 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-public class Projectile : MonoBehaviour
+namespace Projectiles
 {
-    //Constants
-    //-------------------------------------------
-
-    public const float BaseLaserDamage = 10;
-
-    //-------------------------------------------
-
-    public float ProjectileSpeed = 10;
-    public float Lifetime = 5;
-
-    public Rigidbody2D RigidBody;
-
-    private float Elapsed;
-    private float DamageModifier;
-    private Vector2 Direction;
-    private bool Active;
-
-    public void Setup(Vector2 direction, float damageModifier)
+    public class Projectile : MonoBehaviour
     {
-        Direction = direction;
-        DamageModifier = damageModifier;
-        Active = true;
-    }
+        //Constants
+        //-------------------------------------------
 
-    public void Update()
-    {
-        if (Elapsed > Lifetime)
+        public const float BaseLaserDamage = 10;
+
+        //-------------------------------------------
+
+        public float ProjectileSpeed = 10;
+        public float Lifetime = 5;
+
+        public Rigidbody2D RigidBody;
+
+        private float Elapsed;
+        private float DamageModifier;
+        private Vector2 Direction;
+        private bool Active;
+
+        public void Setup(Vector2 direction, float damageModifier)
         {
-            Destroy(gameObject);
+            Direction = direction;
+            DamageModifier = damageModifier;
+            Active = true;
         }
-        else
+
+        public void Update()
         {
-            Elapsed += Time.deltaTime;
+            if (Elapsed > Lifetime)
+            {
+                Destroy(gameObject);
+            }
+            else
+            {
+                Elapsed += Time.deltaTime;
+            }
         }
-    }
 
-    public void FixedUpdate()
-    {
-        if (!Active)
-            return;
+        public void FixedUpdate()
+        {
+            if (!Active)
+                return;
 
-        RigidBody.linearVelocity = Direction * ProjectileSpeed;
-    }
+            RigidBody.linearVelocity = Direction * ProjectileSpeed;
+        }
 
-    public void OnTriggerEnter2D(Collider2D collision)
-    {
-        var enemy = collision.GetComponent<EnemyController>();
+        public void OnTriggerEnter2D(Collider2D collision)
+        {
+            var enemy = collision.GetComponent<EnemyController>();
 
-        if (enemy == null || !Active)
-            return;
+            if (enemy == null || !Active)
+                return;
 
-        OnHit(enemy);
-    }
+            OnHit(enemy);
+        }
 
-    public virtual void OnHit(EnemyController enemy)
-    {
+        public virtual void OnHit(EnemyController enemy)
+        {
 
+        }
     }
 }
