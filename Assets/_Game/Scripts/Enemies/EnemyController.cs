@@ -37,6 +37,8 @@ namespace Enemies
         private float FrozenSlowModifier;
         private float FrozenDurationRemaining;
 
+        [SerializeField] private float moveSpeed = 5f;
+
         protected virtual void Awake()
         {
             if (GameManager.Instance && !GameManager.Instance.Enemies.Contains(this))
@@ -116,8 +118,14 @@ namespace Enemies
 
         public void MoveTowards(Vector3 dest)
         {
-            //todo needs ice influence
-            transform.position = Vector3.MoveTowards(transform.position, dest, 0.1f * Time.deltaTime);
+            float currentSpeed = moveSpeed;
+            
+            if (FrozenStacks > 0)
+            {
+                currentSpeed *= (1f - FrozenSlowModifier);
+            }
+            
+            transform.position = Vector3.MoveTowards(transform.position, dest, currentSpeed * Time.deltaTime);
         }
     }
 }
