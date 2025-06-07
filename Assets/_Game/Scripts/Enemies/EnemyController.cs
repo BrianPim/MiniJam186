@@ -13,6 +13,9 @@ namespace Enemies
         //-------------------------------------------
 
         private const int BaseHealth = 50;
+        private const float BaseMovementSpeed = 5f;
+        
+        private const int BaseAttackDistance = 50;
         
         private const int MaxOnFireStacks = 10;
         private const float OnFireStackDuration = 1;
@@ -20,18 +23,32 @@ namespace Enemies
         
         private const int MaxFrozenStacks = 10;
         private const float FrozenStackDuration = 1;
-
         
         //-------------------------------------------
 
+        [SerializeField] private float Health = BaseHealth;
+        [SerializeField] private float MoveSpeed = BaseMovementSpeed;
+        [SerializeField] private float DistanceToAttackPlayer = BaseAttackDistance;
         
-        public float Health = BaseHealth;
-
-        [NonSerialized] public bool InFlamethrower;
-        [NonSerialized] public bool InCryoBeam;
+        [SerializeField] private bool RetreatIfTooClose;
         
         public EnemyType Type;
+        public EnemyBehaviour EnemyBehaviour;
+        
+        public Animator Animator;
+        public Rigidbody2D Rigidbody;
+        
+        [NonSerialized] public bool InFlamethrower;
+        [NonSerialized] public bool InCryoBeam;
 
+        private bool BlockActions = true;
+        private bool BlockMovement = true;
+        
+        private Vector3 OverrideDestination;
+        private float MoveSpeedModifier = 1f;
+        
+        private float CooldownRemaining;
+        
         private int OnFireStacks;
         private float OnFireDurationRemaining;
 
@@ -39,16 +56,19 @@ namespace Enemies
         private float FrozenSlowModifier;
         private float FrozenDurationRemaining;
 
-        [SerializeField] private float moveSpeed = 5f;
-
-        protected virtual void Awake()
+        private void Awake()
         {
             if (GameManager.Instance && !GameManager.Instance.Enemies.Contains(this))
                 GameManager.Instance.Enemies.Add(this);
+            
+            //In case it isn't assigned in the Inspector.
+            EnemyBehaviour = GetComponent<EnemyBehaviour>();
         }
 
-        protected void Update()
+        private void Update()
         {
+            if (CooldownRemaining > 0) CooldownRemaining -= Time.deltaTime;
+
             if (!InFlamethrower && OnFireStacks > 0)
             {
                 if (OnFireDurationRemaining > 0)
@@ -76,7 +96,43 @@ namespace Enemies
                 }
             }
         }
+        
+        private void FixedUpdate()
+        {
+            Rigidbody.linearVelocity = Vector2.zero;
+            
+            if (!BlockMovement && OverrideDestination != Vector3.zero)
+            {
+                if (Vector2.Distance(OverrideDestination, transform.position) > .1f)
+                {
+                    var direction = (OverrideDestination - transform.position).normalized;
+                    Rigidbody.AddForce(direction * (MoveSpeedModifier * MoveSpeed * Time.deltaTime));
+                }
+                else
+                {
+                    transform.position = OverrideDestination;
+                    OverrideDestination = Vector3.zero;
+                }
+            }
+        }
 
+        public void EnemySpawningComplete()
+        {
+            BlockActions = false;
+            BlockMovement = false;
+        }
+
+        public void SetOverrideDestination(Vector3 overrideDestination)
+        {
+            OverrideDestination = overrideDestination;
+        }
+
+        public void DoAction()
+        {
+            EnemyBehaviour.DoAction();
+        }
+        
+        
         public void TakeDamage(float damage, Element element, Color textColor, float textSizeMultiplier = 1)
         {
             var pulseText = Instantiate(GameManager.Instance.PulseTextPrefab, transform.position, Quaternion.identity);
@@ -121,7 +177,7 @@ namespace Enemies
 
         public void MoveTowards(Vector3 destination)
         {
-            float currentSpeed = moveSpeed;
+            float currentSpeed = MoveSpeed;
             
             if (FrozenStacks > 0)
             {

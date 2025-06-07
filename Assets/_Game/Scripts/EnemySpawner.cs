@@ -17,11 +17,12 @@ public class EnemySpawner : Singleton<EnemySpawner>
     public class EnemyPrefab
     {
         public EnemyType Type;
-        public GameObject Prefab;
+        
+        [SerializeReference] 
+        public EnemyController Prefab;
+        
         public Transform SpawnStart;
         public Transform SpawnEnd;
-        
-        public Vector3 GetRandomSpawn() => Vector3.Lerp(SpawnStart.position, SpawnEnd.position, Random.value);
     }
 
     private bool IsNextElemental()
@@ -30,15 +31,16 @@ public class EnemySpawner : Singleton<EnemySpawner>
         return Random.value < chance;
     }
         
-    public void SpawnEnemy(EnemyType enemy)
+    public void SpawnEnemy(EnemyType enemyType)
     {
-        EnemyPrefab prefab = Prefabs.Find(p => p.Type == enemy);
-        GameObject enemyObj = Instantiate(prefab.Prefab, prefab.GetRandomSpawn(), Quaternion.identity);
+        EnemyPrefab prefab = Prefabs.Find(p => p.Type == enemyType);
+        EnemyController enemy = Instantiate(prefab.Prefab, prefab.SpawnStart.position, Quaternion.identity);
+        enemy.SetOverrideDestination(prefab.SpawnEnd.position);
 
         if (IsNextElemental())
         {
             Element element = EvolutionManager.Instance.GetRandomElementalType();
-            enemyObj.GetComponent<EnemyController>().BecomeElemental(element);
+            enemy.BecomeElemental(element);
         }
     }
 
