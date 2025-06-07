@@ -10,6 +10,7 @@ public class EnemySpawner : Singleton<EnemySpawner>
 {
     public float DifficultyFactor; 
     public AnimationCurve DifficultyCurve;
+    public AnimationCurve BrainSpawnCurve;
 
     public List<EnemyPrefab> Prefabs;
     
@@ -30,6 +31,12 @@ public class EnemySpawner : Singleton<EnemySpawner>
     private bool IsNextElemental()
     {
         float chance = DifficultyCurve.Evaluate(DifficultyFactor);
+        return Random.value < chance;
+    }
+    
+    public bool ShouldSpawnBrain()
+    {
+        float chance = BrainSpawnCurve.Evaluate(DifficultyFactor);
         return Random.value < chance;
     }
         

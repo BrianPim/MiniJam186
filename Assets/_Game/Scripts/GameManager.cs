@@ -123,7 +123,7 @@ public class GameManager : Singleton<GameManager>
          //Debug.Log($"Total Progress: {(levelProgress + waveProgress + enemyProgress):F3}");
 
          ParallaxMaster.Instance.SetProgress(progress);
-         
+         MusicPlayer.Instance.SetProgress(progress);
          
          
      }
