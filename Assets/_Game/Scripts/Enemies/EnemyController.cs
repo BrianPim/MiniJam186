@@ -40,6 +40,7 @@ namespace Enemies
         [Space]
         public Animator Animator;
         public Rigidbody2D Rigidbody;
+        public Transform ProjectileSpawnPosition;
         
         [NonSerialized] public float MoveSpeedModifier = BaseSpawnMoveSpeedModifier;
         [NonSerialized] public bool InFlamethrower;
@@ -73,12 +74,19 @@ namespace Enemies
 
         private void Update()
         {
-            if (CooldownRemaining > 0) CooldownRemaining -= Time.deltaTime;
-            
-            if (!BlockActions && !Destroying && Vector2.Distance(GameManager.Instance.Player.transform.position, transform.position) <= DistanceToAttackPlayer)
+            if (CooldownRemaining > 0)
+            {
+                CooldownRemaining -= Time.deltaTime;
+            }
+            else
             {
                 CooldownRemaining = ActionCooldownDuration;
-                if (EnemyBehaviour) DoAction();
+                
+                if (!BlockActions && !Destroying && Vector2.Distance(GameManager.Instance.Player.transform.position, transform.position) <= DistanceToAttackPlayer)
+                {
+                    CooldownRemaining = ActionCooldownDuration;
+                    if (EnemyBehaviour) DoAction();
+                }
             }
 
             if (!InFlamethrower && OnFireStacks > 0)

@@ -33,10 +33,13 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 6680804406175077568}
+<<<<<<< HEAD
+  - {fileID: 2222854970769983633}
+=======
   - {fileID: 3357333947196392964}
   - {fileID: 152009988180363878}
   - {fileID: 5667636989957691502}
-  - {fileID: 2222854970769983633}
+>>>>>>> 63c81e0e64b55d3e8782450596f3f3fd99e3a46f
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!58 &176656445493565734
@@ -96,10 +99,13 @@ MonoBehaviour:
   EnemyBehaviour: {fileID: 0}
   Animator: {fileID: 0}
   Rigidbody: {fileID: 8418310971456854764}
+<<<<<<< HEAD
+  ProjectileSpawnPosition: {fileID: 2222854970769983633}
+=======
   SfxHurt: {fileID: 7231458133403615010}
   SfxDeath: {fileID: 6491336647712915504}
   SfxShoot: {fileID: 2132917224947027461}
-  ProjectileSpawnPosition: {fileID: 2222854970769983633}
+>>>>>>> 63c81e0e64b55d3e8782450596f3f3fd99e3a46f
 --- !u!50 &8418310971456854764
 Rigidbody2D:
   serializedVersion: 5
@@ -127,7 +133,11 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
+<<<<<<< HEAD
+--- !u!1 &6501827375985769726
+=======
 --- !u!1 &1416720137833381827
+>>>>>>> 63c81e0e64b55d3e8782450596f3f3fd99e3a46f
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -135,6 +145,17 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
+<<<<<<< HEAD
+  - component: {fileID: 2222854970769983633}
+  m_Layer: 7
+  m_Name: ProjectileSpawn
+  m_TagString: Untagged
+  m_Icon: {fileID: -5442936267250999957, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2222854970769983633
+=======
   - component: {fileID: 152009988180363878}
   - component: {fileID: 6491336647712915504}
   m_Layer: 0
@@ -145,20 +166,30 @@ GameObject:
   m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!4 &152009988180363878
+>>>>>>> 63c81e0e64b55d3e8782450596f3f3fd99e3a46f
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
+<<<<<<< HEAD
+  m_GameObject: {fileID: 6501827375985769726}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+=======
   m_GameObject: {fileID: 1416720137833381827}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -5.19, y: -3.14, z: 0}
+>>>>>>> 63c81e0e64b55d3e8782450596f3f3fd99e3a46f
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 7269979379373617600}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+<<<<<<< HEAD
+=======
 --- !u!82 &6491336647712915504
 AudioSource:
   m_ObjectHideFlags: 0
@@ -514,37 +545,7 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!1 &6501827375985769726
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 2222854970769983633}
-  m_Layer: 7
-  m_Name: ProjectileSpawn
-  m_TagString: Untagged
-  m_Icon: {fileID: -5442936267250999957, guid: 0000000000000000d000000000000000, type: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &2222854970769983633
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6501827375985769726}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 7269979379373617600}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+>>>>>>> 63c81e0e64b55d3e8782450596f3f3fd99e3a46f
 --- !u!1 &7942017994812086980
 GameObject:
   m_ObjectHideFlags: 0

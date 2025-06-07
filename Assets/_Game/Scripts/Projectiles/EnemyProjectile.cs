@@ -11,16 +11,14 @@ namespace Projectiles
 
         public Rigidbody2D RigidBody;
     
-        protected float DamageModifier;
         protected Vector2 Direction;
         protected bool Active;
 
         private float Elapsed;
     
-        public void Setup(Vector2 direction, float damageModifier)
+        public void Setup(Vector2 direction)
         {
             Direction = direction;
-            DamageModifier = damageModifier;
             Active = true;
         }
 
@@ -57,6 +55,7 @@ namespace Projectiles
         protected virtual void OnHit()
         {
             GameManager.Instance.Player.TakeDamage(ProjectileDamage);
+            Destroy(gameObject);
         }
     }
 }

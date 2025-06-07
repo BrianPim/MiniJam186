@@ -12,6 +12,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Enemy_Hand
       objectReference: {fileID: 0}
+    - target: {fileID: 2222854970769983633, guid: ed52ef1d45e80eb448c217ec766061f3, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.037
+      objectReference: {fileID: 0}
+    - target: {fileID: 2222854970769983633, guid: ed52ef1d45e80eb448c217ec766061f3, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.527
+      objectReference: {fileID: 0}
     - target: {fileID: 5791156330443965231, guid: ed52ef1d45e80eb448c217ec766061f3, type: 3}
       propertyPath: Type
       value: 2
@@ -88,3 +96,6 @@ MonoBehaviour:
   Render: {fileID: 0}
   Controller: {fileID: 0}
   JoinFormation: 1
+  Projectile: {fileID: 1076423153678231504, guid: ec8e715d2f9599f4bb4b8d1a0d44f06b, type: 3}
+  ProjectileBurstHowMany: 3
+  TimeBetweenProjectiles: 0.2
