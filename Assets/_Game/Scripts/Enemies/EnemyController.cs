@@ -170,7 +170,7 @@ namespace Enemies
         
         public void TakeDamage(float damage, Element element, Color textColor, float textSizeMultiplier = 1)
         {
-            var pulseText = Instantiate(GameManager.Instance.PulseTextPrefab, transform.position, Quaternion.identity);
+            var pulseText = Instantiate(GameManager.Instance.PulseTextPrefab, transform.position + Vector3.up, Quaternion.identity);
             pulseText.ShowText(damage.ToString(), textColor, textSizeMultiplier);
             
             Health -= damage;

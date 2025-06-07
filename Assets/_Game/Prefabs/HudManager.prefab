@@ -255,7 +255,7 @@ MonoBehaviour:
   m_text: Toast Text
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: da01103203b11094aaf89bb4b4401e6b, type: 2}
-  m_sharedMaterial: {fileID: -5764801114467444248, guid: da01103203b11094aaf89bb4b4401e6b, type: 2}
+  m_sharedMaterial: {fileID: 22634519082732182, guid: da01103203b11094aaf89bb4b4401e6b, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -1150,7 +1150,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &3105952674724377858
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1198,7 +1198,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: A Jump Squared Game
+  m_text: A [name] Game
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 1e5e3cd1b11995340a0981a822e6b370, type: 2}
   m_sharedMaterial: {fileID: 5637142305046661576, guid: 1e5e3cd1b11995340a0981a822e6b370, type: 2}
