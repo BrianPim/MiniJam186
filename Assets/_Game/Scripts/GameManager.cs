@@ -45,8 +45,10 @@ public class GameManager : Singleton<GameManager>
          Player.gameObject.SetActive(false);
      }
     
-     public void StartGame() 
-     { 
+     public void StartGame()
+     {
+         if (GameInProgress) return;
+         
          IEnumerator GameTransition() 
          {
              HudManager.Instance.FadeIntoBlack(1);
