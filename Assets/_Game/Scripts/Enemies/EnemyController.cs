@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using NUnit.Framework;
@@ -39,6 +40,7 @@ namespace Enemies
         public Animator Animator;
         public Rigidbody2D Rigidbody;
         
+        [NonSerialized] public float MoveSpeedModifier = 1f;
         [NonSerialized] public bool InFlamethrower;
         [NonSerialized] public bool InCryoBeam;
 
@@ -46,7 +48,6 @@ namespace Enemies
         private bool BlockMovement = true;
         
         private Vector3 OverrideDestination;
-        private float MoveSpeedModifier = 1f;
         
         private int OnFireStacks;
         private float OnFireDurationRemaining;
@@ -111,19 +112,24 @@ namespace Enemies
             
             if (!BlockMovement && OverrideDestination != Vector3.zero)
             {
-                if (Vector2.Distance(OverrideDestination, transform.position) > .1f)
-                {
-                    var direction = (OverrideDestination - transform.position).normalized;
-                    Rigidbody.AddForce(direction * (MoveSpeedModifier * MoveSpeed * Time.deltaTime));
-                }
-                else
-                {
-                    transform.position = OverrideDestination;
-                    OverrideDestination = Vector3.zero;
-                }
+                HandleMovement();
             }
         }
-
+        
+        private void HandleMovement()
+        {
+            if (Vector2.Distance(OverrideDestination, transform.position) > .1f)
+            {
+                var direction = (OverrideDestination - transform.position).normalized;
+                Rigidbody.AddForce(direction * (MoveSpeedModifier * FrozenSlowModifier * MoveSpeed * Time.deltaTime));
+            }
+            else
+            {
+                transform.position = OverrideDestination;
+                OverrideDestination = Vector3.zero;
+            }
+        }
+        
         public void EnemySpawningComplete()
         {
             BlockActions = false;
@@ -140,7 +146,6 @@ namespace Enemies
             EnemyBehaviour.DoAction();
         }
         
-        
         public void TakeDamage(float damage, Element element, Color textColor, float textSizeMultiplier = 1)
         {
             var pulseText = Instantiate(GameManager.Instance.PulseTextPrefab, transform.position, Quaternion.identity);
@@ -150,10 +155,7 @@ namespace Enemies
 
             if (Health <= 0)
             {
-                Destroy(gameObject);
-                
-                EvolutionManager.Instance.Increment(element);
-                EnemySpawner.Instance.AddDifficulty();
+                DefeatEnemy(element);
             }
         }
         
@@ -177,16 +179,24 @@ namespace Enemies
             Debug.Log($"Enemy given {element}");
         }
 
-        public void MoveTowards(Vector3 destination)
+        public void DefeatEnemy(Element element)
         {
-            float currentSpeed = MoveSpeed;
+            Destroying = true;
+
+            //Animator.SetTrigger("die");
+            //SfxSuckDefeat.Play();
             
-            if (FrozenStacks > 0)
+            StartCoroutine(CoDefeated());
+
+            IEnumerator CoDefeated()
             {
-                currentSpeed *= (1f - FrozenSlowModifier);
+                yield return new WaitForSeconds(.5f);
+
+                Destroy(gameObject);
+                
+                EvolutionManager.Instance.Increment(element);
+                EnemySpawner.Instance.AddDifficulty();
             }
-            
-            transform.position = Vector3.MoveTowards(transform.position, destination, currentSpeed * Time.deltaTime);
         }
 
         public bool IsBeingDestroyed()
