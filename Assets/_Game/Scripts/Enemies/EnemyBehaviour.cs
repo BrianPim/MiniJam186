@@ -8,16 +8,15 @@ namespace Enemies
         public Transform Render;
         public EnemyController Controller;
 
-        [SerializeField] private bool JoinFormationOnSpawn;
+        [SerializeField] private bool JoinFormation;
         
         private Transform TargetPlace;
         
         public virtual void Awake()
         {
-            if (JoinFormationOnSpawn)
+            if (JoinFormation)
             {
                 TargetPlace = EnemyGroup.Instance.GetNextSpot();
-                Controller.SetOverrideDestination(TargetPlace.position);
             }
 
             //if (!Render)
@@ -32,7 +31,7 @@ namespace Enemies
 
         public virtual void Update()
         {
-            
+            if (JoinFormation) Controller.SetOverrideDestination(TargetPlace.position);
         }
 
         public virtual void DoAction()

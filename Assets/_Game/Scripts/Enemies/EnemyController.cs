@@ -14,9 +14,10 @@ namespace Enemies
         //-------------------------------------------
 
         private const int BaseHealth = 50;
-        private const float BaseMovementSpeed = 5f;
+        private const float BaseMovementSpeed = 10000f;
         private const float BaseActionCooldownDuration = 2f;
-        private const int BaseAttackDistance = 50;
+        private const float BaseAttackDistance = 50f;
+        private const float BaseSpawnMoveSpeedModifier = 2f;
         
         private const int MaxOnFireStacks = 10;
         private const float OnFireStackDuration = 1;
@@ -40,12 +41,12 @@ namespace Enemies
         public Animator Animator;
         public Rigidbody2D Rigidbody;
         
-        [NonSerialized] public float MoveSpeedModifier = 1f;
+        [NonSerialized] public float MoveSpeedModifier = BaseSpawnMoveSpeedModifier;
         [NonSerialized] public bool InFlamethrower;
         [NonSerialized] public bool InCryoBeam;
 
         private bool BlockActions = true;
-        private bool BlockMovement = true;
+        private bool BlockMovement;
         
         private Vector3 OverrideDestination;
         
@@ -53,10 +54,12 @@ namespace Enemies
         private float OnFireDurationRemaining;
 
         private int FrozenStacks;
-        private float FrozenSlowModifier;
+        private float FrozenSlowModifier = 1f;
         private float FrozenDurationRemaining;
         
         private float CooldownRemaining;
+
+        private bool SpawnComplete;
         private bool Destroying;
 
         private void Awake()
@@ -97,6 +100,7 @@ namespace Enemies
                 if (FrozenDurationRemaining > 0)
                 {
                     FrozenDurationRemaining -= Time.deltaTime;
+                    FrozenSlowModifier = 1f;
                 }
                 else
                 {
@@ -121,19 +125,27 @@ namespace Enemies
             if (Vector2.Distance(OverrideDestination, transform.position) > .1f)
             {
                 var direction = (OverrideDestination - transform.position).normalized;
-                Rigidbody.AddForce(direction * (MoveSpeedModifier * FrozenSlowModifier * MoveSpeed * Time.deltaTime));
+                
+                var force = direction * (MoveSpeedModifier * FrozenSlowModifier * MoveSpeed * Time.deltaTime);
+                Rigidbody.AddForce(force);
             }
             else
             {
                 transform.position = OverrideDestination;
                 OverrideDestination = Vector3.zero;
+
+                if (!SpawnComplete)
+                {
+                    EnemySpawningComplete();
+                }
             }
         }
         
         public void EnemySpawningComplete()
         {
+            SpawnComplete = true;
             BlockActions = false;
-            BlockMovement = false;
+            MoveSpeedModifier = 1f;
         }
 
         public void SetOverrideDestination(Vector3 overrideDestination)

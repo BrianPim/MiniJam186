@@ -963,6 +963,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5e163ce5827545d5ab10b1f6f7eefc94, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _doNotDestroyOnLoad: 0
+  JourneyStart: {fileID: 0}
+  JourneyEnd: {fileID: 0}
 --- !u!1 &1746386191
 GameObject:
   m_ObjectHideFlags: 0

@@ -82,9 +82,9 @@ public enum Upgrade
         private const float CryoDamage2Modifier = 1.5f;
         private const float CryoDamage3Modifier = 2f;
         
-        private const float CryoFrozen1Modifier = 1f;
-        private const float CryoFrozen2Modifier = 1.5f;
-        private const float CryoFrozen3Modifier = 2f;
+        private const float CryoFrozen1Modifier = .75f;
+        private const float CryoFrozen2Modifier = .5f;
+        private const float CryoFrozen3Modifier = .25f;
         
         private const float CryoCircleCastRadius1Modifier = .5f;
         private const float CryoCircleCastRadius2Modifier = 1f;
