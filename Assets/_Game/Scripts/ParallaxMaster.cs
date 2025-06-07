@@ -28,6 +28,6 @@ public class ParallaxMaster : Singleton<ParallaxMaster>
 
     private void Update()
     {
-        transform.position = Vector2.SmoothDamp(transform.position, spot, ref vel, 300f * Time.deltaTime);
+        transform.position = Vector2.SmoothDamp(transform.position, spot, ref vel, 900f * Time.deltaTime);
     }
 }
