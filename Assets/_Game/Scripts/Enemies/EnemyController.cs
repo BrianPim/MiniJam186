@@ -12,6 +12,8 @@ namespace Enemies
         //Constants
         //-------------------------------------------
 
+        private const int BaseHealth = 50;
+        
         private const int MaxOnFireStacks = 10;
         private const float OnFireStackDuration = 1;
         private const float OnFireChipDamage = 5f;
@@ -23,7 +25,7 @@ namespace Enemies
         //-------------------------------------------
 
         
-        public float Health;
+        public float Health = BaseHealth;
 
         [NonSerialized] public bool InFlamethrower;
         [NonSerialized] public bool InCryoBeam;
@@ -77,8 +79,6 @@ namespace Enemies
 
         public void TakeDamage(float damage, Color textColor, float textSizeMultiplier = 1)
         {
-            Debug.Log(damage.ToString());
-            
             var pulseText = Instantiate(GameManager.Instance.PulseTextPrefab, transform.position, Quaternion.identity);
             pulseText.ShowText(damage.ToString(), textColor, textSizeMultiplier);
             

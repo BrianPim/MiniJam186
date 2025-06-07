@@ -60,6 +60,8 @@ public class GameManager : Singleton<GameManager>
              
              Background.Rotate(Vector3.forward, -90);
              
+             HudManager.Instance.HideGameHud(false);
+             
              HudManager.Instance.FadeOutOfBlack(1);
     
              yield return new WaitForSeconds(1);
