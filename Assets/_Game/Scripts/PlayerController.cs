@@ -124,6 +124,7 @@ public enum Upgrade
         
         public Rigidbody2D RigidBody;
         public Transform ProjectileSpawnPosition;
+        public Animator Animator;
 
         public Light2D FlamethrowerCone;
 
@@ -367,6 +368,8 @@ public enum Upgrade
         private void FixedUpdate()
         {
             RigidBody.linearVelocity = BaseShipSpeed * SpeedModifier * InputDirection;
+            
+            Animator.SetBool("Moving", RigidBody.linearVelocity.magnitude > 0.01f);
         }
 
         public int GetCurrentWeaponIndex()
@@ -381,6 +384,8 @@ public enum Upgrade
         
         private void Shoot()
         {
+            Animator.SetBool("shooting", false);
+            
             switch (CurrentWeaponIndex)
             {
                 case 1: //Flamethrower
@@ -413,6 +418,8 @@ public enum Upgrade
             if (CurrentLaserCooldown > 0)
                 return;
 
+            Animator.SetTrigger("shoot");
+            
             var laser = Instantiate(LaserProjectile);
             laser.transform.position = ProjectileSpawnPosition.position;
 
@@ -428,6 +435,8 @@ public enum Upgrade
             if (CurrentLaserCooldown > 0)
                 return;
 
+            Animator.SetTrigger("shoot");
+            
             for(int i = -Mathf.FloorToInt(ShotgunHowMany/2f); i < Mathf.CeilToInt(ShotgunHowMany / 2f); i++)
             {
                 var laser = Instantiate(LaserProjectile);
@@ -449,6 +458,8 @@ public enum Upgrade
 
         private void ShootFlamethrower()
         {
+            Animator.SetBool("shooting", true);
+            
             FlamethrowerCone.pointLightOuterRadius = FlamethrowerConeDistanceModifier;
             FlamethrowerCone.pointLightInnerAngle = FlamethrowerConeAngleModifier;
             FlamethrowerCone.pointLightOuterAngle = FlamethrowerConeAngleModifier;
@@ -474,6 +485,8 @@ public enum Upgrade
             if (CurrentCryoDamageCooldown > 0)
                 return;
             
+            Animator.SetTrigger("shoot");
+            
             RaycastHit2D[] results = Physics2D.CircleCastAll(transform.position, CryoCircleCastRadiusModifier, Vector3.right, CryoCircleCastRange, LayerMask.GetMask("Enemy"));
 
             foreach (var hit in results)
@@ -496,6 +509,8 @@ public enum Upgrade
             if (CurrentLightningCooldown > 0)
                 return;
 
+            Animator.SetTrigger("shoot");
+            
             var lightning = Instantiate(LightningProjectile);
             lightning.transform.position = ProjectileSpawnPosition.position;
 

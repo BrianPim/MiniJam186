@@ -85,6 +85,8 @@ public class HudManager : Singleton<HudManager>
     
     public void Toast(string msg)
     {
+        if (msg.IsNullOrEmpty()) return;
+        
         ToastText.text = msg;
         ToastText.transform.localScale = Vector3.zero;
         Sequence sequence = DOTween.Sequence();
