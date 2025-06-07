@@ -91,7 +91,7 @@ MonoBehaviour:
   Type: 0
   EnemyBehaviour: {fileID: 0}
   Animator: {fileID: 0}
-  Rigidbody: {fileID: 0}
+  Rigidbody: {fileID: 8418310971456854764}
 --- !u!50 &8418310971456854764
 Rigidbody2D:
   serializedVersion: 5
