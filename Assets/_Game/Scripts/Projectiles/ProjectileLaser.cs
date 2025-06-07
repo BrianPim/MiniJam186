@@ -8,7 +8,7 @@ namespace Projectiles
     {
         protected override void OnHit(EnemyController enemy)
         {
-            enemy.TakeDamage(ProjectileDamage * DamageModifier, Color.white);
+            enemy.TakeDamage(ProjectileDamage * DamageModifier, Element.Normal, Color.white);
             Destroy(gameObject);
         }
     }

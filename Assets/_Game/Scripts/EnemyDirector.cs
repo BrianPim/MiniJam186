@@ -15,15 +15,21 @@ using UnityEngine;
 /// </summary>
 public class EnemyDirector : Singleton<EnemyDirector>
 {
-    
+    public Wave[] CurrentWaves;
+    public Wave CurrentWave;
+    public float WaveProgress;
 
     public IEnumerator SpawnWaves(Wave[] waves)
     {
+        CurrentWaves = waves;
         Debug.Log("Spawn waves");
-        foreach (Wave wave in waves)
+        for (int i = 0; i < waves.Length; i++)
         {
+            Wave wave = waves[i];
+            CurrentWave = wave;
+            WaveProgress = i / (float)waves.Length;
             yield return SpawnWave(wave);
-            
+
             //have a breather between each wave. just a short one
             Debug.Log("wave interval");
             yield return new WaitForSeconds(2);
