@@ -18,8 +18,16 @@ public class ParallaxMaster : Singleton<ParallaxMaster>
         }
     }
 
+    private Vector2 spot;
+    private Vector2 vel;
+    
     public void SetProgress(float progress)
     {
-        transform.position = Vector3.Lerp(JourneyStart.position, JourneyEnd.position, progress);
+        spot = Vector3.Lerp(JourneyStart.position, JourneyEnd.position, progress);
+    }
+
+    private void Update()
+    {
+        transform.position = Vector2.SmoothDamp(transform.position, spot, ref vel, 300f * Time.deltaTime);
     }
 }

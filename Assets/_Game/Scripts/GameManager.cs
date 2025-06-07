@@ -82,7 +82,8 @@ public class GameManager : Singleton<GameManager>
          {
              LevelInfo level = Levels.Infos[i];
              Debug.Log($"startup level {level.LevelName}");
-             LevelProgress = i / (float)Levels.Infos.Length;
+             LevelProgress = i;
+             UpdateTotalProgress();
 
              HudManager.Instance.Toast(level.LevelName);
 
@@ -96,12 +97,78 @@ public class GameManager : Singleton<GameManager>
 
      public float LevelProgress;
      
-     public float CalculateTotalProgress()
+     public void UpdateTotalProgress()
      {
+         if (EnemyDirector.Instance.CurrentWave == null || EnemyDirector.Instance.CurrentWave.Enemies.Length == 0)
+         {
+             return;
+         }
+         
          float levelSegmentSize = 1 / (float)Levels.Infos.Length;
-         float waveSegmentSize = 1 / (float)EnemyDirector.Instance.CurrentWaves.Length;
-         //float enemy
-         return 0;
+         float waveSegmentSize = (1 / (float)EnemyDirector.Instance.CurrentWaves.Length) * levelSegmentSize;
+         //float enemiesSegmentSize = 1 / (float)EnemyDirector.Instance.CurrentWave.Enemies.Length;
+
+
+         
+         float levelProgress = LevelProgress / (float)Levels.Infos.Length;
+         float waveProgress = (EnemyDirector.Instance.CurrentWaveIndex / (float)EnemyDirector.Instance.CurrentWaves.Length) * levelSegmentSize;
+         float enemyProgress = (EnemyDirector.Instance.CurrentWaveEnemiesKilled / (float)EnemyDirector.Instance.CurrentWave.Enemies.Length) * waveSegmentSize;
+
+         float progress = levelProgress + waveProgress + enemyProgress;
+
+         //Debug.Log($"Level Segment Size: {levelSegmentSize:F3}");
+         Debug.Log($"Level Progress: {levelProgress:F3}");
+         Debug.Log($"Wave Progress: {waveProgress:F3}");
+         Debug.Log($"Enemy Progress: {enemyProgress:F3} / ");
+         //Debug.Log($"Total Progress: {(levelProgress + waveProgress + enemyProgress):F3}");
+
+         ParallaxMaster.Instance.SetProgress(progress);
+         
+         
+         
+     }
+
+     private void OnGUI()
+     {
+
+         if (!Debug.isDebugBuild)
+         {
+             return;
+         }
+        // Define dimensions and positions
+        float barWidth = 200f;
+        float barHeight = 20f;
+        float padding = 10f;
+        float startX = padding;
+        float startY = padding;
+
+        // Calculate progress values
+        float levelProgress = LevelProgress / (float)Levels.Infos.Length;
+        float waveProgress = (EnemyDirector.Instance.CurrentWaveIndex / (float)EnemyDirector.Instance.CurrentWaves.Length);
+        float enemyProgress = (EnemyDirector.Instance.CurrentWaveEnemiesKilled / (float)EnemyDirector.Instance.CurrentWave.Enemies.Length);
+
+        // Level progress bar
+        GUI.Box(new Rect(startX - 2, startY - 2, barWidth + 4, barHeight + 4), ""); // Border
+        GUI.backgroundColor = new Color(0.2f, 0.6f, 1f); // Blue
+        GUI.Box(new Rect(startX, startY, barWidth * levelProgress, barHeight), "");
+        GUI.Label(new Rect(startX, startY, barWidth, barHeight), $"Level Progress: {(levelProgress * 100):F0}%");
+
+        // Wave progress bar
+        startY += barHeight + padding;
+        GUI.Box(new Rect(startX - 2, startY - 2, barWidth + 4, barHeight + 4), ""); // Border
+        GUI.backgroundColor = new Color(0.2f, 1f, 0.2f); // Green
+        GUI.Box(new Rect(startX, startY, barWidth * waveProgress, barHeight), "");
+        GUI.Label(new Rect(startX, startY, barWidth, barHeight), $"Wave Progress: {(waveProgress * 100):F0}%");
+
+        // Enemy progress bar
+        startY += barHeight + padding;
+        GUI.Box(new Rect(startX - 2, startY - 2, barWidth + 4, barHeight + 4), ""); // Border
+        GUI.backgroundColor = new Color(1f, 0.6f, 0.2f); // Orange
+        GUI.Box(new Rect(startX, startY, barWidth * enemyProgress, barHeight), "");
+        GUI.Label(new Rect(startX, startY, barWidth, barHeight), $"Enemy Progress: {(enemyProgress * 100):F0}%");
+
+        // Reset GUI background color
+        GUI.backgroundColor = Color.white;
      }
 
      private void SetABackdrop(Background levelBackgroundToShow)
@@ -127,7 +194,7 @@ public class GameManager : Singleton<GameManager>
      {
          //Debug.Log("transition on the way to the ");
          HudManager.Instance.Toast($"{levelName} complete");
-         yield return null;
+         yield return new WaitForSeconds(2);
      }
     
     

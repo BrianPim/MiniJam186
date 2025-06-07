@@ -146,6 +146,7 @@ namespace Enemies
                 
                 EvolutionManager.Instance.Increment(element);
                 EnemySpawner.Instance.AddDifficulty();
+                EnemyDirector.Instance.EnemyKilled();
             }
         }
         
