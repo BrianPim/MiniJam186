@@ -430,7 +430,7 @@ MonoBehaviour:
     SpawnStart: {fileID: 6843010168241153176}
     SpawnEnd: {fileID: 3543270703385922039}
   - Type: 2
-    Prefab: {fileID: 116265056201205057, guid: ed52ef1d45e80eb448c217ec766061f3, type: 3}
+    Prefab: {fileID: 6295359700537823246, guid: 36165e611e06a604daa3ddb4d0f13aae, type: 3}
     SpawnStart: {fileID: 7462018799512041203}
     SpawnEnd: {fileID: 4750442778745984105}
   - Type: 3
