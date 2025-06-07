@@ -254,8 +254,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Toast Text
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 1e5e3cd1b11995340a0981a822e6b370, type: 2}
-  m_sharedMaterial: {fileID: 5637142305046661576, guid: 1e5e3cd1b11995340a0981a822e6b370, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: da01103203b11094aaf89bb4b4401e6b, type: 2}
+  m_sharedMaterial: {fileID: -5764801114467444248, guid: da01103203b11094aaf89bb4b4401e6b, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -285,7 +285,7 @@ MonoBehaviour:
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
-  m_fontStyle: 1
+  m_fontStyle: 0
   m_HorizontalAlignment: 2
   m_VerticalAlignment: 512
   m_textAlignment: 65535
@@ -895,6 +895,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 3105952674910645254}
   - {fileID: 3105952674856048914}
   - {fileID: 3105952674724377858}
   m_Father: {fileID: 3105952674490559124}
@@ -936,7 +937,6 @@ RectTransform:
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 3105952674910645254}
   - {fileID: 3105952674445975619}
   - {fileID: 3105952673202740941}
   - {fileID: 3105952674886720875}
@@ -1198,7 +1198,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: A [name] Game
+  m_text: A Jump Squared Game
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 1e5e3cd1b11995340a0981a822e6b370, type: 2}
   m_sharedMaterial: {fileID: 5637142305046661576, guid: 1e5e3cd1b11995340a0981a822e6b370, type: 2}
@@ -1704,11 +1704,11 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 3105952674490559124}
+  m_Father: {fileID: 3105952674445975619}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 52, y: 64}
+  m_AnchoredPosition: {x: -719, y: 115}
   m_SizeDelta: {x: 72, y: 96}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &3105952674910645752

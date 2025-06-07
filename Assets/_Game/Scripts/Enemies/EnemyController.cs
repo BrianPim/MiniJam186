@@ -116,7 +116,7 @@ namespace Enemies
             Debug.Log($"Enemy given {element}");
         }
 
-        public void MoveTowards(Vector3 dest)
+        public void MoveTowards(Vector3 destination)
         {
             float currentSpeed = moveSpeed;
             
@@ -125,7 +125,7 @@ namespace Enemies
                 currentSpeed *= (1f - FrozenSlowModifier);
             }
             
-            transform.position = Vector3.MoveTowards(transform.position, dest, currentSpeed * Time.deltaTime);
+            transform.position = Vector3.MoveTowards(transform.position, destination, currentSpeed * Time.deltaTime);
         }
     }
 }
