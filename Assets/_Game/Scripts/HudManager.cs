@@ -1,6 +1,7 @@
 using CamLib;
 using System.Collections;
 using System.Collections.Generic;
+using DG.Tweening;
 using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
@@ -13,12 +14,16 @@ public class HudManager : Singleton<HudManager>
     public Image ColourOverlay;
 
     public TextMeshProUGUI ScoreText;
+    
+    public TMP_Text ToastText;
 
     protected override void Awake()
     {
         base.Awake();
 
         ScoreText.enabled = false;
+        
+        ToastText.transform.localScale = Vector3.zero;
     }
 
     public void Update()
@@ -65,5 +70,18 @@ public class HudManager : Singleton<HudManager>
         }
 
         StartCoroutine(FadeRoutine());
+    }
+    
+    public void Toast(string msg)
+    {
+        ToastText.text = msg;
+        ToastText.transform.localScale = Vector3.zero;
+        Sequence sequence = DOTween.Sequence();
+    
+        sequence.Append(ToastText.transform.DOScale(Vector3.one, 0.5f)
+                .SetEase(Ease.OutBack))
+            .AppendInterval(2f)
+            .Append(ToastText.transform.DOScale(Vector3.zero, 0.3f)
+                .SetEase(Ease.InBack));
     }
 }

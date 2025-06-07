@@ -1,5 +1,7 @@
 using System;
+using System.Collections.Generic;
 using System.Linq;
+using NUnit.Framework;
 using UnityEditor.Graphs;
 using UnityEngine;
 
@@ -25,6 +27,8 @@ namespace Enemies
 
         [NonSerialized] public bool InFlamethrower;
         [NonSerialized] public bool InCryoBeam;
+        
+        public EnemyType Type;
 
         private int OnFireStacks;
         private float OnFireDurationRemaining;
@@ -101,6 +105,11 @@ namespace Enemies
         {
             if (GameManager.Instance && GameManager.Instance.Enemies.Contains(this))
                 GameManager.Instance.Enemies.Remove(this);
+        }
+
+        public void BecomeElemental(Element element)
+        {
+            
         }
     }
 }
