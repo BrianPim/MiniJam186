@@ -7,12 +7,17 @@ namespace Enemies
     {
         public Transform Render;
         public EnemyController Controller;
+
+        [SerializeField] private bool JoinFormation;
         
         private Transform TargetPlace;
         
         public virtual void Awake()
         {
-            TargetPlace = EnemyGroup.Instance.GetNextSpot();
+            if (JoinFormation)
+            {
+                TargetPlace = EnemyGroup.Instance.GetNextSpot();
+            }
 
             //if (!Render)
             //{
@@ -26,7 +31,7 @@ namespace Enemies
 
         public virtual void Update()
         {
-            Controller.MoveTowards(TargetPlace.position);
+            if (JoinFormation) Controller.SetOverrideDestination(TargetPlace.position);
         }
 
         public virtual void DoAction()

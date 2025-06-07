@@ -87,3 +87,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Render: {fileID: 0}
   Controller: {fileID: 0}
+  JoinFormation: 1
