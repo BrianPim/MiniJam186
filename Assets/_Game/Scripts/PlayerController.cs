@@ -403,6 +403,7 @@ public enum Upgrade
         private void Dodge(InputAction.CallbackContext CallbackContext)
         {
             CurrentDodgeCooldown = DodgeDuration;
+            Animator.SetTrigger("dodge");
         }
 
         public int GetHealth()
@@ -474,6 +475,7 @@ public enum Upgrade
         private void StopShooting(InputAction.CallbackContext CallbackContext)
         {
             IsShooting = false;
+            Animator.SetBool("shooting", false);
             FlamethrowerCone.gameObject.SetActive(false);
             //disable cryo laser
         }
