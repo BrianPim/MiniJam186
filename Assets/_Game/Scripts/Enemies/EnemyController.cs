@@ -85,7 +85,7 @@ namespace Enemies
                 }
                 else
                 {
-                    TakeDamage(OnFireChipDamage, Color.red, 0.75f);
+                    TakeDamage(OnFireChipDamage, Element.Fire, Color.red, 0.75f);
                     OnFireStacks--;
                     OnFireDurationRemaining = OnFireStackDuration;
                 }
@@ -104,7 +104,7 @@ namespace Enemies
                 }
             }
         }
-
+        
         private void FixedUpdate()
         {
             Rigidbody.linearVelocity = Vector2.zero;
@@ -140,7 +140,8 @@ namespace Enemies
             EnemyBehaviour.DoAction();
         }
         
-        public void TakeDamage(float damage, Color textColor, float textSizeMultiplier = 1)
+        
+        public void TakeDamage(float damage, Element element, Color textColor, float textSizeMultiplier = 1)
         {
             var pulseText = Instantiate(GameManager.Instance.PulseTextPrefab, transform.position, Quaternion.identity);
             pulseText.ShowText(damage.ToString(), textColor, textSizeMultiplier);
@@ -150,19 +151,22 @@ namespace Enemies
             if (Health <= 0)
             {
                 Destroy(gameObject);
+                
+                EvolutionManager.Instance.Increment(element);
+                EnemySpawner.Instance.AddDifficulty();
             }
         }
         
         public void HitByFlamethrower(float damageTaken)
         {
-            TakeDamage(damageTaken, Color.red);
+            TakeDamage(damageTaken, Element.Fire, Color.red);
             OnFireStacks = MaxOnFireStacks;
             OnFireDurationRemaining = OnFireStackDuration;
         }
         
         public void HitByCryo(float damageTaken, float frozenModifier)
         {
-            TakeDamage(damageTaken, Color.cyan);
+            TakeDamage(damageTaken, Element.Ice, Color.cyan);
             FrozenSlowModifier = frozenModifier;
             FrozenStacks = MaxFrozenStacks;
             FrozenDurationRemaining = FrozenStackDuration;

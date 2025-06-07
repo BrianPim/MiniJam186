@@ -78,10 +78,12 @@ public class GameManager : Singleton<GameManager>
 
      private IEnumerator GameProgression()
      {
-         foreach (LevelInfo level in Levels.Infos)
+         for (int i = 0; i < Levels.Infos.Length; i++)
          {
+             LevelInfo level = Levels.Infos[i];
              Debug.Log($"startup level {level.LevelName}");
-             
+             LevelProgress = i / (float)Levels.Infos.Length;
+
              HudManager.Instance.Toast(level.LevelName);
 
              SetABackdrop(level.BackgroundToShow);
@@ -90,6 +92,16 @@ public class GameManager : Singleton<GameManager>
 
              yield return LevelTransition(level.LevelName);
          }
+     }
+
+     public float LevelProgress;
+     
+     public float CalculateTotalProgress()
+     {
+         float levelSegmentSize = 1 / (float)Levels.Infos.Length;
+         float waveSegmentSize = 1 / (float)EnemyDirector.Instance.CurrentWaves.Length;
+         //float enemy
+         return 0;
      }
 
      private void SetABackdrop(Background levelBackgroundToShow)
