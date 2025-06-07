@@ -15,8 +15,6 @@ using UnityEngine;
 /// </summary>
 public class EnemyDirector : Singleton<EnemyDirector>
 {
-    
-
     public IEnumerator SpawnWaves(Wave[] waves)
     {
         Debug.Log("Spawn waves");

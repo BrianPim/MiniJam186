@@ -29,6 +29,11 @@ namespace Enemies
             Controller.MoveTowards(TargetPlace.position);
         }
 
+        public virtual void DoAction()
+        {
+            
+        }
+
         public virtual void OnDestroy()
         {
             Render.DOKill();
