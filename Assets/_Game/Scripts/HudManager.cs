@@ -72,6 +72,13 @@ public class HudManager : Singleton<HudManager>
         StartCoroutine(FadeRoutine());
     }
     
+    
+    
+    
+    
+    
+    
+    
     public void Toast(string msg)
     {
         ToastText.text = msg;
@@ -84,4 +91,14 @@ public class HudManager : Singleton<HudManager>
             .Append(ToastText.transform.DOScale(Vector3.zero, 0.3f)
                 .SetEase(Ease.InBack));
     }
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
 }
