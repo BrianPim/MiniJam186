@@ -53,7 +53,7 @@ namespace Enemies
                 }
                 else
                 {
-                    TakeDamage(OnFireChipDamage, Color.red);
+                    TakeDamage(OnFireChipDamage, Color.red, 0.75f);
                     OnFireStacks--;
                     OnFireDurationRemaining = OnFireStackDuration;
                 }
@@ -73,10 +73,12 @@ namespace Enemies
             }
         }
 
-        public void TakeDamage(float damage, Color textColor)
+        public void TakeDamage(float damage, Color textColor, float textSizeMultiplier = 1)
         {
+            Debug.Log(damage.ToString());
+            
             var pulseText = Instantiate(GameManager.Instance.PulseTextPrefab, transform.position, Quaternion.identity);
-            pulseText.ShowText(damage.ToString(), textColor);
+            pulseText.ShowText(damage.ToString(), textColor, textSizeMultiplier);
             
             Health -= damage;
 
