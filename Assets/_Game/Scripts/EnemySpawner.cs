@@ -24,6 +24,8 @@ public class EnemySpawner : Singleton<EnemySpawner>
         
         public Transform SpawnStart;
         public Transform SpawnEnd;
+
+        public Vector3 SpawnPoint => Vector3.Lerp(SpawnStart.position, SpawnEnd.position, Random.value);
     }
 
     private bool IsNextElemental()
@@ -41,8 +43,7 @@ public class EnemySpawner : Singleton<EnemySpawner>
     public void SpawnEnemy(EnemyType enemyType)
     {
         EnemyPrefab prefab = Prefabs.Find(p => p.Type == enemyType);
-        EnemyController enemy = Instantiate(prefab.Prefab, prefab.SpawnStart.position, Quaternion.identity);
-        enemy.SetOverrideDestination(prefab.SpawnEnd.position);
+        EnemyController enemy = Instantiate(prefab.Prefab, prefab.SpawnPoint, Quaternion.identity);
 
         if (IsNextElemental())
         {
