@@ -1,10 +1,82 @@
 fileFormatVersion: 2
-guid: 0d513bfdb80c68e48b57cdad0b67dd2c
+guid: 363d0b629b7df034c9f0fe7f0fd76dcd
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 9192207241966816860
-    second: rainbow_0
+      213: 648935039016653563
+    second: GJ_PC_01_0
+  - first:
+      213: 6471713151265005162
+    second: GJ_PC_01_1
+  - first:
+      213: -6314703137554342562
+    second: GJ_PC_01_2
+  - first:
+      213: -3829697648052821272
+    second: GJ_PC_01_3
+  - first:
+      213: 1796316462538038718
+    second: GJ_PC_01_4
+  - first:
+      213: 2015913892861834407
+    second: GJ_PC_01_5
+  - first:
+      213: 2380598024781215792
+    second: GJ_PC_01_6
+  - first:
+      213: -9101467105451636340
+    second: GJ_PC_01_7
+  - first:
+      213: 8831711965573981354
+    second: GJ_PC_01_8
+  - first:
+      213: 8251585382077691478
+    second: GJ_PC_01_9
+  - first:
+      213: -3163575337544369679
+    second: GJ_PC_01_10
+  - first:
+      213: 8178487595536336426
+    second: GJ_PC_01_11
+  - first:
+      213: 7820049485269319596
+    second: GJ_PC_01_12
+  - first:
+      213: 1371734482908764206
+    second: GJ_PC_01_13
+  - first:
+      213: -515606380520500247
+    second: GJ_PC_01_14
+  - first:
+      213: -6498623500527013343
+    second: GJ_PC_01_15
+  - first:
+      213: 752746634724146290
+    second: GJ_PC_01_16
+  - first:
+      213: -3286297960848777697
+    second: GJ_PC_01_17
+  - first:
+      213: 7898920740702398621
+    second: GJ_PC_01_18
+  - first:
+      213: 6599366628669738950
+    second: GJ_PC_01_19
+  - first:
+      213: -588793803578259877
+    second: GJ_PC_01_20
+  - first:
+      213: 8596878229755186820
+    second: GJ_PC_01_21
+  - first:
+      213: 918754574992402707
+    second: GJ_PC_01_22
+  - first:
+      213: 8105785364670756572
+    second: GJ_PC_01_23
+  - first:
+      213: -1693561062035498476
+    second: GJ_PC_01_24
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -40,24 +112,24 @@ TextureImporter:
     filterMode: 1
     aniso: 1
     mipBias: 0
-    wrapU: 1
-    wrapV: 1
-    wrapW: 1
-  nPOTScale: 0
+    wrapU: 0
+    wrapV: 0
+    wrapW: 0
+  nPOTScale: 1
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 0
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 200
+  spritePixelsToUnits: 100
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
-  alphaIsTransparency: 1
+  alphaIsTransparency: 0
   spriteTessellationDetail: -1
-  textureType: 8
+  textureType: 0
   textureShape: 1
   singleChannelComponent: 0
   flipbookRows: 1
@@ -75,57 +147,35 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 1
   - serializedVersion: 4
     buildTarget: Standalone
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 1
   spriteSheet:
     serializedVersion: 2
-    sprites:
-    - serializedVersion: 2
-      name: rainbow_0
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 0
-        width: 2152
-        height: 1120
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: c5e843fb8c7419f70800000000000000
-      internalID: 9192207241966816860
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
+    sprites: []
     outline: []
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 5e97eb03825dee720800000000000000
+    spriteID: 
     internalID: 0
     vertices: []
     indices: 
@@ -134,8 +184,7 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable:
-      rainbow_0: 9192207241966816860
+    nameFileIdTable: {}
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
