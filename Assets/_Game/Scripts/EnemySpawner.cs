@@ -47,5 +47,6 @@ public class EnemySpawner : Singleton<EnemySpawner>
     public void AddDifficulty(float more = 0.05f)
     {
         DifficultyFactor = Mathf.Clamp01(DifficultyFactor + more);
+        HudBarDifficulty.Instance.UpdateBar(DifficultyFactor);
     }
 }

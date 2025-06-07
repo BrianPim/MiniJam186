@@ -39,7 +39,7 @@ public class HudManager : Singleton<HudManager>
 
     public void Update()
     {
-        ScoreText.text = $"Score: {GameManager.Instance.GetScore}";
+        ScoreText.text = $"{GameManager.Instance.GetScore}";
     }
 
     public void ActivateGameHud()

@@ -165,6 +165,10 @@ namespace Enemies
         {
             EnemyBehaviour.DoAction();
         }
+
+        public AudioSource SfxHurt;
+        public AudioSource SfxDeath;
+        public AudioSource SfxShoot;
         
         public void TakeDamage(float damage, Element element, Color textColor, float textSizeMultiplier = 1)
         {
@@ -176,6 +180,13 @@ namespace Enemies
             if (Health <= 0)
             {
                 DefeatEnemy(element);
+                SfxDeath.Play();
+                
+                MainCamera.Instance.ShakeCamera(0.05f, 0.3f);
+            }
+            else
+            {
+                SfxHurt.Play();
             }
         }
         

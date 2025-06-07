@@ -135,6 +135,11 @@ public enum Upgrade
 
         [Space] 
         
+        public AudioSource SfxHurt;
+        public AudioSource SfxDeath;
+        public AudioSource SfxShoot;
+        public ParticleSystem ParticlesShoot;
+        
         [SerializeField] private int Health = BaseHealth;
         
         [Space]
@@ -414,9 +419,21 @@ public enum Upgrade
         {
             Health -= damage;
 
+            Animator.SetInteger("life", Health);
+            
+            MainCamera.Instance.ShakeCamera(0.1f, 0.5f);
+            
             if (Health <= 0)
             {
                 //do death stuff
+                Animator.SetTrigger("die");
+                SfxDeath.Play();
+                
+                
+            }
+            else
+            {
+                SfxHurt.Play();
             }
         }
 
@@ -467,6 +484,8 @@ public enum Upgrade
                 return;
 
             Animator.SetTrigger("shoot");
+            SfxShoot.Play();
+            ParticlesShoot.Play();
             
             var laser = Instantiate(LaserProjectile);
             laser.transform.position = ProjectileSpawnPosition.position;

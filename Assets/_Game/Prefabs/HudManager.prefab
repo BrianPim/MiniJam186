@@ -796,7 +796,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Score: 0'
+  m_text: 0
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 1e5e3cd1b11995340a0981a822e6b370, type: 2}
   m_sharedMaterial: {fileID: 5637142305046661576, guid: 1e5e3cd1b11995340a0981a822e6b370, type: 2}
@@ -805,8 +805,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4294967295
-  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
+    rgba: 4278190080
+  m_fontColor: {r: 0, g: 0, b: 0, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -823,15 +823,15 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 36
-  m_fontSizeBase: 36
+  m_fontSize: 65.1
+  m_fontSizeBase: 65.1
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 1
-  m_HorizontalAlignment: 1
-  m_VerticalAlignment: 256
+  m_HorizontalAlignment: 2
+  m_VerticalAlignment: 512
   m_textAlignment: 65535
   m_characterSpacing: 0
   m_wordSpacing: 0
@@ -2104,7 +2104,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 3737558158398623465, guid: 41ec29d6e08be7f459a026fca8ea491d, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 8854526914758141850}
   m_SourcePrefab: {fileID: 100100000, guid: 41ec29d6e08be7f459a026fca8ea491d, type: 3}
 --- !u!224 &4566393006995031561 stripped
 RectTransform:
@@ -2116,6 +2119,31 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 3737558158398623465, guid: 41ec29d6e08be7f459a026fca8ea491d, type: 3}
   m_PrefabInstance: {fileID: 6053518386844104006}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &8854526914758141850
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7483878335329991599}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 82c4a5f7570049f9b7df256942345ee5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _doNotDestroyOnLoad: 0
+  bar: {fileID: 7519205716941280938}
+--- !u!114 &7519205716941280938 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4349350398301856748, guid: 41ec29d6e08be7f459a026fca8ea491d, type: 3}
+  m_PrefabInstance: {fileID: 6053518386844104006}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &6412118818368047624
 PrefabInstance:
   m_ObjectHideFlags: 0

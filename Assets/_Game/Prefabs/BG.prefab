@@ -627,7 +627,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   useParallax: 1
   useFixedUpdate: 0
-  parallaxFactor: {x: 0.6, y: 1}
+  parallaxFactor: {x: 0.1, y: 1}
   halfLevelSize: {x: 0, y: 0}
   scaled: 0
 --- !u!1 &2359529922513548348
@@ -1268,7 +1268,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4255374995905323738}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 36.3, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -1303,7 +1303,7 @@ SortingGroup:
   m_Enabled: 1
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: -2
+  m_SortingOrder: -10
   m_SortAtRoot: 0
 --- !u!114 &10835032922019407
 MonoBehaviour:
