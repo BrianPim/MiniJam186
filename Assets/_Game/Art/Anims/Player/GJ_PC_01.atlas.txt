@@ -1,0 +1,75 @@
+GJ_PC_01.png
+	size: 1628, 144
+	filter: Linear, Linear
+flamethrower1
+	bounds: 200, 8, 188, 127
+	offsets: 1, 1, 190, 129
+flamethrower2
+	bounds: 6, 8, 188, 127
+	offsets: 1, 1, 190, 129
+frame_1/lil_hero_guy/Helmet
+	bounds: 536, 6, 129, 136
+	offsets: 1, 1, 131, 138
+	rotate: 90
+frame_1/lil_hero_guy/arm_back
+	bounds: 1495, 81, 30, 54
+	offsets: 1, 1, 32, 56
+frame_1/lil_hero_guy/arm_front
+	bounds: 863, 66, 64, 69
+	offsets: 1, 1, 66, 71
+frame_1/lil_hero_guy/basic_gun
+	bounds: 1097, 48, 87, 46
+	offsets: 1, 1, 89, 48
+	rotate: 90
+frame_1/lil_hero_guy/hand_r_front
+	bounds: 1596, 100, 35, 26
+	offsets: 1, 1, 37, 31
+	rotate: 90
+frame_1/lil_hero_guy/leg_back
+	bounds: 1531, 72, 27, 63
+frame_1/lil_hero_guy/leg_front
+	bounds: 1190, 62, 35, 73
+frame_1/lil_hero_guy/normal_arm_back
+	bounds: 741, 38, 46, 97
+frame_1/lil_hero_guy/normal_arm_front
+	bounds: 933, 38, 45, 97
+frame_1/lil_hero_guy/torso
+	bounds: 678, 56, 57, 79
+frame_2/lil_hero_guy/Helmet
+	bounds: 394, 6, 129, 136
+	offsets: 1, 1, 131, 138
+	rotate: 90
+frame_2/lil_hero_guy/arm_back
+	bounds: 1459, 81, 30, 54
+	offsets: 1, 1, 32, 56
+frame_2/lil_hero_guy/arm_front
+	bounds: 793, 66, 64, 69
+	offsets: 1, 1, 66, 71
+frame_2/lil_hero_guy/basic_gun
+	bounds: 1045, 48, 87, 46
+	offsets: 1, 1, 89, 48
+	rotate: 90
+frame_2/lil_hero_guy/hand_r_front
+	bounds: 1564, 100, 35, 26
+	offsets: 1, 1, 37, 31
+	rotate: 90
+frame_2/lil_hero_guy/leg_back
+	bounds: 1426, 72, 27, 63
+frame_2/lil_hero_guy/leg_front
+	bounds: 1149, 62, 35, 73
+frame_2/lil_hero_guy/torso
+	bounds: 984, 60, 55, 75
+	offsets: 1, 1, 57, 77
+heart/heart1
+	bounds: 1329, 91, 43, 44
+	offsets: 1, 1, 45, 46
+heart/heart2
+	bounds: 1280, 91, 43, 44
+	offsets: 1, 1, 45, 46
+heart/heart3
+	bounds: 1231, 91, 43, 44
+	offsets: 1, 1, 45, 46
+heart/heart4
+	bounds: 1378, 92, 43, 42
+	offsets: 1, 1, 45, 44
+	rotate: 90
