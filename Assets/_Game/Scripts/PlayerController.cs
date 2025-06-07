@@ -390,9 +390,14 @@ public enum Upgrade
         {
             Health -= damage;
 
+            Animator.SetInteger("life", Health);
+            
             if (Health <= 0)
             {
                 //do death stuff
+                Animator.SetTrigger("die");
+                
+                
             }
         }
 

@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using CamLib;
+using Enemies;
 using NUnit.Framework;
 using UnityEngine;
 
@@ -31,6 +32,8 @@ public class EnemyDirector : Singleton<EnemyDirector>
             CurrentWave = wave;
             CurrentWaveIndex = i;
             CurrentWaveEnemiesKilled = 0;
+            
+            EnemyGroup.Instance.SetNewFormation();
 
             GameManager.Instance.UpdateTotalProgress();
             

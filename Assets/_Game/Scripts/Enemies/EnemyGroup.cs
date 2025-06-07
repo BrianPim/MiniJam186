@@ -27,7 +27,10 @@ namespace Enemies
         {
             foreach (Formation formation in Formations)
             {
-                formation.OnDrawGizmos();
+                if (formation.gameObject.activeInHierarchy)
+                {
+                    formation.OnDrawGizmos();
+                }
             }
         }
         
