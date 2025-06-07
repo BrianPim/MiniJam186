@@ -490,6 +490,9 @@ MonoBehaviour:
   ProjectileSpawnPosition: {fileID: 231321374078173079}
   Animator: {fileID: 845251487082182840}
   FlamethrowerCone: {fileID: 188932435914398394}
+  Health: 3
+  DodgeModifier: 5
+  DodgeDuration: 0.1
   Upgrades: 0f0000001000000011000000
 --- !u!50 &6269474084448481967
 Rigidbody2D:

@@ -45,6 +45,9 @@ public enum Upgrade
         private const float Speed1Modifier = 1.2f;
         private const float Speed2Modifier = 1.4f;
         private const float Speed3Modifier = 1.6f;
+        
+        private const float BaseDodgeModifier = 5f;
+        private const float BaseDodgeDuration = .1f;
 
         //Lasers
         private const float BaseLaserCooldown = .33f;
@@ -130,7 +133,14 @@ public enum Upgrade
 
         public Light2D FlamethrowerCone;
 
+        [Space] 
+        
         [SerializeField] private int Health = BaseHealth;
+        
+        [Space]
+        
+        [SerializeField] private float DodgeModifier = BaseDodgeModifier;
+        [SerializeField] private float DodgeDuration = BaseDodgeDuration;
         
         public List<Upgrade> Upgrades = new List<Upgrade>();
 
@@ -141,6 +151,7 @@ public enum Upgrade
         private float CurrentFlamethrowerDamageCooldown;
         private float CurrentCryoDamageCooldown;
         private float CurrentLightningCooldown;
+        private float CurrentDodgeCooldown;
         private bool IsShooting;
 
         #region Modifiers
@@ -329,6 +340,8 @@ public enum Upgrade
         {
             FlamethrowerCone.gameObject.SetActive(false);
 
+            PlayerDodge.started += Dodge;
+            
             PlayerShoot.started += StartShooting;
             PlayerShoot.canceled += StopShooting;
             PlayerSwitchWeapons.started += NextWeapon;
@@ -347,6 +360,9 @@ public enum Upgrade
             
             if (CurrentLightningCooldown > 0)
                 CurrentLightningCooldown -= Time.deltaTime;
+            
+            if (CurrentDodgeCooldown > 0)
+                CurrentDodgeCooldown -= Time.deltaTime;
 
             InputDirection = PlayerMovement.ReadValue<Vector2>();
 
@@ -372,8 +388,16 @@ public enum Upgrade
         private void FixedUpdate()
         {
             RigidBody.linearVelocity = BaseShipSpeed * SpeedModifier * InputDirection;
+
+            if (CurrentDodgeCooldown > 0)
+                RigidBody.linearVelocity *= DodgeModifier;
             
             Animator.SetBool("Moving", RigidBody.linearVelocity.magnitude > 0.01f);
+        }
+
+        private void Dodge(InputAction.CallbackContext CallbackContext)
+        {
+            CurrentDodgeCooldown = DodgeDuration;
         }
 
         public int GetHealth()
