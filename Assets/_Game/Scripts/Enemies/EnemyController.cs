@@ -105,13 +105,13 @@ namespace Enemies
 
         private void OnDestroy()
         {
-            if (GameManager.Instance && GameManager.Instance.Enemies.Contains(this))
+            if (GameManager.HasInstance && GameManager.Instance.Enemies.Contains(this))
                 GameManager.Instance.Enemies.Remove(this);
         }
 
         public void BecomeElemental(Element element)
         {
-            
+            Debug.Log($"Enemy given {element}");
         }
     }
 }

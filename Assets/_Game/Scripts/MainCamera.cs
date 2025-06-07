@@ -9,6 +9,11 @@ public class MainCamera : Singleton<MainCamera>
 
     private Coroutine ActiveShakeRoutine;
 
+    private void Start()
+    {
+        
+    }
+
     public void ShakeCamera(float intensity = 0.15f, float duration = 0.5f)
     {
         if (intensity <= 0) return;

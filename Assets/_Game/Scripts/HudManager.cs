@@ -87,7 +87,7 @@ public class HudManager : Singleton<HudManager>
     
         sequence.Append(ToastText.transform.DOScale(Vector3.one, 0.5f)
                 .SetEase(Ease.OutBack))
-            .AppendInterval(2f)
+            .AppendInterval(1f)
             .Append(ToastText.transform.DOScale(Vector3.zero, 0.3f)
                 .SetEase(Ease.InBack));
     }

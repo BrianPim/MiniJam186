@@ -21,7 +21,7 @@ public class GameManager : Singleton<GameManager>
      public class BackdropInstance
      { 
          public Background Type; 
-         public GameObject Image;
+         public Parallax Image;
      }
 
      public List<EnemyController> Enemies = new List<EnemyController>();
@@ -81,10 +81,10 @@ public class GameManager : Singleton<GameManager>
              HudManager.Instance.Toast(level.LevelName);
 
              SetABackdrop(level.BackgroundToShow);
-                 
+
              yield return EnemyDirector.Instance.SpawnWaves(level.Waves);
 
-             yield return LevelTransition();
+             yield return LevelTransition(level.LevelName);
          }
      }
 
@@ -92,25 +92,24 @@ public class GameManager : Singleton<GameManager>
      {
          foreach (var bg in Backdrops)
          {
-             bg.Image.SetActive(false);
+             bg.Image.gameObject.SetActive(false);
          }
 
          BackdropInstance backdrop = Backdrops.Find(p => p.Type == levelBackgroundToShow);
          if (backdrop != null)
          {
-             backdrop.Image.SetActive(true);
+             backdrop.Image.gameObject.SetActive(true);
          }
      }
 
      /// <summary>
      /// Indicate the score and what events changed the score. show it going down and up here.
      /// Ask the player to pick a weapon.
-     /// 
      /// </summary>
      /// <returns></returns>
-     IEnumerator LevelTransition()
+     IEnumerator LevelTransition(string levelName)
      {
-         HudManager.Instance.Toast("Level complete");
+         HudManager.Instance.Toast($"{levelName} complete");
          yield return null;
      }
     
