@@ -84,8 +84,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Health: 0
+  MoveSpeed: 5
+  DistanceToAttackPlayer: 50
+  RetreatIfTooClose: 0
   Type: 0
-  moveSpeed: 5
+  EnemyBehaviour: {fileID: 0}
+  Animator: {fileID: 0}
+  Rigidbody: {fileID: 8418310971456854764}
 --- !u!50 &8418310971456854764
 Rigidbody2D:
   serializedVersion: 5

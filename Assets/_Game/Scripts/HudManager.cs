@@ -85,6 +85,7 @@ public class HudManager : Singleton<HudManager>
     
     public void Toast(string msg)
     {
+        Debug.Log($"toast \"{msg}\"");
         if (msg.IsNullOrEmpty()) return;
         
         ToastText.text = msg;
