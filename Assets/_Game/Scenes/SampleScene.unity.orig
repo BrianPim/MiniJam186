@@ -892,15 +892,15 @@ PrefabInstance:
       value: Player
       objectReference: {fileID: 0}
     - target: {fileID: 6269474084448481966, guid: 526b15a27193945468dc10f58dbd1d4e, type: 3}
-      propertyPath: Upgrades.Array.data[0]
+      propertyPath: 'Upgrades.Array.data[0]'
       value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 6269474084448481966, guid: 526b15a27193945468dc10f58dbd1d4e, type: 3}
-      propertyPath: Upgrades.Array.data[1]
+      propertyPath: 'Upgrades.Array.data[1]'
       value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 6269474084448481966, guid: 526b15a27193945468dc10f58dbd1d4e, type: 3}
-      propertyPath: Upgrades.Array.data[2]
+      propertyPath: 'Upgrades.Array.data[2]'
       value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 8861739009010495522, guid: 526b15a27193945468dc10f58dbd1d4e, type: 3}
@@ -1026,8 +1026,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _doNotDestroyOnLoad: 0
+<<<<<<< HEAD
+  JourneyStart: {fileID: 0}
+  JourneyEnd: {fileID: 0}
+=======
   JourneyStart: {fileID: 923813933}
   JourneyEnd: {fileID: 751434404}
+>>>>>>> 2c53a8263baffb0500839e000464c7c9a5419b30
 --- !u!1 &1746386191
 GameObject:
   m_ObjectHideFlags: 0

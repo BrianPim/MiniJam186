@@ -167,7 +167,15 @@ namespace Enemies
 
             if (Health <= 0)
             {
+<<<<<<< HEAD
                 DefeatEnemy(element);
+=======
+                Destroy(gameObject);
+                
+                EvolutionManager.Instance.Increment(element);
+                EnemySpawner.Instance.AddDifficulty();
+                EnemyDirector.Instance.EnemyKilled();
+>>>>>>> 2c53a8263baffb0500839e000464c7c9a5419b30
             }
         }
         
@@ -208,7 +216,6 @@ namespace Enemies
                 
                 EvolutionManager.Instance.Increment(element);
                 EnemySpawner.Instance.AddDifficulty();
-				EnemyDirector.Instance.EnemyKilled();
             }
         }
 

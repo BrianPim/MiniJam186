@@ -17,7 +17,9 @@ public class EnemyDirector : Singleton<EnemyDirector>
 {
     public Wave[] CurrentWaves;
     public Wave CurrentWave;
-    public float WaveProgress;
+    
+    public float CurrentWaveIndex;
+    public int CurrentWaveEnemiesKilled;
 
     public IEnumerator SpawnWaves(Wave[] waves)
     {
@@ -27,26 +29,47 @@ public class EnemyDirector : Singleton<EnemyDirector>
         {
             Wave wave = waves[i];
             CurrentWave = wave;
-            WaveProgress = i / (float)waves.Length;
+            CurrentWaveIndex = i;
+            CurrentWaveEnemiesKilled = 0;
+
+            GameManager.Instance.UpdateTotalProgress();
+            
             yield return SpawnWave(wave);
 
             //have a breather between each wave. just a short one
             Debug.Log("wave interval");
-            yield return new WaitForSeconds(2);
+            yield return new WaitForSeconds(1);
         }
     }
 
     public IEnumerator SpawnWave(Wave wave)
     {
+        var interval = new WaitForSeconds(0.4f);;
         var wait = new WaitUntil(() =>
         {
             //Debug.Log($"wait to spawn enemies: {GameManager.Instance.Enemies.Count} / {wave.MaxOnScreen}");
             return GameManager.Instance.Enemies.Count < wave.MaxOnScreen;
         });
+        
+        var waitForAllDead = new WaitUntil(() =>
+        {
+            //Debug.Log($"wait to spawn enemies: {GameManager.Instance.Enemies.Count} / {wave.MaxOnScreen}");
+            return GameManager.Instance.Enemies.Count <= 0;
+        });
+        
         foreach (EnemyType enemy in wave.Enemies)
         {
             EnemySpawner.Instance.SpawnEnemy(enemy);
+            yield return interval;
             yield return wait;
         }
+
+        yield return waitForAllDead;
+    }
+
+    public void EnemyKilled()
+    {
+        CurrentWaveEnemiesKilled++;
+        GameManager.Instance.UpdateTotalProgress();
     }
 }
