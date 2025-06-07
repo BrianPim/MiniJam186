@@ -5,6 +5,7 @@ using CamLib;
 using Enemies;
 using Projectiles;
 using UnityEngine;
+using UnityEngine.InputSystem;
 using UnityEngine.Rendering.Universal;
 
 public enum Upgrade
@@ -111,8 +112,16 @@ public enum Upgrade
         public ProjectileLaser LaserProjectile;
         public ProjectileLightning LightningProjectile;
         //-------------------------------------------
-        [Space]
 
+        [Space] 
+        
+        public InputAction PlayerMovement;
+        public InputAction PlayerShoot;
+        public InputAction PlayerDodge;
+        public InputAction PlayerSwitchWeapons;
+        
+        [Space]
+        
         public Rigidbody2D RigidBody;
         public Transform ProjectileSpawnPosition;
 
@@ -127,6 +136,7 @@ public enum Upgrade
         private float CurrentFlamethrowerDamageCooldown;
         private float CurrentCryoDamageCooldown;
         private float CurrentLightningCooldown;
+        private bool IsShooting;
 
         #region Modifiers
         private float SpeedModifier
@@ -310,12 +320,16 @@ public enum Upgrade
         }
         #endregion
 
-        public void Awake()
+        private void Awake()
         {
             FlamethrowerCone.gameObject.SetActive(false);
+
+            PlayerShoot.started += StartShooting;
+            PlayerShoot.canceled += StopShooting;
+            PlayerSwitchWeapons.started += NextWeapon;
         }
 
-        public void Update()
+        private void Update()
         {
             if (CurrentLaserCooldown > 0)
                 CurrentLaserCooldown -= Time.deltaTime;
@@ -329,25 +343,27 @@ public enum Upgrade
             if (CurrentLightningCooldown > 0)
                 CurrentLightningCooldown -= Time.deltaTime;
 
-            if (Input.GetMouseButton(0)) //TODO Change this to use input system
-            {
-                Shoot();
-            }
-            else
-            {
-                StopShooting();
-            }
+            InputDirection = PlayerMovement.ReadValue<Vector2>();
 
-            if (Input.GetAxis("Mouse ScrollWheel") > 0)
-            {
-                NextWeapon();
-            }
-
-            InputDirection = Vector2.zero;
-            InputDirection.x += Input.GetAxisRaw("Horizontal");
-            InputDirection.y += Input.GetAxisRaw("Vertical");
-            InputDirection = InputDirection.normalized;
+            if (IsShooting) Shoot();
         }
+
+        private void OnEnable()
+        {
+            PlayerMovement.Enable();
+            PlayerShoot.Enable();
+            PlayerDodge.Enable();
+            PlayerSwitchWeapons.Enable();
+        }
+        
+        private void OnDisable()
+        {
+            PlayerMovement.Disable();
+            PlayerShoot.Disable();
+            PlayerDodge.Disable();
+            PlayerSwitchWeapons.Disable();
+        }
+
         private void FixedUpdate()
         {
             RigidBody.linearVelocity = BaseShipSpeed * SpeedModifier * InputDirection;
@@ -356,6 +372,11 @@ public enum Upgrade
         public int GetCurrentWeaponIndex()
         {
             return CurrentWeaponIndex;
+        }
+
+        private void StartShooting(InputAction.CallbackContext CallbackContext)
+        {
+            IsShooting = true;
         }
         
         private void Shoot()
@@ -380,9 +401,11 @@ public enum Upgrade
             }
         }
 
-        private void StopShooting()
-        {   
+        private void StopShooting(InputAction.CallbackContext CallbackContext)
+        {
+            IsShooting = false;
             FlamethrowerCone.gameObject.SetActive(false);
+            //disable cryo laser
         }
 
         private void ShootLaser()
@@ -483,7 +506,7 @@ public enum Upgrade
             CurrentLightningCooldown = LightningCooldownModifier;
         }
         
-        private void NextWeapon()
+        private void NextWeapon(InputAction.CallbackContext CallbackContext)
         {
             var oldIndex = CurrentWeaponIndex;
             
@@ -501,7 +524,7 @@ public enum Upgrade
                     case 1: //Flamethrower
                         if (!Upgrades.Contains(Upgrade.Flamethrower1))
                         {
-                            NextWeapon();
+                            NextWeapon(CallbackContext);
                         }
 
                         break;
@@ -509,7 +532,7 @@ public enum Upgrade
                     case 2: //Cryo
                         if (!Upgrades.Contains(Upgrade.Cryo1))
                         {
-                            NextWeapon();
+                            NextWeapon(CallbackContext);
                         }
 
                         break;
@@ -517,7 +540,7 @@ public enum Upgrade
                     case 3: //Lightning
                         if (!Upgrades.Contains(Upgrade.Lightning1))
                         {
-                            NextWeapon();
+                            NextWeapon(CallbackContext);
                         }
 
                         break;

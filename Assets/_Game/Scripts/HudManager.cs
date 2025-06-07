@@ -17,6 +17,8 @@ public class HudManager : Singleton<HudManager>
     public Transform WeaponWheelRotator;
     public Image[] WeaponWheelImages;
     public Image WeaponWheelSelected;
+    [Space] 
+    public GameObject[] HideUntilGameStarts;
 
     public TextMeshProUGUI ScoreText;
     
@@ -31,6 +33,8 @@ public class HudManager : Singleton<HudManager>
         ScoreText.enabled = false;
         
         ToastText.transform.localScale = Vector3.zero;
+
+        HideGameHud(true);
     }
 
     public void Update()
@@ -90,6 +94,14 @@ public class HudManager : Singleton<HudManager>
             .AppendInterval(1f)
             .Append(ToastText.transform.DOScale(Vector3.zero, 0.3f)
                 .SetEase(Ease.InBack));
+    }
+
+    public void HideGameHud(bool hide)
+    {
+        foreach (var obj in HideUntilGameStarts)
+        {
+            obj.SetActive(!hide);
+        }
     }
 
     public void UpdateWeaponWheel(int oldIndex)

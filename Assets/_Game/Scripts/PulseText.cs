@@ -20,8 +20,6 @@ public class PulseText : MonoBehaviour
         Text.fontSize = DefaultTextSize * textSizeMultiplier;
         transform.position += new Vector3(0, 0, -0.01f);
         
-        Debug.Log(Text.fontSize.ToString());
-
         var destination = transform.position;
         destination.x += Random.Range(-DestinationRandomOffset.x, DestinationRandomOffset.x);
         destination.y += Random.Range(-DestinationRandomOffset.y, DestinationRandomOffset.y);
