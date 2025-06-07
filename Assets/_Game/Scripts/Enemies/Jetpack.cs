@@ -9,8 +9,6 @@ namespace Enemies
     public class Jetpack : EnemyBehaviour
     {
         public Transform TargetPlace;
-
-        public Transform Render;
         
         private void Awake()
         {
@@ -22,15 +20,18 @@ namespace Enemies
         private void Update()
         {
             Controller.MoveTowards(TargetPlace.position);
+        }
 
-            
+        private void OnDestroy()
+        {
+            Render.DOKill();
         }
     }
 
     public abstract class EnemyBehaviour : MonoBehaviour
     {
+        public Transform Render;
         public EnemyController Controller;
-        
         
     }
 }
