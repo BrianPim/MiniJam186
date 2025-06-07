@@ -10,6 +10,7 @@ namespace Enemies
     public class BrainShip : EnemyBehaviour
     {
         public EnemyProjectile Projectile;
+        
         public override void DoAction()
         {
             base.DoAction();

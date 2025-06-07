@@ -10,6 +10,22 @@ namespace Enemies
         public EnemyProjectile Projectile;
         public int ProjectileBurstHowMany = 3;
         public float TimeBetweenProjectiles = .2f;
+        
+        public override bool AllowedToDoAction()
+        {
+            var hits = Physics2D.RaycastAll(transform.position, Vector2.left, Controller.GetDistanceToAttackPlayer());
+
+            foreach(var hit in hits)
+            {
+                if (hit.collider.gameObject.layer == LayerMask.NameToLayer("Player")) 
+                {
+                    return true;
+                } 
+            }
+
+            return false;
+        }
+        
         public override void DoAction()
         {
             base.DoAction();

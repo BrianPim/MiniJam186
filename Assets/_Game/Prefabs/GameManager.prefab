@@ -45,6 +45,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _doNotDestroyOnLoad: 0
+  CurrentWaves: []
+  CurrentWave:
+    MaxOnScreen: 3
+    Enemies: 
+  CurrentWaveIndex: 0
+  CurrentWaveEnemiesKilled: 0
 --- !u!1 &1038191925658270375
 GameObject:
   m_ObjectHideFlags: 0
@@ -286,6 +292,7 @@ MonoBehaviour:
   Enemies: []
   Levels: {fileID: 11400000, guid: 51166aa8f4a21404f85539016bd5ccb5, type: 2}
   PulseTextPrefab: {fileID: 1954870665688662231, guid: 50a04248daa0a9648add49428ffa7835, type: 3}
+  LevelProgress: 0
 --- !u!1 &5580851145455468167
 GameObject:
   m_ObjectHideFlags: 0
@@ -348,6 +355,37 @@ Transform:
   m_Children: []
   m_Father: {fileID: 6703543594131056626}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &6629820220563831333
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3699421299598727102}
+  m_Layer: 0
+  m_Name: EnemyDespawnPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 6519382022992737161, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3699421299598727102
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6629820220563831333}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -12.75, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 6703543594131056626}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &7164588497848628205
 GameObject:
   m_ObjectHideFlags: 0
@@ -384,6 +422,7 @@ Transform:
   - {fileID: 8911947395663735257}
   - {fileID: 6843010168241153176}
   - {fileID: 3543270703385922039}
+  - {fileID: 3699421299598727102}
   m_Father: {fileID: 5389687261718080916}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &5061986772107053975
@@ -424,6 +463,13 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+  BrainSpawnCurve:
+    serializedVersion: 2
+    m_Curve: []
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  EnemyDespawnPoint: {fileID: 3699421299598727102}
   Prefabs:
   - Type: 1
     Prefab: {fileID: 477033870813443680, guid: 960a4a2579a780a4d9544110f378e617, type: 3}
@@ -435,8 +481,8 @@ MonoBehaviour:
     SpawnEnd: {fileID: 4750442778745984105}
   - Type: 3
     Prefab: {fileID: 477033870813443680, guid: 335ed44e9b5eb864c96f09a881f1a415, type: 3}
-    SpawnStart: {fileID: 808389474059267810}
-    SpawnEnd: {fileID: 8911947395663735257}
+    SpawnStart: {fileID: 7462018799512041203}
+    SpawnEnd: {fileID: 4750442778745984105}
   - Type: 4
     Prefab: {fileID: 477033870813443680, guid: 180fee66c8f67224ab21d77e69b47819, type: 3}
     SpawnStart: {fileID: 808389474059267810}

@@ -113,10 +113,10 @@ public class HudManager : Singleton<HudManager>
         
         IEnumerator WeaponWheelRoutine()
         {
-            //var speedModifier = Math.Abs(newIndex - oldIndex);
-
             WeaponWheelSelected.enabled = false;
             var targetRotation = 0f;
+            
+            GameManager.Instance.Player.SetAllowSwitchWeapons(false);
 
             switch (newIndex)
             {
@@ -147,6 +147,7 @@ public class HudManager : Singleton<HudManager>
             }
             
             WeaponWheelSelected.enabled = true;
+            GameManager.Instance.Player.SetAllowSwitchWeapons(true);
         }
         
         if (newIndex == 0 && oldIndex == 0)

@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 1016285038877291828}
   - component: {fileID: 5370211120467348348}
   m_Layer: 9
-  m_Name: EnemyProjectile_Brain
+  m_Name: EnemyProjectile_Surfer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -48,7 +48,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ProjectileDamage: 1
-  ProjectileSpeed: 10
+  ProjectileSpeed: 20
   Lifetime: 5
   RigidBody: {fileID: 2799528730872061810}
 --- !u!50 &2799528730872061810
@@ -160,7 +160,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: -2413806693520163455, guid: 76a417681699c774eaccec565692ec41, type: 3}
-  m_Color: {r: 1, g: 0, b: 0.84147406, a: 1}
+  m_Color: {r: 0, g: 0.19350243, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0

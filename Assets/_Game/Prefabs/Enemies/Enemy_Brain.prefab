@@ -88,3 +88,4 @@ MonoBehaviour:
   Render: {fileID: 0}
   Controller: {fileID: 0}
   JoinFormation: 1
+  Projectile: {fileID: 1076423153678231504, guid: e580a94b0bcb04544a9ccc00166913ea, type: 3}
