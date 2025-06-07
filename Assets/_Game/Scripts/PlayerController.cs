@@ -37,6 +37,8 @@ public enum Upgrade
         //Constants
         //-------------------------------------------
 
+        private const int BaseHealth = 3;
+        
         //Speed
         private const float BaseShipSpeed = 5f;
 
@@ -128,6 +130,8 @@ public enum Upgrade
 
         public Light2D FlamethrowerCone;
 
+        [SerializeField] private int Health = BaseHealth;
+        
         public List<Upgrade> Upgrades = new List<Upgrade>();
 
         private int CurrentWeaponIndex;
@@ -370,6 +374,26 @@ public enum Upgrade
             RigidBody.linearVelocity = BaseShipSpeed * SpeedModifier * InputDirection;
             
             Animator.SetBool("Moving", RigidBody.linearVelocity.magnitude > 0.01f);
+        }
+
+        public int GetHealth()
+        {
+            return Health;
+        }
+
+        public void SetHealth(int health)
+        {
+            Health = health;
+        }
+
+        public void TakeDamage(int damage)
+        {
+            Health -= damage;
+
+            if (Health <= 0)
+            {
+                //do death stuff
+            }
         }
 
         public int GetCurrentWeaponIndex()

@@ -3,9 +3,9 @@ using UnityEngine;
 
 namespace Projectiles
 {
-    public class Projectile : MonoBehaviour
+    public class EnemyProjectile : MonoBehaviour
     {
-        public float ProjectileDamage = 10;
+        public int ProjectileDamage = 1;
         public float ProjectileSpeed = 10;
         public float Lifetime = 5;
 
@@ -46,17 +46,17 @@ namespace Projectiles
 
         public void OnTriggerEnter2D(Collider2D collision)
         {
-            var enemy = collision.GetComponent<EnemyController>();
+            var player = collision.GetComponent<PlayerController>();
 
-            if (enemy == null || !Active)
+            if (player == null || !Active)
                 return;
 
-            OnHit(enemy);
+            OnHit();
         }
 
-        protected virtual void OnHit(EnemyController enemy)
+        protected virtual void OnHit()
         {
-
+            GameManager.Instance.Player.TakeDamage(ProjectileDamage);
         }
     }
 }
