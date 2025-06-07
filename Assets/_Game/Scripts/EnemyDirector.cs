@@ -19,23 +19,28 @@ public class EnemyDirector : Singleton<EnemyDirector>
 
     public IEnumerator SpawnWaves(Wave[] waves)
     {
+        Debug.Log("Spawn waves");
         foreach (Wave wave in waves)
         {
             yield return SpawnWave(wave);
             
             //have a breather between each wave. just a short one
+            Debug.Log("wave interval");
             yield return new WaitForSeconds(2);
         }
     }
 
     public IEnumerator SpawnWave(Wave wave)
     {
-        WaitUntil canSpawnAnotherEnemy = new WaitUntil(() => GameManager.Instance.Enemies.Count < wave.MaxOnScreen);
-
+        var wait = new WaitUntil(() =>
+        {
+            //Debug.Log($"wait to spawn enemies: {GameManager.Instance.Enemies.Count} / {wave.MaxOnScreen}");
+            return GameManager.Instance.Enemies.Count < wave.MaxOnScreen;
+        });
         foreach (EnemyType enemy in wave.Enemies)
         {
             EnemySpawner.Instance.SpawnEnemy(enemy);
-            yield return canSpawnAnotherEnemy;
+            yield return wait;
         }
     }
 }

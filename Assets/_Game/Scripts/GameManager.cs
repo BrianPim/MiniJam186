@@ -78,6 +78,8 @@ public class GameManager : Singleton<GameManager>
      {
          foreach (LevelInfo level in Levels.Infos)
          {
+             Debug.Log($"startup level {level.LevelName}");
+             
              HudManager.Instance.Toast(level.LevelName);
 
              SetABackdrop(level.BackgroundToShow);
@@ -109,6 +111,7 @@ public class GameManager : Singleton<GameManager>
      /// <returns></returns>
      IEnumerator LevelTransition(string levelName)
      {
+         //Debug.Log("transition on the way to the ");
          HudManager.Instance.Toast($"{levelName} complete");
          yield return null;
      }

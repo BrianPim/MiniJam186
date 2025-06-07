@@ -13,5 +13,9 @@ MonoBehaviour:
   m_Name: Level2
   m_EditorClassIdentifier: 
   LevelName: 2
-  BackgroundToShow: {fileID: 0}
-  Waves: []
+  BackgroundToShow: 0
+  Waves:
+  - MaxOnScreen: 5
+    Enemies: 0100000001000000010000000100000001000000
+  - MaxOnScreen: 5
+    Enemies: 02000000020000000200000002000000

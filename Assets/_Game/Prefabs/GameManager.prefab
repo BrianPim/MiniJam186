@@ -283,11 +283,7 @@ MonoBehaviour:
   MovementBoundaries: {fileID: 5389687261668679879}
   Background: {fileID: 0}
   Backdrops: []
-  Enemies:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  Enemies: []
   Levels: {fileID: 11400000, guid: 51166aa8f4a21404f85539016bd5ccb5, type: 2}
   PulseTextPrefab: {fileID: 1954870665688662231, guid: 50a04248daa0a9648add49428ffa7835, type: 3}
 --- !u!1 &5580851145455468167
@@ -431,8 +427,8 @@ MonoBehaviour:
   Prefabs:
   - Type: 1
     Prefab: {fileID: 6295359700537823246, guid: 960a4a2579a780a4d9544110f378e617, type: 3}
-    SpawnStart: {fileID: 0}
-    SpawnEnd: {fileID: 0}
+    SpawnStart: {fileID: 6843010168241153176}
+    SpawnEnd: {fileID: 3543270703385922039}
   - Type: 2
     Prefab: {fileID: 116265056201205057, guid: ed52ef1d45e80eb448c217ec766061f3, type: 3}
     SpawnStart: {fileID: 7462018799512041203}

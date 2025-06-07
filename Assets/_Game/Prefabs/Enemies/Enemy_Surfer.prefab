@@ -10,7 +10,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 116265056201205057, guid: ed52ef1d45e80eb448c217ec766061f3, type: 3}
       propertyPath: m_Name
-      value: Enemy_Base
+      value: Enemy_Surfer
+      objectReference: {fileID: 0}
+    - target: {fileID: 5791156330443965231, guid: ed52ef1d45e80eb448c217ec766061f3, type: 3}
+      propertyPath: Type
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 7269979379373617600, guid: ed52ef1d45e80eb448c217ec766061f3, type: 3}
       propertyPath: m_LocalPosition.x

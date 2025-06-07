@@ -113,5 +113,11 @@ namespace Enemies
         {
             Debug.Log($"Enemy given {element}");
         }
+
+        public void MoveTowards(Vector3 dest)
+        {
+            //todo needs ice influence
+            transform.position = Vector3.MoveTowards(transform.position, dest, 0.1f * Time.deltaTime);
+        }
     }
 }
