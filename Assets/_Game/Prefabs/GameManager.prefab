@@ -426,23 +426,23 @@ MonoBehaviour:
     m_RotationOrder: 4
   Prefabs:
   - Type: 1
-    Prefab: {fileID: 6295359700537823246, guid: 960a4a2579a780a4d9544110f378e617, type: 3}
+    Prefab: {fileID: 477033870813443680, guid: 960a4a2579a780a4d9544110f378e617, type: 3}
     SpawnStart: {fileID: 6843010168241153176}
     SpawnEnd: {fileID: 3543270703385922039}
   - Type: 2
-    Prefab: {fileID: 6295359700537823246, guid: 36165e611e06a604daa3ddb4d0f13aae, type: 3}
+    Prefab: {fileID: 477033870813443680, guid: 36165e611e06a604daa3ddb4d0f13aae, type: 3}
     SpawnStart: {fileID: 7462018799512041203}
     SpawnEnd: {fileID: 4750442778745984105}
   - Type: 3
-    Prefab: {fileID: 6295359700537823246, guid: 335ed44e9b5eb864c96f09a881f1a415, type: 3}
-    SpawnStart: {fileID: 0}
-    SpawnEnd: {fileID: 0}
+    Prefab: {fileID: 477033870813443680, guid: 335ed44e9b5eb864c96f09a881f1a415, type: 3}
+    SpawnStart: {fileID: 808389474059267810}
+    SpawnEnd: {fileID: 8911947395663735257}
   - Type: 4
-    Prefab: {fileID: 6295359700537823246, guid: 180fee66c8f67224ab21d77e69b47819, type: 3}
+    Prefab: {fileID: 477033870813443680, guid: 180fee66c8f67224ab21d77e69b47819, type: 3}
     SpawnStart: {fileID: 808389474059267810}
     SpawnEnd: {fileID: 8911947395663735257}
   - Type: 5
-    Prefab: {fileID: 6295359700537823246, guid: e3b226addab03b141a813b691f34bcd5, type: 3}
+    Prefab: {fileID: 477033870813443680, guid: e3b226addab03b141a813b691f34bcd5, type: 3}
     SpawnStart: {fileID: 808389474059267810}
     SpawnEnd: {fileID: 8911947395663735257}
 --- !u!1 &7306976175407149500
