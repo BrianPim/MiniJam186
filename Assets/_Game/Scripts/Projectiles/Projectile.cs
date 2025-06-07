@@ -51,12 +51,30 @@ namespace Projectiles
             if (enemy == null || !Active)
                 return;
 
+            if (Destroying) return;
+            
             OnHit(enemy);
         }
 
         protected virtual void OnHit(EnemyController enemy)
         {
 
+        }
+
+        private bool Destroying;
+        public void DoDestroy()
+        {
+            Destroying = true;
+            Active = false;
+
+            RigidBody.linearVelocity = Vector2.zero;
+            
+            foreach (SpriteRenderer rend in GetComponentsInChildren<SpriteRenderer>())
+            {
+                rend.enabled = false;
+            }
+            
+            Destroy(gameObject, 1);
         }
     }
 }

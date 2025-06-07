@@ -6,10 +6,14 @@ namespace Projectiles
 {
     public class ProjectileLaser : Projectile
     {
+        public ParticleSystem HitParticle;
+        
         protected override void OnHit(EnemyController enemy)
         {
             enemy.TakeDamage(ProjectileDamage * DamageModifier, Element.Normal, Color.white);
-            Destroy(gameObject);
+
+            HitParticle.Play();
+            DoDestroy();
         }
     }
 }

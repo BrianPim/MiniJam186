@@ -15,5 +15,6 @@ public class AssetWindowImplementation : CentralizedAssetWindowImplementation
         "Assets/_Game/Prefabs/Enemies/Enemy_Jetpack.prefab",
         "Assets/_Game/Prefabs/Enemies/Enemy_NukeHead.prefab",
         "Assets/_Game/Prefabs/Enemies/Enemy_Surfer.prefab",
+        "Assets/_Game/Prefabs/Projectiles/LaserProjectile.prefab",
     };
 }
