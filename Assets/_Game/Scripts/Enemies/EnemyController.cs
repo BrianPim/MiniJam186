@@ -14,7 +14,7 @@ namespace Enemies
 
         private const int BaseHealth = 50;
         private const float BaseMovementSpeed = 5f;
-        
+        private const float BaseActionCooldownDuration = 2f;
         private const int BaseAttackDistance = 50;
         
         private const int MaxOnFireStacks = 10;
@@ -28,13 +28,14 @@ namespace Enemies
 
         [SerializeField] private float Health = BaseHealth;
         [SerializeField] private float MoveSpeed = BaseMovementSpeed;
+        [Space]
+        [SerializeField] private float ActionCooldownDuration = BaseActionCooldownDuration;
         [SerializeField] private float DistanceToAttackPlayer = BaseAttackDistance;
-        
         [SerializeField] private bool RetreatIfTooClose;
-        
+        [Space]
         public EnemyType Type;
         public EnemyBehaviour EnemyBehaviour;
-        
+        [Space]
         public Animator Animator;
         public Rigidbody2D Rigidbody;
         
@@ -47,14 +48,15 @@ namespace Enemies
         private Vector3 OverrideDestination;
         private float MoveSpeedModifier = 1f;
         
-        private float CooldownRemaining;
-        
         private int OnFireStacks;
         private float OnFireDurationRemaining;
 
         private int FrozenStacks;
         private float FrozenSlowModifier;
         private float FrozenDurationRemaining;
+        
+        private float CooldownRemaining;
+        private bool Destroying;
 
         private void Awake()
         {
@@ -68,6 +70,12 @@ namespace Enemies
         private void Update()
         {
             if (CooldownRemaining > 0) CooldownRemaining -= Time.deltaTime;
+            
+            if (!BlockActions && !Destroying && Vector2.Distance(GameManager.Instance.Player.transform.position, transform.position) <= DistanceToAttackPlayer)
+            {
+                CooldownRemaining = ActionCooldownDuration;
+                if (EnemyBehaviour) DoAction();
+            }
 
             if (!InFlamethrower && OnFireStacks > 0)
             {
@@ -160,12 +168,6 @@ namespace Enemies
             FrozenDurationRemaining = FrozenStackDuration;
         }
 
-        private void OnDestroy()
-        {
-            if (GameManager.HasInstance && GameManager.Instance.Enemies.Contains(this))
-                GameManager.Instance.Enemies.Remove(this);
-        }
-
         public void BecomeElemental(Element element)
         {
             Debug.Log($"Enemy given {element}");
@@ -181,6 +183,17 @@ namespace Enemies
             }
             
             transform.position = Vector3.MoveTowards(transform.position, destination, currentSpeed * Time.deltaTime);
+        }
+
+        public bool IsBeingDestroyed()
+        {
+            return Destroying;
+        }
+        
+        private void OnDestroy()
+        {
+            if (GameManager.HasInstance && GameManager.Instance.Enemies.Contains(this))
+                GameManager.Instance.Enemies.Remove(this);
         }
     }
 }
