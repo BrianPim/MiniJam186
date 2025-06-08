@@ -12,11 +12,18 @@ namespace Enemies
     {
         public EnemyProjectile Projectile;
 
+        private void Start()
+        {
+            Controller.Animator.SetTrigger("upwards");
+        }
+
         public override void OnTakeDamage()
         {
             base.OnTakeDamage();
 
             TargetPlace = EnemyGroup.Instance.GetNextSpot();
+            
+            Controller.Animator.SetTrigger("hit");
         }
 
         public override bool AllowedToDoAction()
@@ -57,6 +64,13 @@ namespace Enemies
 
                 laser.Setup(direction.normalized);
             }
+        }
+
+        public override void OnSpawnComplete()
+        {
+            base.OnSpawnComplete();
+
+            Controller.SetTrigger("CancelAll");
         }
     }
 }
