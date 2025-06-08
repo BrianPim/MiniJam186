@@ -1,0 +1,75 @@
+GJ_Surfer_01.png
+	size: 1024, 1024
+	filter: Linear, Linear
+Images/bigPuff1
+	bounds: 380, 213, 112, 103
+	offsets: 441, 115, 580, 394
+	rotate: 90
+Images/bigPuff2
+	bounds: 489, 182, 103, 102
+	offsets: 447, 120, 580, 394
+Images/body1
+	bounds: 195, 525, 188, 183
+	offsets: 95, 177, 580, 394
+	rotate: 90
+Images/body2
+	bounds: 195, 335, 183, 184
+	offsets: 100, 177, 580, 394
+Images/hoverboard1
+	bounds: 6, 719, 469, 215
+	offsets: 0, 0, 580, 394
+Images/hoverboard2
+	bounds: 481, 469, 465, 213
+	offsets: 0, 0, 580, 394
+	rotate: 90
+Images/left_Arm1
+	bounds: 6, 20, 139, 120
+	offsets: 0, 201, 580, 394
+	rotate: 90
+Images/left_Arm2
+	bounds: 384, 331, 134, 132
+	offsets: 0, 196, 580, 394
+Images/left_Leg1
+	bounds: 384, 607, 106, 85
+	offsets: 74, 133, 580, 394
+	rotate: 90
+Images/left_Leg2
+	bounds: 384, 500, 101, 78
+	offsets: 80, 139, 580, 394
+	rotate: 90
+Images/mediumPuff1
+	bounds: 324, 254, 75, 50
+	offsets: 491, 92, 580, 394
+	rotate: 90
+Images/mediumPuff2
+	bounds: 132, 82, 77, 54
+	offsets: 490, 92, 580, 394
+	rotate: 90
+Images/right_Arm1
+	bounds: 524, 290, 173, 119
+	offsets: 222, 230, 580, 394
+	rotate: 90
+Images/right_Arm2
+	bounds: 194, 157, 172, 124
+	offsets: 226, 225, 580, 394
+	rotate: 90
+Images/right_Leg1
+	bounds: 192, 46, 75, 105
+	offsets: 236, 140, 580, 394
+Images/right_Leg2
+	bounds: 372, 102, 92, 105
+	offsets: 224, 143, 580, 394
+Images/smallPuff1
+	bounds: 324, 177, 42, 71
+	offsets: 538, 116, 580, 394
+Images/smallPuff2
+	bounds: 132, 6, 41, 70
+	offsets: 539, 121, 580, 394
+Images/sunglasses1
+	bounds: 6, 165, 272, 182
+	offsets: 47, 212, 580, 394
+	rotate: 90
+Images/sunglasses2
+	bounds: 6, 443, 270, 183
+	offsets: 47, 211, 580, 394
+	rotate: 90
