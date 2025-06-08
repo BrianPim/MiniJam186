@@ -164,3 +164,51 @@ public static class TextMeshProExtensions
             .Append(text.DOColor(originalColor, duration));
     }
 }
+
+public static class RectTransformExtensions
+{
+    /// <summary>
+    /// Tweens the anchoredPosition of a RectTransform to the target position
+    /// </summary>
+    /// <param name="target">The RectTransform to tween</param>
+    /// <param name="endValue">Target position</param>
+    /// <param name="duration">Duration of the tween in seconds</param>
+    /// <returns>The tween for further chaining</returns>
+    public static Tweener DOAnchorPos(this RectTransform target, Vector2 endValue, float duration)
+    {
+        return DOTween.To(() => target.anchoredPosition,
+            x => target.anchoredPosition = x,
+            endValue,
+            duration);
+    }
+
+    /// <summary>
+    /// Tweens the anchoredPosition.x of a RectTransform to the target value
+    /// </summary>
+    /// <param name="target">The RectTransform to tween</param>
+    /// <param name="endValue">Target x position</param>
+    /// <param name="duration">Duration of the tween in seconds</param>
+    /// <returns>The tween for further chaining</returns>
+    public static Tweener DOAnchorPosX(this RectTransform target, float endValue, float duration)
+    {
+        return DOTween.To(() => target.anchoredPosition.x,
+            x => target.anchoredPosition = new Vector2(x, target.anchoredPosition.y),
+            endValue,
+            duration);
+    }
+
+    /// <summary>
+    /// Tweens the anchoredPosition.y of a RectTransform to the target value
+    /// </summary>
+    /// <param name="target">The RectTransform to tween</param>
+    /// <param name="endValue">Target y position</param>
+    /// <param name="duration">Duration of the tween in seconds</param>
+    /// <returns>The tween for further chaining</returns>
+    public static Tweener DOAnchorPosY(this RectTransform target, float endValue, float duration)
+    {
+        return DOTween.To(() => target.anchoredPosition.y,
+            y => target.anchoredPosition = new Vector2(target.anchoredPosition.x, y),
+            endValue,
+            duration);
+    }
+}
