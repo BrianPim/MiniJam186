@@ -42,7 +42,6 @@ public class GameManager : Singleton<GameManager>
      {
          Upgrade.EngineSpeed1,
          Upgrade.Laser1,
-         Upgrade.Shotgun,
          Upgrade.Flamethrower1,
          Upgrade.Cryo1,
          Upgrade.Lightning1
