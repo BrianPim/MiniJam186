@@ -41,6 +41,8 @@ public class TransitionUI : Singleton<TransitionUI>
         PulseScoreText(Color.green);
         TimeBonus.gameObject.SetActive(false);
         TimeBonus.localPosition = initialTimePosition;
+
+        GameManager.Instance.AddPoints(GameManager.Instance.CurrentTimeBonus);
         
         yield return new WaitForSeconds(0.2f);
         
@@ -53,6 +55,7 @@ public class TransitionUI : Singleton<TransitionUI>
         ScoreText.DOScale(1f, 1f).SetEase(Ease.OutBack);
         yield return ScoreText.DOLocalMoveY(FormerScoreY, 1f).SetEase(Ease.OutBack).WaitForCompletion();;
         
+        TimeBonus.gameObject.SetActive(true);
     }
 
     public Tween CurrentColorPulse;
@@ -115,6 +118,7 @@ public class TransitionUI : Singleton<TransitionUI>
         
             //heart.transform.DOScale(Vector3.zero, 0.2f).SetDelay(0.5f).WaitForCompletion();
         
+            GameManager.Instance.LosePoints(1000);
             PulseScoreText(Color.red);
             
             heart.gameObject.SetActive(false);

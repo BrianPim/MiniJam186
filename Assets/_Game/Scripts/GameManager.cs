@@ -35,6 +35,7 @@ public class GameManager : Singleton<GameManager>
      private bool GameInProgress;
      private bool ChoosingNewUpgrade;
      private int Score;
+     private bool InIntermission;
      
      [NonSerialized] public List<Upgrade> IntermissionUpgradeOptions = new();
      
@@ -48,6 +49,8 @@ public class GameManager : Singleton<GameManager>
      };
      
      public int GetScore => Score;
+
+     
 
      protected override void Awake()
      {
@@ -163,6 +166,7 @@ public class GameManager : Singleton<GameManager>
              Debug.Log($"startup level {level.LevelName}");
              LevelProgress = i;
              ResetDeaths();
+             ResetTimeBonus();
              UpdateTotalProgress();
 
              HudManager.Instance.Toast(level.LevelName);
@@ -279,6 +283,7 @@ public class GameManager : Singleton<GameManager>
      }
 
      public int DeathsThisLevel;
+     public int CurrentTimeBonus;
      
      /// <summary>
      /// Indicate the score and what events changed the score. show it going down and up here.
@@ -288,10 +293,13 @@ public class GameManager : Singleton<GameManager>
      IEnumerator LevelTransition(string levelName)
      {
          //Debug.Log("transition on the way to the ");
+         InIntermission = true;
+         
          HudManager.Instance.Toast($"{levelName} complete");
          yield return new WaitForSeconds(2);
 
          yield return TransitionUI.Instance.DoTallying(DeathsThisLevel);
+         ResetTimeBonus();
          
          
          HandleIntermissionUpgrade();
@@ -302,6 +310,7 @@ public class GameManager : Singleton<GameManager>
          }
          
          yield return new WaitForSeconds(1);
+         InIntermission = false;
      }
 
      public Color GetElementColor(Element element)
@@ -313,10 +322,36 @@ public class GameManager : Singleton<GameManager>
      {
          if (!GameInProgress)
              return;
+
+         if (InIntermission) return;
+         
+         TimeBonusDecrementTimer += Time.deltaTime;
+         float interval = 1.5f;
+         if (TimeBonusDecrementTimer > interval)
+         {
+             TimeBonusDecrementTimer -= interval;
+             
+             CurrentTimeBonus -= 10;
+             HudManager.Instance.SetTimeBonusText(CurrentTimeBonus);
+         }
      }
+
+     public void ResetTimeBonus()
+     {
+         CurrentTimeBonus = 1000;
+         TimeBonusDecrementTimer = 0;
+         HudManager.Instance.SetTimeBonusText(CurrentTimeBonus);
+         HudManager.Instance.TimeBonusText.gameObject.SetActive(true);
+     }
+
+     private float TimeBonusDecrementTimer;
 
      public void AddPoints(int points)
      {
          Score += points;
+     }
+     public void LosePoints(int points)
+     {
+         Score = Mathf.Max(Score - points, 0);
      }
 }

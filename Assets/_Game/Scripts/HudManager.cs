@@ -259,4 +259,10 @@ public class HudManager : Singleton<HudManager>
             image.transform.rotation = Quaternion.identity;
         }
     }
+
+    public TMP_Text TimeBonusText;
+    public void SetTimeBonusText(int timeBonus)
+    {
+        TimeBonusText.text = timeBonus.ToString();
+    }
 }
