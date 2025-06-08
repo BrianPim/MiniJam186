@@ -18,12 +18,10 @@ public enum Upgrade
         EngineSpeed1,
         EngineSpeed2,
         EngineSpeed3,
-        LaserDamage1,
-        LaserDamage2,
-        LaserDamage3,
-        LaserCooldown1,
-        LaserCooldown2,
-        LaserCooldown3,
+        Laser1,
+        Laser2,
+        Laser3,
+        Shotgun,
         Flamethrower1,
         Flamethrower2,
         Flamethrower3,
@@ -33,7 +31,6 @@ public enum Upgrade
         Lightning1,
         Lightning2,
         Lightning3,
-        Shotgun,
         AddShip1,
         AddShip2
     }
@@ -190,11 +187,11 @@ public enum Upgrade
         {
             get
             {
-                if (Upgrades.Contains(Upgrade.LaserCooldown3))
+                if (Upgrades.Contains(Upgrade.Laser3))
                     return LaserCooldown3Modifier;
-                if (Upgrades.Contains(Upgrade.LaserCooldown2))
+                if (Upgrades.Contains(Upgrade.Laser2))
                     return LaserCooldown2Modifier;
-                if (Upgrades.Contains(Upgrade.LaserCooldown1))
+                if (Upgrades.Contains(Upgrade.Laser1))
                     return LaserCooldown1Modifier;
 
                 return 1;
@@ -205,11 +202,11 @@ public enum Upgrade
         {
             get
             {
-                if (Upgrades.Contains(Upgrade.LaserDamage3))
+                if (Upgrades.Contains(Upgrade.Laser3))
                     return LaserDamage3Modifier;
-                if (Upgrades.Contains(Upgrade.LaserDamage2))
+                if (Upgrades.Contains(Upgrade.Laser2))
                     return LaserDamage2Modifier;
-                if (Upgrades.Contains(Upgrade.LaserDamage1))
+                if (Upgrades.Contains(Upgrade.Laser1))
                     return LaserDamage1Modifier;
 
                 return 1;
@@ -689,6 +686,11 @@ public enum Upgrade
             HudManager.Instance.UpdateWeaponWheel(oldIndex);
         }
 
+        public void AddUpgrade(Upgrade upgrade)
+        {
+            Upgrades.Add(upgrade);
+        }
+
         public Volume DeadVolume;
         void DoRevive()
         {
@@ -710,8 +712,6 @@ public enum Upgrade
             MusicPlayer.Instance.SetDead(false);
             DeadVolume.DoFade(0, 1.0f);
         }
-
-        
     }
 
     public static class DoTweenExtensions

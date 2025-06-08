@@ -19,7 +19,7 @@ public class GameManager : Singleton<GameManager>
      
      [Serializable]
      public class BackdropInstance
-     { 
+     {
          public Background Type; 
          public Parallax Image;
      }
@@ -35,7 +35,19 @@ public class GameManager : Singleton<GameManager>
      private bool GameInProgress;
      private bool Paused;
      private int Score;
-    
+     
+     [NonSerialized] public List<Upgrade> IntermissionUpgradeOptions = new List<Upgrade>();
+     
+     private List<Upgrade> UpgradePool = new List<Upgrade>
+     {
+         Upgrade.EngineSpeed1,
+         Upgrade.Laser1,
+         Upgrade.Shotgun,
+         Upgrade.Flamethrower1,
+         Upgrade.Cryo1,
+         Upgrade.Lightning1
+     };
+     
      public int GetScore => Score;
 
      protected override void Awake()
@@ -81,6 +93,48 @@ public class GameManager : Singleton<GameManager>
          }
     
          StartCoroutine(GameTransition());
+     }
+
+     public void HandleAddUpgrade(Upgrade upgrade)
+     {
+         IntermissionUpgradeOptions.Clear();
+         UpgradePool.Remove(upgrade);
+         
+         Player.AddUpgrade(upgrade);
+
+         switch (upgrade)
+         {
+             case Upgrade.EngineSpeed1:
+                 UpgradePool.Add(Upgrade.EngineSpeed2);
+                 break;
+             case Upgrade.EngineSpeed2:
+                 UpgradePool.Add(Upgrade.EngineSpeed3);
+                 break;
+             case Upgrade.Laser1:
+                 UpgradePool.Add(Upgrade.Laser2);
+                 break;
+             case Upgrade.Laser2:
+                 UpgradePool.Add(Upgrade.Laser3);
+                 break;
+             case Upgrade.Flamethrower1:
+                 UpgradePool.Add(Upgrade.Flamethrower2);
+                 break;
+             case Upgrade.Flamethrower2:
+                 UpgradePool.Add(Upgrade.Flamethrower3);
+                 break;
+             case Upgrade.Cryo1:
+                 UpgradePool.Add(Upgrade.Cryo2);
+                 break;
+             case Upgrade.Cryo2:
+                 UpgradePool.Add(Upgrade.Cryo3);
+                 break;
+             case Upgrade.Lightning1:
+                 UpgradePool.Add(Upgrade.Lightning2);
+                 break;
+             case Upgrade.Lightning2:
+                 UpgradePool.Add(Upgrade.Lightning3);
+                 break;
+         }
      }
 
      private IEnumerator GameProgression()

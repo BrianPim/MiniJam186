@@ -170,6 +170,8 @@ namespace Enemies
         
         public void TakeDamage(float damage, Element element, Color textColor, float textSizeMultiplier = 1)
         {
+            if (Destroying) return;
+            
             var pulseText = Instantiate(GameManager.Instance.PulseTextPrefab, transform.position + Vector3.up, Quaternion.identity);
             pulseText.ShowText(damage.ToString(), textColor, textSizeMultiplier);
 
