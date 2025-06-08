@@ -342,8 +342,12 @@ public enum Upgrade
         }
         #endregion
 
+        public bool IsDead => Health <= 0;
+
         private void Awake()
         {
+            Animator.SetInteger("life", Health);
+            
             FlamethrowerCone.gameObject.SetActive(false);
 
             PlayerDodge.started += Dodge;
@@ -355,6 +359,8 @@ public enum Upgrade
 
         private void Update()
         {
+            if (IsDead) return;
+            
             if (CurrentLaserCooldown > 0)
                 CurrentLaserCooldown -= Time.deltaTime;
             
@@ -393,6 +399,12 @@ public enum Upgrade
 
         private void FixedUpdate()
         {
+            if (IsDead)
+            {
+                RigidBody.linearVelocity = Vector2.zero;
+                return;
+            }
+            
             RigidBody.linearVelocity = BaseShipSpeed * SpeedModifier * InputDirection;
 
             if (CurrentDodgeCooldown > 0)
@@ -430,7 +442,7 @@ public enum Upgrade
                 //do death stuff
                 Animator.SetTrigger("die");
                 SfxDeath.Play();
-                
+                StopShooting(default);
                 
             }
             else
@@ -446,6 +458,7 @@ public enum Upgrade
 
         private void StartShooting(InputAction.CallbackContext CallbackContext)
         {
+            if (IsDead) return;
             IsShooting = true;
         }
         
@@ -598,6 +611,7 @@ public enum Upgrade
         
         private void NextWeapon(InputAction.CallbackContext CallbackContext)
         {
+            if (IsDead) return;
             if (!AllowSwitchWeapons) return;
             
             var oldIndex = CurrentWeaponIndex;
