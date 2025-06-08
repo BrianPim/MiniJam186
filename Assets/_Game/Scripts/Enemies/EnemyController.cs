@@ -172,6 +172,8 @@ namespace Enemies
         {
             var pulseText = Instantiate(GameManager.Instance.PulseTextPrefab, transform.position + Vector3.up, Quaternion.identity);
             pulseText.ShowText(damage.ToString(), textColor, textSizeMultiplier);
+
+            
             
             Health -= damage;
 
@@ -231,6 +233,14 @@ namespace Enemies
                 EvolutionManager.Instance.Increment(element);
                 EnemySpawner.Instance.AddDifficulty();
 				EnemyDirector.Instance.EnemyKilled();
+
+                int pointOnKill = 100;
+                
+                GameManager.Instance.AddPoints(pointOnKill);
+                
+                var pulseText = Instantiate(GameManager.Instance.PulseTextPrefab, transform.position + Vector3.up, Quaternion.identity);
+                pulseText.ShowText(pointOnKill.ToString(), Color.white, 1.5f);
+                
             }
         }
 

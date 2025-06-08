@@ -2,10 +2,15 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using CamLib;
+using DG.Tweening;
+using DG.Tweening.Core;
+using DG.Tweening.Plugins.Options;
 using Enemies;
+using JetBrains.Annotations;
 using Projectiles;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.Rendering;
 using UnityEngine.Rendering.Universal;
 
 public enum Upgrade
@@ -139,6 +144,7 @@ public enum Upgrade
         public AudioSource SfxDeath;
         public AudioSource SfxShoot;
         public ParticleSystem ParticlesShoot;
+        public GameObject ReviveHeart;
         
         [SerializeField] private int Health = BaseHealth;
         
@@ -443,7 +449,8 @@ public enum Upgrade
                 Animator.SetTrigger("die");
                 SfxDeath.Play();
                 StopShooting(default);
-                
+
+                DoRevive();
             }
             else
             {
@@ -655,4 +662,40 @@ public enum Upgrade
             
             HudManager.Instance.UpdateWeaponWheel(oldIndex);
         }
+
+        public Volume DeadVolume;
+        void DoRevive()
+        {
+            ReviveHeart.SetActive(true);
+            //ReviveHeart.SetActive(true);
+            ReviveHeart.transform.localPosition = Vector2.up * 10;
+            ReviveHeart.transform.DOLocalMoveY(0, 2).OnComplete(Revive).SetDelay(1);
+            
+            MusicPlayer.Instance.SetDead(true);
+            DeadVolume.DoFade(1, 0.5f);
+        }
+
+        private void Revive()
+        {
+            Health = 3;
+            ReviveHeart.SetActive(false);
+            Animator.SetTrigger("revive");
+            Animator.SetInteger("life", Health);
+            MusicPlayer.Instance.SetDead(false);
+            DeadVolume.DoFade(0, 1.0f);
+        }
+
+        
     }
+
+    public static class DoTweenExtensions
+    {
+        [PublicAPI]
+        public static TweenerCore<float, float, FloatOptions> DoFade(this Volume target, float endValue, float duration, bool snapping = false)
+        {
+            TweenerCore<float, float, FloatOptions> t = DOTween.To(() => target.weight, x => target.weight = x, endValue, duration);
+            t.SetOptions(snapping).SetTarget(target);
+            return t;
+        }
+    }
+    

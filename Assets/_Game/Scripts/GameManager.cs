@@ -205,4 +205,9 @@ public class GameManager : Singleton<GameManager>
          if (!GameInProgress || Paused)
              return;
      }
+
+     public void AddPoints(int points)
+     {
+         Score += points;
+     }
 }

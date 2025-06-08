@@ -577,11 +577,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1c794f384d26064488aca8a3c9a388dd, type: 3}
---- !u!4 &496940217 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 808389474059267810, guid: 6711241985aa9fd4586b49c970f72cba, type: 3}
-  m_PrefabInstance: {fileID: 8716514652169848618}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &545536916
 GameObject:
   m_ObjectHideFlags: 0
@@ -1281,6 +1276,14 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4524916538866108424, guid: 0267d77326db4254cb1e8e9be11ffdbc, type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+    - target: {fileID: 4524916538866108424, guid: 0267d77326db4254cb1e8e9be11ffdbc, type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
     - target: {fileID: 8949619889714235390, guid: 0267d77326db4254cb1e8e9be11ffdbc, type: 3}
       propertyPath: m_LocalRotation.w
       value: 1
@@ -1858,11 +1861,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1746386192}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!4 &1899835302 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 8911947395663735257, guid: 6711241985aa9fd4586b49c970f72cba, type: 3}
-  m_PrefabInstance: {fileID: 8716514652169848618}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1928824083
 GameObject:
   m_ObjectHideFlags: 0
@@ -2137,14 +2135,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 5061986772107053975, guid: 6711241985aa9fd4586b49c970f72cba, type: 3}
-      propertyPath: Prefabs.Array.data[2].SpawnEnd
-      value: 
-      objectReference: {fileID: 1899835302}
-    - target: {fileID: 5061986772107053975, guid: 6711241985aa9fd4586b49c970f72cba, type: 3}
-      propertyPath: Prefabs.Array.data[2].SpawnStart
-      value: 
-      objectReference: {fileID: 496940217}
     - target: {fileID: 5389687261718080916, guid: 6711241985aa9fd4586b49c970f72cba, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
