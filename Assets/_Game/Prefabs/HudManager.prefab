@@ -261,6 +261,69 @@ RectTransform:
   m_AnchoredPosition: {x: 10, y: 10}
   m_SizeDelta: {x: 200, y: 200}
   m_Pivot: {x: 0, y: 0}
+--- !u!1 &1229078914410451144
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1167528337711094492}
+  - component: {fileID: 5891658772977754877}
+  m_Layer: 0
+  m_Name: HorizontalLayoutGroup
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1167528337711094492
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1229078914410451144}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 7405451041317403087}
+  - {fileID: 9130809731517099077}
+  - {fileID: 5671330453194983193}
+  m_Father: {fileID: 5946696206059874718}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: -1100, y: -500}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &5891658772977754877
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1229078914410451144}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8a8695521f0d02e499659fee002a26c2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Padding:
+    m_Left: 0
+    m_Right: 0
+    m_Top: 0
+    m_Bottom: 50
+  m_ChildAlignment: 4
+  m_StartCorner: 0
+  m_StartAxis: 0
+  m_CellSize: {x: 100, y: 100}
+  m_Spacing: {x: 275, y: 0}
+  m_Constraint: 2
+  m_ConstraintCount: 1
 --- !u!1 &1726787150198491456
 GameObject:
   m_ObjectHideFlags: 0
@@ -336,69 +399,6 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!1 &1229078914410451144
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1167528337711094492}
-  - component: {fileID: 5891658772977754877}
-  m_Layer: 0
-  m_Name: HorizontalLayoutGroup
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!224 &1167528337711094492
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1229078914410451144}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 7405451041317403087}
-  - {fileID: 9130809731517099077}
-  - {fileID: 5671330453194983193}
-  m_Father: {fileID: 5946696206059874718}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: -1100, y: -500}
-  m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &5891658772977754877
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1229078914410451144}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8a8695521f0d02e499659fee002a26c2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Padding:
-    m_Left: 0
-    m_Right: 0
-    m_Top: 0
-    m_Bottom: 50
-  m_ChildAlignment: 4
-  m_StartCorner: 0
-  m_StartAxis: 0
-  m_CellSize: {x: 100, y: 100}
-  m_Spacing: {x: 275, y: 0}
-  m_Constraint: 2
-  m_ConstraintCount: 1
 --- !u!1 &2863304577508954075
 GameObject:
   m_ObjectHideFlags: 0
@@ -673,17 +673,17 @@ MonoBehaviour:
       smoke detector.
   - Upgrade: 10
     Sprite: {fileID: 0}
-    NameText: Cryo Beam I
-    DescriptionText: Freezes enemies just enough to ruin their day but not their weekend
-      plans.
+    NameText: Cryo Gun I
+    DescriptionText: Freezes enemies just enough to ruin their day but not their
+      weekend plans.
   - Upgrade: 11
     Sprite: {fileID: 0}
-    NameText: Cryo Beam II
+    NameText: Cryo Gun II
     DescriptionText: "Delivers a brisk chill and passive-aggressive frostbite. Sweaters
       won\u2019t help."
   - Upgrade: 12
     Sprite: {fileID: 0}
-    NameText: Cryo Beam III
+    NameText: Cryo Gun III
     DescriptionText: Summons the wrath of a thousand angry snowmen. Expect sudden
       blizzards. And regret.
   - Upgrade: 13
@@ -698,8 +698,8 @@ MonoBehaviour:
   - Upgrade: 15
     Sprite: {fileID: 0}
     NameText: Lightning Gun III
-    DescriptionText: So powerful, it zaps the past, present, and maybe even your save
-      file. Use responsibly.
+    DescriptionText: So powerful, it zaps the past, present, and maybe even your
+      save file. Use responsibly.
 --- !u!1 &3105952673008326506
 GameObject:
   m_ObjectHideFlags: 0
@@ -2354,8 +2354,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: 120
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: da01103203b11094aaf89bb4b4401e6b, type: 2}
-  m_sharedMaterial: {fileID: 22634519082732182, guid: da01103203b11094aaf89bb4b4401e6b, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -2601,8 +2601,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: 12
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: da01103203b11094aaf89bb4b4401e6b, type: 2}
-  m_sharedMaterial: {fileID: 22634519082732182, guid: da01103203b11094aaf89bb4b4401e6b, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []

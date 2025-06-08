@@ -45,7 +45,6 @@ namespace Enemies
         
         [NonSerialized] public float MoveSpeedModifier = 1f;
         [NonSerialized] public bool InFlamethrower;
-        [NonSerialized] public bool InCryoBeam;
 
         [NonSerialized] public bool BlockActions = true;
         [NonSerialized] public bool BlockMovement;
@@ -79,7 +78,7 @@ namespace Enemies
         {
             if (CooldownRemaining > 0)
             {
-                CooldownRemaining -= Time.deltaTime;
+                CooldownRemaining -= Time.deltaTime / FrozenSlowModifier;
             }
             else if (!BlockActions && EnemyBehaviour && EnemyBehaviour.AllowedToDoAction())
             {
@@ -111,12 +110,19 @@ namespace Enemies
                 if (FrozenDurationRemaining > 0)
                 {
                     FrozenDurationRemaining -= Time.deltaTime;
-                    FrozenSlowModifier = 1f;
                 }
                 else
                 {
                     FrozenStacks--;
-                    FrozenDurationRemaining = FrozenStackDuration;
+
+                    if (FrozenStacks == 0)
+                    {
+                        FrozenSlowModifier = 1f;
+                    }
+                    else
+                    {
+                        FrozenDurationRemaining = FrozenStackDuration;
+                    }
                 }
             }
         }
@@ -213,12 +219,13 @@ namespace Enemies
             OnFireStacks = MaxOnFireStacks;
             OnFireDurationRemaining = OnFireStackDuration;
         }
-        
-        public void HitByCryo(float damageTaken, float frozenModifier)
+
+        public void HitByCryo(float frozenModifier)
         {
-            TakeDamage(damageTaken, Element.Ice, GameManager.Instance.GetElementColor(Element.Ice));
+            if (FrozenStacks < MaxFrozenStacks) 
+                FrozenStacks++;
+
             FrozenSlowModifier = frozenModifier;
-            FrozenStacks = MaxFrozenStacks;
             FrozenDurationRemaining = FrozenStackDuration;
         }
 
@@ -241,9 +248,6 @@ namespace Enemies
         {
             Destroying = true;
 
-
-            
-            
             //Animator.SetTrigger("die");
             //SfxSuckDefeat.Play();
             

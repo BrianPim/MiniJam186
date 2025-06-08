@@ -5639,6 +5639,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   LaserProjectile: {fileID: 7486861143885982337, guid: 7ec57344c78370247bc0718be3dff684, type: 3}
+  CryoProjectile: {fileID: 7486861143885982337, guid: 8fc437ebb9692af4791348d46d0c88e7, type: 3}
   LightningProjectile: {fileID: 7486861143885982337, guid: 1045422ab91c4974d8c23f45f5790a07, type: 3}
   PlayerMovement:
     m_Name: Player Movement
@@ -5850,7 +5851,7 @@ MonoBehaviour:
   IFramesDuration: 0.5
   DodgeModifier: 5
   DodgeDuration: 0.1
-  Upgrades: 
+  Upgrades: 0a000000
   DeadVolume: {fileID: 1315568836930854994}
 --- !u!50 &6269474084448481967
 Rigidbody2D:

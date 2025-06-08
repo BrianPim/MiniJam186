@@ -50,14 +50,14 @@ public enum Upgrade
         private const float Speed3Modifier = 1.6f;
         
         private const float BaseDodgeModifier = 5f;
-        private const float BaseDodgeDuration = .1f;
+        private const float BaseDodgeDuration = 0.1f;
 
         //Lasers
-        private const float BaseLaserCooldown = .33f;
+        private const float BaseLaserCooldown = 0.33f;
 
-        private const float LaserCooldown1Modifier = .75f;
-        private const float LaserCooldown2Modifier = .5f;
-        private const float LaserCooldown3Modifier = .25f;
+        private const float LaserCooldown1Modifier = 0.75f;
+        private const float LaserCooldown2Modifier = 0.5f;
+        private const float LaserCooldown3Modifier = 0.25f;
 
         private const float LaserDamage1Modifier = 1.25f;
         private const float LaserDamage2Modifier = 1.5f;
@@ -67,7 +67,7 @@ public enum Upgrade
         private const int ShotgunHowMany = 3;
         
         //Flamethrower
-        private const float BaseFlamethrowerDamageCooldown = .2f;
+        private const float BaseFlamethrowerDamageCooldown = 0.2f;
         private const float BaseFlamethrowerDamage = 4f;
         
         private const float FlamethrowerDamage1Modifier = 1f;
@@ -83,27 +83,26 @@ public enum Upgrade
         private const float FlamethrowerConeAngle3Modifier = 45f;
         
         //Cryo
-        private const float BaseCryoDamageCooldown = .2f;
-        private const float BaseCryoDamage = 4f;
+        private const float BaseCryoCooldown = 0.5f;
         
+        private const float CryoCooldown1Modifier = 0.8f;
+        private const float CryoCooldown2Modifier = 0.6f;
+        private const float CryoCooldown3Modifier = 0.4f;
+
         private const float CryoDamage1Modifier = 1f;
         private const float CryoDamage2Modifier = 1.5f;
         private const float CryoDamage3Modifier = 2f;
         
-        private const float CryoFrozen1Modifier = .75f;
-        private const float CryoFrozen2Modifier = .5f;
-        private const float CryoFrozen3Modifier = .25f;
-        
-        private const float CryoCircleCastRadius1Modifier = .5f;
-        private const float CryoCircleCastRadius2Modifier = 1f;
-        private const float CryoCircleCastRadius3Modifier = 1.5f;
-        
-        private const float CryoCircleCastRange = 100f;
+        private const float CryoFrozen1Modifier = 0.75f;
+        private const float CryoFrozen2Modifier = 0.5f;
+        private const float CryoFrozen3Modifier = 0.25f;
         
         //Lightning
-        private const float LightningCooldown1Modifier = .75f;
-        private const float LightningCooldown2Modifier = .5f;
-        private const float LightningCooldown3Modifier = .25f;
+        private const float BaseLightningCooldown = 0.5f;
+        
+        private const float LightningCooldown1Modifier = 0.8f;
+        private const float LightningCooldown2Modifier = 0.6f;
+        private const float LightningCooldown3Modifier = 0.4f;
 
         private const float LightningDamage1Modifier = 1f;
         private const float LightningDamage2Modifier = 1.5f;
@@ -118,6 +117,7 @@ public enum Upgrade
         //Prefabs
         //-------------------------------------------
         public ProjectileLaser LaserProjectile;
+        public ProjectileCryo CryoProjectile;
         public ProjectileLightning LightningProjectile;
         //-------------------------------------------
 
@@ -153,18 +153,19 @@ public enum Upgrade
         [SerializeField] private float DodgeModifier = BaseDodgeModifier;
         [SerializeField] private float DodgeDuration = BaseDodgeDuration;
         
-        public List<Upgrade> Upgrades = new List<Upgrade>();
+        public List<Upgrade> Upgrades = new();
 
         private int CurrentWeaponIndex;
 
         private Vector2 InputDirection = Vector2.zero;
         private float CurrentLaserCooldown;
         private float CurrentFlamethrowerDamageCooldown;
-        private float CurrentCryoDamageCooldown;
+        private float CurrentCryoCooldown;
         private float CurrentLightningCooldown;
         private float CurrentDodgeCooldown;
         private bool IsShooting;
         private bool Invincible;
+        private bool AllowShootInput = true;
         private bool AllowSwitchWeapons = true;
 
         #region Modifiers
@@ -273,6 +274,21 @@ public enum Upgrade
             }
         }
         
+        private float CryoCooldownModifier
+        {
+            get
+            {
+                if (Upgrades.Contains(Upgrade.Cryo3))
+                    return CryoCooldown3Modifier;
+                if (Upgrades.Contains(Upgrade.Cryo2))
+                    return CryoCooldown2Modifier;
+                if (Upgrades.Contains(Upgrade.Cryo1))
+                    return CryoCooldown1Modifier;
+
+                return 0;
+            }
+        }
+        
         private float CryoFrozenModifier
         {
             get
@@ -287,22 +303,7 @@ public enum Upgrade
                 return 0;
             }
         }
-        
-        private float CryoCircleCastRadiusModifier
-        {
-            get
-            {
-                if (Upgrades.Contains(Upgrade.Cryo3))
-                    return CryoCircleCastRadius3Modifier;
-                if (Upgrades.Contains(Upgrade.Cryo2))
-                    return CryoCircleCastRadius2Modifier;
-                if (Upgrades.Contains(Upgrade.Cryo1))
-                    return CryoCircleCastRadius1Modifier;
 
-                return 0;
-            }
-        }
-        
         private float LightningCooldownModifier
         {
             get
@@ -374,8 +375,8 @@ public enum Upgrade
             if (CurrentFlamethrowerDamageCooldown > 0)
                 CurrentFlamethrowerDamageCooldown -= Time.deltaTime;
             
-            if (CurrentCryoDamageCooldown > 0)
-                CurrentCryoDamageCooldown -= Time.deltaTime;
+            if (CurrentCryoCooldown > 0)
+                CurrentCryoCooldown -= Time.deltaTime;
             
             if (CurrentLightningCooldown > 0)
                 CurrentLightningCooldown -= Time.deltaTime;
@@ -385,7 +386,7 @@ public enum Upgrade
 
             InputDirection = PlayerMovement.ReadValue<Vector2>();
 
-            if (IsShooting) Shoot();
+            if (IsShooting && AllowShootInput) Shoot();
         }
 
         private void OnEnable()
@@ -520,9 +521,13 @@ public enum Upgrade
         private void StopShooting(InputAction.CallbackContext CallbackContext)
         {
             IsShooting = false;
-            Animator.SetBool("shooting", false);
-            FlamethrowerCone.gameObject.SetActive(false);
-            //disable cryo laser
+
+            //Flamethrower
+            if (CurrentWeaponIndex == 1)
+            {
+                Animator.SetBool("shooting", false);
+                FlamethrowerCone.gameObject.SetActive(false);
+            }
         }
 
         private void ShootLaser()
@@ -596,26 +601,34 @@ public enum Upgrade
 
         private void ShootCryoGun()
         {
-            if (CurrentCryoDamageCooldown > 0)
+            if (CurrentCryoCooldown > 0)
                 return;
             
-            Animator.SetTrigger("shoot");
-            
-            RaycastHit2D[] results = Physics2D.CircleCastAll(transform.position, CryoCircleCastRadiusModifier, Vector3.right, CryoCircleCastRange, LayerMask.GetMask("Enemy"));
-
-            foreach (var hit in results)
+            IEnumerator ShootCryoRoutine()
             {
-                if (!hit.collider) continue;
-
-                hit.transform.gameObject.TryGetComponent<EnemyController>(out var enemy);
-
-                if (enemy)
+                AllowShootInput = false;
+                
+                Animator.SetBool("shooting", true);
+                
+                for (int i = 0; i < 3; i++)
                 {
-                    enemy.HitByCryo(BaseCryoDamage * CryoDamageModifier, CryoFrozenModifier);
+                    var cryo = Instantiate(CryoProjectile);
+                    cryo.transform.position = ProjectileSpawnPosition.position;
+
+                    var direction = Vector2.right;
+
+                    cryo.Setup(direction.normalized, CryoDamageModifier, CryoFrozenModifier);
+
+                    yield return new WaitForSeconds(.1f);
                 }
+                
+                Animator.SetBool("false", true);
+                
+                AllowShootInput = true;
+                CurrentCryoCooldown = BaseCryoCooldown * CryoCooldownModifier;
             }
 
-            CurrentCryoDamageCooldown = BaseCryoDamageCooldown;
+            StartCoroutine(ShootCryoRoutine());
         }
 
         private void ShootLightningGun()
@@ -632,7 +645,12 @@ public enum Upgrade
 
             lightning.Setup(direction.normalized, LightningDamageModifier, LightningChainModifier);
 
-            CurrentLightningCooldown = LightningCooldownModifier;
+            CurrentLightningCooldown = BaseLightningCooldown * LightningCooldownModifier;
+        }
+        
+        public void SetAllowShootInput(bool allow)
+        {
+            AllowShootInput = allow;
         }
 
         public void SetAllowSwitchWeapons(bool allow)
