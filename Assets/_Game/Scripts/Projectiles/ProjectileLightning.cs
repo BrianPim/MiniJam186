@@ -8,7 +8,7 @@ namespace Projectiles
 {
     public class ProjectileLightning : Projectile
     {
-        [NonSerialized] private float HitElectricEnemyModifier = 0.5f;
+        [SerializeField] private float HitElectricEnemyModifier = 0.5f;
         
         private List<EnemyController> IllegalTargets = new List<EnemyController>();
         private int Chain;

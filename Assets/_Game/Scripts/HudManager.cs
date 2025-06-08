@@ -201,6 +201,7 @@ public class HudManager : Singleton<HudManager>
         if (show)
         {
             UpgradeScreen.SetActive(true);
+            GameManager.Instance.Player.SetAllowShootInput(false);
 
             if (refresh)
             {
@@ -224,6 +225,7 @@ public class HudManager : Singleton<HudManager>
         else
         {
             UpgradeScreen.SetActive(false);
+            GameManager.Instance.Player.SetAllowShootInput(true);
         }
     }
 
@@ -231,21 +233,21 @@ public class HudManager : Singleton<HudManager>
     {
         GameManager.Instance.HandleAddUpgrade(GameManager.Instance.IntermissionUpgradeOptions[0]);
         
-        UpgradeScreen.SetActive(false);
+        ShowUpgradeScreen(false);
     }
 
     public void ChooseUpgrade2()
     {
         GameManager.Instance.HandleAddUpgrade(GameManager.Instance.IntermissionUpgradeOptions[1]);
         
-        UpgradeScreen.SetActive(false);
+        ShowUpgradeScreen(false);
     }
 
     public void ChooseUpgrade3()
     {
         GameManager.Instance.HandleAddUpgrade(GameManager.Instance.IntermissionUpgradeOptions[2]);
         
-        UpgradeScreen.SetActive(false);
+        ShowUpgradeScreen(false);
     }
 
     private void LateUpdate()
