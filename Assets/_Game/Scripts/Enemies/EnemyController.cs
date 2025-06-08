@@ -13,7 +13,6 @@ namespace Enemies
         private const float BaseMovementSpeed = 10000f;
         private const float BaseActionCooldownDuration = 2f;
         private const float BaseAttackDistance = 50f;
-        private const float BaseSpawnMoveSpeedModifier = 2f;
         
         private const int MaxOnFireStacks = 10;
         private const float OnFireStackDuration = 1;
@@ -38,7 +37,7 @@ namespace Enemies
         public Rigidbody2D Rigidbody;
         public Transform ProjectileSpawnPosition;
         
-        [NonSerialized] public float MoveSpeedModifier = BaseSpawnMoveSpeedModifier;
+        [NonSerialized] public float MoveSpeedModifier = 1f;
         [NonSerialized] public bool InFlamethrower;
         [NonSerialized] public bool InCryoBeam;
 
@@ -151,7 +150,6 @@ namespace Enemies
         {
             SpawnComplete = true;
             BlockActions = false;
-            MoveSpeedModifier = 1f;
             
             if (EnemyBehaviour) EnemyBehaviour.OnSpawnComplete();
         }
@@ -189,6 +187,11 @@ namespace Enemies
             else
             {
                 SfxHurt.Play();
+
+                if (EnemyBehaviour)
+                {
+                    EnemyBehaviour.OnTakeDamage();
+                }
             }
         }
         
@@ -240,6 +243,11 @@ namespace Enemies
                 EvolutionManager.Instance.Increment(element);
                 EnemySpawner.Instance.AddDifficulty();
 				EnemyDirector.Instance.EnemyKilled();
+
+                if (EnemySpawner.Instance.ShouldSpawnBrain())
+                {
+                    EnemySpawner.Instance.SpawnEnemy(EnemyType.BrainShip);
+                }
 
                 int pointOnKill = 100;
                 

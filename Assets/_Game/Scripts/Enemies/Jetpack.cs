@@ -1,6 +1,7 @@
 using System.Collections;
 using Projectiles;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 namespace Enemies
 {
@@ -10,6 +11,13 @@ namespace Enemies
     public class Jetpack : EnemyBehaviour
     {
         public EnemyProjectile Projectile;
+
+        public override void OnTakeDamage()
+        {
+            base.OnTakeDamage();
+
+            TargetPlace = EnemyGroup.Instance.GetNextSpot();
+        }
 
         public override bool AllowedToDoAction()
         {

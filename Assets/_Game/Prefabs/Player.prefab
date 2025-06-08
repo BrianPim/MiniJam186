@@ -5839,6 +5839,7 @@ MonoBehaviour:
   RigidBody: {fileID: 6269474084448481967}
   ProjectileSpawnPosition: {fileID: 231321374078173079}
   Animator: {fileID: 845251487082182840}
+  MeshRenderer: {fileID: 5226075027261085195}
   FlamethrowerCone: {fileID: 188932435914398394}
   SfxHurt: {fileID: 4650752101390773118}
   SfxDeath: {fileID: 2224067370787371135}
@@ -5846,6 +5847,7 @@ MonoBehaviour:
   ParticlesShoot: {fileID: 6076710468938084453}
   ReviveHeart: {fileID: 367008202171371681}
   Health: 3
+  IFramesDuration: 0.5
   DodgeModifier: 5
   DodgeDuration: 0.1
   Upgrades: 0f0000001000000011000000

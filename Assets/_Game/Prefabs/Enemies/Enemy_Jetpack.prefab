@@ -21,6 +21,10 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5791156330443965231, guid: ed52ef1d45e80eb448c217ec766061f3, type: 3}
+      propertyPath: MoveSpeed
+      value: 20000
+      objectReference: {fileID: 0}
+    - target: {fileID: 5791156330443965231, guid: ed52ef1d45e80eb448c217ec766061f3, type: 3}
       propertyPath: ActionCooldownDuration
       value: 3
       objectReference: {fileID: 0}
@@ -113,3 +117,4 @@ MonoBehaviour:
   Controller: {fileID: 477033870813443680}
   JoinFormation: 1
   Projectile: {fileID: 1076423153678231504, guid: f60949fa16c1d844aba8ceda33b75c54, type: 3}
+  DurationAtPosition: 2

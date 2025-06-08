@@ -43,6 +43,7 @@ public enum Upgrade
         //-------------------------------------------
 
         private const int BaseHealth = 3;
+        private const float BaseIFramesDuration = 0.5f;
         
         //Speed
         private const float BaseShipSpeed = 5f;
@@ -135,6 +136,7 @@ public enum Upgrade
         public Rigidbody2D RigidBody;
         public Transform ProjectileSpawnPosition;
         public Animator Animator;
+        public MeshRenderer MeshRenderer;
 
         public Light2D FlamethrowerCone;
 
@@ -147,6 +149,7 @@ public enum Upgrade
         public GameObject ReviveHeart;
         
         [SerializeField] private int Health = BaseHealth;
+        [SerializeField] private float IFramesDuration = BaseIFramesDuration;
         
         [Space]
         
@@ -164,6 +167,7 @@ public enum Upgrade
         private float CurrentLightningCooldown;
         private float CurrentDodgeCooldown;
         private bool IsShooting;
+        private bool Invincible;
         private bool AllowSwitchWeapons = true;
 
         #region Modifiers
@@ -223,7 +227,7 @@ public enum Upgrade
                 if (Upgrades.Contains(Upgrade.Flamethrower1))
                     return FlamethrowerDamage1Modifier;
 
-                return 1;
+                return 0;
             }
         }
         
@@ -238,7 +242,7 @@ public enum Upgrade
                 if (Upgrades.Contains(Upgrade.Flamethrower1))
                     return FlamethrowerConeDistance1Modifier;
 
-                return 1;
+                return 0;
             }
         }
         
@@ -253,7 +257,7 @@ public enum Upgrade
                 if (Upgrades.Contains(Upgrade.Flamethrower1))
                     return FlamethrowerConeAngle1Modifier;
 
-                return 1;
+                return 0;
             }
         }
         
@@ -268,7 +272,7 @@ public enum Upgrade
                 if (Upgrades.Contains(Upgrade.Cryo1))
                     return CryoDamage1Modifier;
 
-                return 1;
+                return 0;
             }
         }
         
@@ -283,7 +287,7 @@ public enum Upgrade
                 if (Upgrades.Contains(Upgrade.Cryo1))
                     return CryoFrozen1Modifier;
 
-                return 1;
+                return 0;
             }
         }
         
@@ -298,7 +302,7 @@ public enum Upgrade
                 if (Upgrades.Contains(Upgrade.Cryo1))
                     return CryoCircleCastRadius1Modifier;
 
-                return .5f;
+                return 0;
             }
         }
         
@@ -313,7 +317,7 @@ public enum Upgrade
                 if (Upgrades.Contains(Upgrade.Lightning1))
                     return LightningCooldown1Modifier;
 
-                return 1;
+                return 100;
             }
         }
 
@@ -328,7 +332,7 @@ public enum Upgrade
                 if (Upgrades.Contains(Upgrade.Lightning1))
                     return LightningDamage1Modifier;
 
-                return 1;
+                return 0;
             }
         }
         
@@ -343,7 +347,7 @@ public enum Upgrade
                 if (Upgrades.Contains(Upgrade.Lightning1))
                     return LightningChain1Modifier;
 
-                return 1;
+                return 0;
             }
         }
         #endregion
@@ -437,6 +441,28 @@ public enum Upgrade
 
         public void TakeDamage(int damage)
         {
+            IEnumerator IFrames()
+            {
+                Invincible = true;
+                
+                float elapsed = 0;
+
+                while (elapsed < IFramesDuration)
+                {
+                    MeshRenderer.enabled = !MeshRenderer.enabled;
+
+                    elapsed += .1f;
+                    yield return new WaitForSeconds(.1f);
+                }
+
+                MeshRenderer.enabled = true;
+                Invincible = false;
+            }
+            
+            if (Invincible) return;
+
+            StartCoroutine(IFrames());
+            
             Health -= damage;
 
             Animator.SetInteger("life", Health);
