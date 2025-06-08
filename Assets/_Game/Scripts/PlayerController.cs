@@ -477,7 +477,14 @@ public enum Upgrade
                 StopShooting(default);
                 GameManager.Instance.AddDeath();
 
-                DoRevive();
+                IEnumerator UpgradeDelayRoutine()
+                {
+                    yield return new WaitForSeconds(2f);
+                    
+                    GameManager.Instance.HandleUpgradeStart();
+                }
+
+                StartCoroutine(UpgradeDelayRoutine());
             }
             else
             {
@@ -736,7 +743,8 @@ public enum Upgrade
         }
 
         public Volume DeadVolume;
-        void DoRevive()
+        
+        public void DoRevive()
         {
             ReviveHeart.SetActive(true);
             //ReviveHeart.SetActive(true);

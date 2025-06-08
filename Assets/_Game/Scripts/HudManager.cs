@@ -207,12 +207,12 @@ public class HudManager : Singleton<HudManager>
             {
                 for (int i = 0; i < 3; i++)
                 {
-                    if (GameManager.Instance.IntermissionUpgradeOptions.Count <= i)
+                    if (GameManager.Instance.CurrentUpgradeOptions.Count <= i)
                     {
                         UpgradeScreenPanels[i].SetActive(false);
                     }
                     
-                    UpgradePanelData data = UpgradePanelDataList.Find(p => p.Upgrade == GameManager.Instance.IntermissionUpgradeOptions[i]);
+                    UpgradePanelData data = UpgradePanelDataList.Find(p => p.Upgrade == GameManager.Instance.CurrentUpgradeOptions[i]);
 
                     UpgradeScreenImages[i].sprite = data.Sprite;
                     UpgradeScreenNameTexts[i].text = data.NameText;
@@ -231,21 +231,21 @@ public class HudManager : Singleton<HudManager>
 
     public void ChooseUpgrade1()
     {
-        GameManager.Instance.HandleAddUpgrade(GameManager.Instance.IntermissionUpgradeOptions[0]);
+        GameManager.Instance.HandleUpgradeEnd(GameManager.Instance.CurrentUpgradeOptions[0]);
         
         ShowUpgradeScreen(false);
     }
 
     public void ChooseUpgrade2()
     {
-        GameManager.Instance.HandleAddUpgrade(GameManager.Instance.IntermissionUpgradeOptions[1]);
+        GameManager.Instance.HandleUpgradeEnd(GameManager.Instance.CurrentUpgradeOptions[1]);
         
         ShowUpgradeScreen(false);
     }
 
     public void ChooseUpgrade3()
     {
-        GameManager.Instance.HandleAddUpgrade(GameManager.Instance.IntermissionUpgradeOptions[2]);
+        GameManager.Instance.HandleUpgradeEnd(GameManager.Instance.CurrentUpgradeOptions[2]);
         
         ShowUpgradeScreen(false);
     }

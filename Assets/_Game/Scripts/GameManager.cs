@@ -37,7 +37,7 @@ public class GameManager : Singleton<GameManager>
      private int Score;
      private bool InIntermission;
      
-     [NonSerialized] public List<Upgrade> IntermissionUpgradeOptions = new();
+     [NonSerialized] public List<Upgrade> CurrentUpgradeOptions = new();
      
      private List<Upgrade> UpgradePool = new()
      {
@@ -49,9 +49,7 @@ public class GameManager : Singleton<GameManager>
      };
      
      public int GetScore => Score;
-
      
-
      protected override void Awake()
      {
          base.Awake();
@@ -97,7 +95,7 @@ public class GameManager : Singleton<GameManager>
          StartCoroutine(GameTransition());
      }
 
-     public void HandleIntermissionUpgrade()
+     public void HandleUpgradeStart()
      {
          ChoosingNewUpgrade = true;
 
@@ -107,20 +105,25 @@ public class GameManager : Singleton<GameManager>
          {
              if (UpgradePool.Count <= i) break;
              
-             IntermissionUpgradeOptions.Add(UpgradePool[i]);
+             CurrentUpgradeOptions.Add(UpgradePool[i]);
          }
 
          HudManager.Instance.ShowUpgradeScreen(true);
      }
 
-     public void HandleAddUpgrade(Upgrade upgrade)
+     public void HandleUpgradeEnd(Upgrade upgrade)
      {
-         IntermissionUpgradeOptions.Clear();
+         CurrentUpgradeOptions.Clear();
          UpgradePool.Remove(upgrade);
          
          Player.AddUpgrade(upgrade);
 
          ChoosingNewUpgrade = false;
+
+         if (Player.IsDead)
+         {
+             Player.DoRevive();
+         }
 
          switch (upgrade)
          {
@@ -306,7 +309,7 @@ public class GameManager : Singleton<GameManager>
          //skip picking an upgrade if we won
          if (!lastOne)
          {
-             HandleIntermissionUpgrade();
+             HandleUpgradeStart();
              while (ChoosingNewUpgrade)
              {
                  yield return null;
