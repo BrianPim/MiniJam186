@@ -8,6 +8,7 @@ using DG.Tweening.Plugins.Options;
 using Enemies;
 using JetBrains.Annotations;
 using Projectiles;
+using Spine.Unity;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.Rendering;
@@ -45,9 +46,9 @@ public enum Upgrade
         //Speed
         private const float BaseShipSpeed = 5f;
 
-        private const float Speed1Modifier = 1.2f;
-        private const float Speed2Modifier = 1.4f;
-        private const float Speed3Modifier = 1.6f;
+        private const float Speed1Modifier = 1.25f;
+        private const float Speed2Modifier = 1.5f;
+        private const float Speed3Modifier = 1.75f;
         
         private const float BaseDodgeModifier = 5f;
         private const float BaseDodgeDuration = 0.1f;
@@ -133,6 +134,7 @@ public enum Upgrade
         public Rigidbody2D RigidBody;
         public Transform ProjectileSpawnPosition;
         public Animator Animator;
+        public SkeletonMecanim Skeleton;
         public MeshRenderer MeshRenderer;
 
         public Light2D FlamethrowerCone;
@@ -529,6 +531,18 @@ public enum Upgrade
                 FlamethrowerCone.gameObject.SetActive(false);
             }
         }
+        
+        private void StopShooting()
+        {
+            IsShooting = false;
+            Animator.SetBool("shooting", false);
+
+            //Flamethrower
+            if (CurrentWeaponIndex == 1)
+            {
+                FlamethrowerCone.gameObject.SetActive(false);
+            }
+        }
 
         private void ShootLaser()
         {
@@ -662,6 +676,8 @@ public enum Upgrade
         {
             if (IsDead) return;
             if (!AllowSwitchWeapons) return;
+
+            StopShooting();
             
             var oldIndex = CurrentWeaponIndex;
             
@@ -672,36 +688,45 @@ public enum Upgrade
             else
             {
                 CurrentWeaponIndex++;
-
-                //This can go inside this condition because we don't need to consider the switch if CurrentWeaponIndex is 0.
-                switch (CurrentWeaponIndex)
-                {
-                    case 1: //Flamethrower
-                        if (!Upgrades.Contains(Upgrade.Flamethrower1))
-                        {
-                            NextWeapon(CallbackContext);
-                        }
-
-                        break;
-
-                    case 2: //Cryo
-                        if (!Upgrades.Contains(Upgrade.Cryo1))
-                        {
-                            NextWeapon(CallbackContext);
-                        }
-
-                        break;
-
-                    case 3: //Lightning
-                        if (!Upgrades.Contains(Upgrade.Lightning1))
-                        {
-                            NextWeapon(CallbackContext);
-                        }
-
-                        break;
-                }
             }
             
+            switch (CurrentWeaponIndex)
+            {
+                case 1: //Flamethrower
+                    if (!Upgrades.Contains(Upgrade.Flamethrower1))
+                    {
+                        NextWeapon(CallbackContext);
+                        return;
+                    }
+                    Skeleton.Skeleton.SetSkin("Flamethrower");
+                    Skeleton.Skeleton.SetToSetupPose();
+                    break;
+
+                case 2: //Cryo
+                    if (!Upgrades.Contains(Upgrade.Cryo1))
+                    {
+                        NextWeapon(CallbackContext);
+                        return;
+                    }
+                    Skeleton.Skeleton.SetSkin("Cryo_Gun");
+                    Skeleton.Skeleton.SetToSetupPose();
+                    break;
+
+                case 3: //Lightning
+                    if (!Upgrades.Contains(Upgrade.Lightning1))
+                    {
+                        NextWeapon(CallbackContext);
+                        return;
+                    }
+                    Skeleton.Skeleton.SetSkin("Elec_Gun");
+                    Skeleton.Skeleton.SetToSetupPose();
+                    break;
+                default:
+                    Skeleton.Skeleton.SetSkin("Default_Gun");
+                    Skeleton.Skeleton.SetToSetupPose();
+                    break;
+            }
+
             HudManager.Instance.UpdateWeaponWheel(oldIndex);
         }
 
