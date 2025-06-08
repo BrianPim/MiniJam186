@@ -1,8 +1,11 @@
 using System.Collections;
 using CamLib;
 using DG.Tweening;
+using DG.Tweening.Core;
+using DG.Tweening.Plugins.Options;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 /// <summary>
 /// Take the score, and chunk in some things.
@@ -12,6 +15,7 @@ public class TransitionUI : Singleton<TransitionUI>
     public float FormerScoreY;
         
     public RectTransform ScoreText;
+    public Image ScoreBG;
         
     public GameObject DeathsRoot;
     public RectTransform DeathsText;
@@ -27,108 +31,91 @@ public class TransitionUI : Singleton<TransitionUI>
         FormerScoreY = ScoreText.localPosition.y;
         Vector3 initialTimePosition = TimeBonus.localPosition;
         Vector3 initialDeathPosition = DeathsText.localPosition;
+        
+        //dropdown score
+        ScoreText.DOScale(2f, 1f).SetEase(Ease.OutBack);
+        yield return ScoreText.DOLocalMoveY(FormerScoreY - 500f, 1f).SetEase(Ease.OutBack).WaitForCompletion();
 
-        // Create sequence
-        Sequence sequence = DOTween.Sequence();
-
-        // Move score text down
-        sequence.Append(ScoreText.DOLocalMoveY(FormerScoreY - 100f, 0.5f).SetEase(Ease.OutBack));
-
-        // Show bonus elements
-        sequence.AppendCallback(() => 
+        //time bonus
+        yield return TimeBonus.DOMove(ScoreText.position, 1f).SetEase(Ease.InBack).WaitForCompletion();;
+        PulseScoreText(Color.green);
+        TimeBonus.gameObject.SetActive(false);
+        TimeBonus.localPosition = initialTimePosition;
+        
+        yield return new WaitForSeconds(0.2f);
+        
+        if (deathCount > 0)
         {
-            TimeBonus.gameObject.SetActive(true);
-            DeathsRoot.SetActive(true);
-        });
-
-        // Move time bonus to score
-        sequence.Append(TimeBonus.DOMove(ScoreText.position, 0.7f).SetEase(Ease.InBack)
-            .OnComplete(() =>
-            {
-                PulseScoreText(Color.green);
-                TimeBonus.gameObject.SetActive(false);
-            }));
-
-        // Short pause
-        sequence.AppendInterval(0.3f);
-
-        // Spawn and animate hearts
-        sequence.AppendCallback(() =>
-        {
-            StartCoroutine(SpawnHearts(deathCount));
-        });
-
-        // Move deaths text to score
-        sequence.Append(DeathsText.DOMove(ScoreText.position, 0.7f).SetEase(Ease.InBack)
-            .OnComplete(() =>
-            {
-                PulseScoreText(Color.red);
-                DeathsRoot.SetActive(false);
-            }));
-
-        // Wait for sequence to complete
-        yield return sequence.WaitForCompletion();
+            yield return SpawnHearts(deathCount);
+        }
+        
+        //bring back score text
+        ScoreText.DOScale(1f, 1f).SetEase(Ease.OutBack);
+        yield return ScoreText.DOLocalMoveY(FormerScoreY, 1f).SetEase(Ease.OutBack).WaitForCompletion();;
+        
     }
 
+    public Tween CurrentColorPulse;
+    
     private void PulseScoreText(Color pulseColor)
     {
-        ScoreText.DOScale(Vector3.one * 1.2f, 0.2f)
-            .SetEase(Ease.OutBounce)
-            .OnComplete(() =>
-            {
-                var textComponent = ScoreText.GetComponent<TextMeshProUGUI>();
-                if (textComponent != null)
-                {
-                    textComponent.DOColorPulse(pulseColor, 0.2f);
-                }
-            });
+        ScoreText.DOComplete();
+        ScoreText.DOShakeScale(0.3f).SetEase(Ease.OutBounce);
+
+        
+        CurrentColorPulse?.Complete();
+        
+        ScoreBG.color = pulseColor;
+        CurrentColorPulse = ScoreBG.DOColor(Color.white, 0.5f);
     }
 
     private IEnumerator SpawnHearts(int count)
     {
+
         for (int i = 0; i < count; i++)
+        {
+            if (i == count - 1)
+            {
+                yield return StartCoroutine(HeartMovement());
+            }
+            else
+            {
+                StartCoroutine(HeartMovement());
+            }
+            
+            yield return new WaitForSeconds(0.3f);
+        }
+        
+        IEnumerator HeartMovement()
         {
             GameObject heart = Instantiate(CrackedHeartPrefab, DeathsRoot.transform);
             RectTransform heartRect = heart.GetComponent<RectTransform>();
         
             // Random starting position around the deaths text
-            float randomX = Random.Range(-50f, 50f);
-            float randomY = Random.Range(-50f, 50f);
-            heartRect.anchoredPosition = DeathsText.anchoredPosition + new Vector2(randomX, randomY);
-        
-            // Random rotation
-            heart.transform.rotation = Quaternion.Euler(0, 0, Random.Range(-30f, 30f));
-        
-            // Create heart movement sequence
-            Sequence heartSequence = DOTween.Sequence();
-        
-            // Add some floating motion
-            Vector2 midPoint = Vector2.Lerp(heartRect.anchoredPosition, ScoreText.anchoredPosition, 0.5f);
-            midPoint += new Vector2(Random.Range(-40f, 40f), Random.Range(20f, 60f));
-        
-            // Path to score with arc motion
-            heartSequence.Append(heartRect.DOAnchorPos(midPoint, 0.4f).SetEase(Ease.OutQuad))
-                        .Append(heartRect.DOAnchorPos(ScoreText.anchoredPosition, 0.3f).SetEase(Ease.InQuad));
-        
-            // Rotate during movement
-            heartSequence.Join(heart.transform.DORotate(
-                new Vector3(0, 0, Random.Range(-180f, 180f)), 
-                0.7f, 
-                RotateMode.FastBeyond360)
-            );
-        
-            // Scale down at the end
-            heartSequence.Join(heart.transform.DOScale(Vector3.zero, 0.2f).SetDelay(0.5f));
-        
-            // Trigger score pulse when heart reaches it
-            heartSequence.OnComplete(() =>
-            {
-                PulseScoreText(Color.red);
-                Destroy(heart);
-            });
+            //float randomX = Random.Range(-50f, 50f);
+            //float randomY = Random.Range(-50f, 50f);
+            heartRect.position = DeathsText.position;
+            heart.transform.rotation = Quaternion.Euler(0, 0, Random.Range(-10f, 10f));
 
-            yield return new WaitForSeconds(0.1f); // Delay between heart spawns
+            // Add some floating motion
+            Vector2 midPoint = Vector2.Lerp(heartRect.position, ScoreText.position, 0.5f);
+            midPoint += new Vector2(Random.Range(-40f, 40f), Random.Range(20f, 60f));
+            yield return heartRect.DOMove(midPoint, 0.4f).SetEase(Ease.OutQuad).WaitForCompletion();
+            
+            
+            heart.transform.DORotate(new Vector3(0, 0, Random.Range(-180f, 180f)), 0.7f, RotateMode.FastBeyond360);
+            yield return heartRect.DOMove(ScoreText.position, 0.3f).SetEase(Ease.InQuad).WaitForCompletion();;
+        
+        
+            //heart.transform.DOScale(Vector3.zero, 0.2f).SetDelay(0.5f).WaitForCompletion();
+        
+            PulseScoreText(Color.red);
+            
+            heart.gameObject.SetActive(false);
+            Destroy(heart, 1);
         }
+        
+        
     }
 }
     
@@ -174,7 +161,7 @@ public static class RectTransformExtensions
     /// <param name="endValue">Target position</param>
     /// <param name="duration">Duration of the tween in seconds</param>
     /// <returns>The tween for further chaining</returns>
-    public static Tweener DOAnchorPos(this RectTransform target, Vector2 endValue, float duration)
+    public static TweenerCore<Vector2, Vector2, VectorOptions> DOAnchorPos(this RectTransform target, Vector2 endValue, float duration)
     {
         return DOTween.To(() => target.anchoredPosition,
             x => target.anchoredPosition = x,
@@ -212,3 +199,37 @@ public static class RectTransformExtensions
             duration);
     }
 }
+
+public static class ImageExtensions
+{
+    /// <summary>
+    /// Tweens the Image's color alpha to the target value
+    /// </summary>
+    /// <param name="image">The Image component to fade</param>
+    /// <param name="endValue">Target alpha value (0-1)</param>
+    /// <param name="duration">Duration of the tween in seconds</param>
+    /// <returns>The tween for further chaining</returns>
+    public static Tweener DOFade(this Image image, float endValue, float duration)
+    {
+        return DOTween.To(() => image.color.a,
+            alpha => image.color = new Color(image.color.r, image.color.g, image.color.b, alpha),
+            endValue,
+            duration);
+    }
+
+    /// <summary>
+    /// Tweens the Image's color to the target color
+    /// </summary>
+    /// <param name="image">The Image component to tween</param>
+    /// <param name="endValue">Target color</param>
+    /// <param name="duration">Duration of the tween in seconds</param>
+    /// <returns>The tween for further chaining</returns>
+    public static Tweener DOColor(this Image image, Color endValue, float duration)
+    {
+        return DOTween.To(() => image.color,
+            color => image.color = color,
+            endValue,
+            duration);
+    }
+}
+
