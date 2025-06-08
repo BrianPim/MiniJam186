@@ -11,7 +11,7 @@ namespace Enemies
         [SerializeField] 
         private bool JoinFormation;
         
-        private Transform TargetPlace;
+        protected Transform TargetPlace;
         
         public virtual void Awake()
         {
@@ -39,6 +39,11 @@ namespace Enemies
         }
 
         public virtual void OnSpawnComplete()
+        {
+            
+        }
+        
+        public virtual void OnTakeDamage()
         {
             
         }

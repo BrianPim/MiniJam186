@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using Enemies;
@@ -7,6 +8,8 @@ namespace Projectiles
 {
     public class ProjectileLightning : Projectile
     {
+        [NonSerialized] private float HitElectricEnemyModifier = 0.5f;
+        
         private List<EnemyController> IllegalTargets = new List<EnemyController>();
         private int Chain;
         private int EnemiesHit;
@@ -23,20 +26,30 @@ namespace Projectiles
         {
             if (IllegalTargets.Contains(enemy)) return;
             
-            if (EnemiesHit < Chain)
+            if (enemy.GetElement() == Element.Electric)
             {
-                IllegalTargets.Add(enemy);
-                var newEnemy = GetNearestEnemy();
+                enemy.TakeDamage(ProjectileDamage * DamageModifier * HitElectricEnemyModifier, Element.Electric, Color.gray);
                 
-                Direction = newEnemy.transform.position - transform.position;
+                Destroy(gameObject);
             }
             else
             {
-                Destroy(gameObject);
-            }
+                enemy.TakeDamage(ProjectileDamage * DamageModifier, Element.Electric, GameManager.Instance.GetElementColor(Element.Electric));
             
-            enemy.TakeDamage(ProjectileDamage * DamageModifier, Element.Electric, GameManager.Instance.GetElementColor(Element.Electric));
-            EnemiesHit++;
+                if (EnemiesHit < Chain)
+                {
+                    IllegalTargets.Add(enemy);
+                    var newEnemy = GetNearestEnemy();
+                
+                    Direction = newEnemy.transform.position - transform.position;
+                
+                    EnemiesHit++;
+                }
+                else
+                {
+                    Destroy(gameObject);
+                }
+            }
         }
         
         //Returns the closest valid enemy target.

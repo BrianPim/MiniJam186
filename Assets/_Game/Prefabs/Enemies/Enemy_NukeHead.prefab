@@ -100,3 +100,5 @@ MonoBehaviour:
   Render: {fileID: 0}
   Controller: {fileID: 0}
   JoinFormation: 0
+  ExplosionCircleCastRadius: 2
+  ExplosionDamageToFriendlies: 50
