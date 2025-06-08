@@ -30,19 +30,24 @@ public class GameManager : Singleton<GameManager>
      [Space]
      public PulseText PulseTextPrefab;
      
+     private Dictionary<Element, Color> ElementColors = new Dictionary<Element, Color>();
+     
      private bool GameInProgress;
      private bool Paused;
      private int Score;
     
      public int GetScore => Score;
-     
-     
-     
+
      protected override void Awake()
      {
          base.Awake();
 
          Player.gameObject.SetActive(false);
+         
+         ElementColors.Add(Element.Normal, Color.white);
+         ElementColors.Add(Element.Fire, new Color(1f, 0.5f, 0.2f));
+         ElementColors.Add(Element.Ice, Color.cyan);
+         ElementColors.Add(Element.Electric, Color.yellow);
      }
     
      public void StartGame()
@@ -198,7 +203,11 @@ public class GameManager : Singleton<GameManager>
          HudManager.Instance.Toast($"{levelName} complete");
          yield return new WaitForSeconds(2);
      }
-    
+
+     public Color GetElementColor(Element element)
+     {
+         return ElementColors[element];
+     }
     
      public void Update()
      {
