@@ -229,11 +229,11 @@ public class GameManager : Singleton<GameManager>
 
      private void OnGUI()
      {
-         //return;
-         /*if (!Debug.isDebugBuild)
+         return;
+         if (!Debug.isDebugBuild)
          {
              return;
-         }*/
+         }
         // Define dimensions and positions
         float barWidth = 200f;
         float barHeight = 20f;
