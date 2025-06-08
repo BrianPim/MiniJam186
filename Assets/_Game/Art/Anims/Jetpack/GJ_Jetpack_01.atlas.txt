@@ -2,41 +2,42 @@ GJ_Jetpack_01.png
 	size: 1024, 1024
 	filter: Linear, Linear
 JP_Body1
-	bounds: 289, 664, 284, 246
+	bounds: 281, 750, 282, 243
 JP_Body2
-	bounds: 289, 412, 283, 246
+	bounds: 281, 501, 281, 243
 JP_Eye_L1
-	bounds: 579, 785, 147, 125
+	bounds: 569, 868, 146, 125
 JP_Eye_L2
-	bounds: 738, 533, 147, 125
+	bounds: 721, 868, 146, 125
 JP_Eye_R1
-	bounds: 579, 680, 99, 137
+	bounds: 569, 766, 96, 137
 	rotate: 90
 JP_Eye_R2
-	bounds: 578, 416, 96, 134
-	offsets: 2, 2, 99, 137
+	bounds: 712, 769, 93, 133
+	offsets: 1, 2, 96, 137
 	rotate: 90
 JP_LegL1
-	bounds: 732, 790, 178, 120
+	bounds: 728, 643, 174, 120
 JP_LegL2
-	bounds: 732, 664, 178, 120
+	bounds: 873, 819, 174, 120
+	rotate: 90
 JP_LegR1
-	bounds: 574, 250, 156, 145
+	bounds: 565, 339, 156, 143
 	rotate: 90
 JP_LegR2
-	bounds: 578, 518, 154, 140
+	bounds: 568, 606, 154, 138
 JP_Pack1
-	bounds: 6, 348, 277, 562
-	offsets: 1, 1, 279, 564
+	bounds: 6, 440, 269, 553
+	offsets: 2, 1, 272, 556
 JP_Pack2
-	bounds: 6, 65, 277, 562
-	offsets: 1, 1, 279, 564
+	bounds: 6, 165, 269, 553
+	offsets: 2, 1, 272, 556
 	rotate: 90
 JP_Puff1
-	bounds: 718, 426, 86, 105
-	offsets: 0, 58, 168, 175
+	bounds: 568, 515, 85, 105
+	offsets: 0, 57, 167, 173
 	rotate: 90
 JP_Puff2
-	bounds: 574, 161, 83, 98
-	offsets: 0, 50, 168, 175
+	bounds: 679, 517, 83, 98
+	offsets: 0, 49, 167, 173
 	rotate: 90
