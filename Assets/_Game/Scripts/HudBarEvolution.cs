@@ -6,6 +6,11 @@ public class HudBarEvolution : Singleton<HudBarEvolution>
 {
     public Image[] bars;
     
+    private void Start()
+    {
+        UpdateBars(new []{1f,1f,1f,1f});
+    }
+    
     //normal, fire, ice, electric
     public void UpdateBars(float[] weights)
     {

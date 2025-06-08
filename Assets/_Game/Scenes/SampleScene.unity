@@ -174,6 +174,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _doNotDestroyOnLoad: 0
   musicSource: {fileID: 12788276}
+  DeadMusic: 0
 --- !u!1 &66913314
 GameObject:
   m_ObjectHideFlags: 0
@@ -1269,38 +1270,6 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3105952672990751506, guid: 0267d77326db4254cb1e8e9be11ffdbc, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3105952674724377857, guid: 0267d77326db4254cb1e8e9be11ffdbc, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4524916538866108424, guid: 0267d77326db4254cb1e8e9be11ffdbc, type: 3}
-      propertyPath: m_fontAsset
-      value: 
-      objectReference: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-    - target: {fileID: 4524916538866108424, guid: 0267d77326db4254cb1e8e9be11ffdbc, type: 3}
-      propertyPath: m_sharedMaterial
-      value: 
-      objectReference: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-    - target: {fileID: 8949619889714235390, guid: 0267d77326db4254cb1e8e9be11ffdbc, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8949619889714235390, guid: 0267d77326db4254cb1e8e9be11ffdbc, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8949619889714235390, guid: 0267d77326db4254cb1e8e9be11ffdbc, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8949619889714235390, guid: 0267d77326db4254cb1e8e9be11ffdbc, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8949619889714235390, guid: 0267d77326db4254cb1e8e9be11ffdbc, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
