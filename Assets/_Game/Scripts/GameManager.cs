@@ -202,6 +202,8 @@ public class GameManager : Singleton<GameManager>
          //Debug.Log("transition on the way to the ");
          HudManager.Instance.Toast($"{levelName} complete");
          yield return new WaitForSeconds(2);
+
+         yield return TransitionUI.Instance.DoTallying(5);
      }
 
      public Color GetElementColor(Element element)
