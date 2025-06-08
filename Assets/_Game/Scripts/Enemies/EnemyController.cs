@@ -1,5 +1,6 @@
 using System;
 using System.Collections;
+using CamLib;
 using UnityEngine;
 
 namespace Enemies
@@ -34,6 +35,11 @@ namespace Enemies
         public EnemyBehaviour EnemyBehaviour;
         [Space]
         public Animator Animator;
+        public string AnimAction = "attack";
+        public string AnimHit = "hit";
+        public string AnimDeath = "death";
+        public float AnimDeathTiming = 0.5f;
+        
         public Rigidbody2D Rigidbody;
         public Transform ProjectileSpawnPosition;
         
@@ -161,6 +167,8 @@ namespace Enemies
 
         public void DoAction()
         {
+            SetTrigger(AnimAction);
+            
             EnemyBehaviour.DoAction();
         }
 
@@ -186,6 +194,8 @@ namespace Enemies
             }
             else
             {
+                SetTrigger(AnimHit);
+                
                 SfxHurt.Play();
 
                 if (EnemyBehaviour)
@@ -229,6 +239,9 @@ namespace Enemies
         {
             Destroying = true;
 
+
+            
+            
             //Animator.SetTrigger("die");
             //SfxSuckDefeat.Play();
             
@@ -236,7 +249,9 @@ namespace Enemies
 
             IEnumerator CoDefeated()
             {
-                yield return new WaitForSeconds(.5f);
+                SetTrigger(AnimDeath);
+                
+                yield return new WaitForSeconds(AnimDeathTiming);
 
                 Destroy(gameObject);
                 
@@ -268,6 +283,14 @@ namespace Enemies
         {
             if (GameManager.HasInstance && GameManager.Instance.Enemies.Contains(this))
                 GameManager.Instance.Enemies.Remove(this);
+        }
+
+        public void SetTrigger(string anim)
+        {
+            if (Animator && !anim.IsNullOrEmpty())
+            {
+                Animator.SetTrigger(anim);
+            }
         }
     }
 }
