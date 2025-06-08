@@ -1614,14 +1614,6 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 231321374078173079, guid: 526b15a27193945468dc10f58dbd1d4e, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0.022043705
-      objectReference: {fileID: 0}
-    - target: {fileID: 231321374078173079, guid: 526b15a27193945468dc10f58dbd1d4e, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -0.21973568
-      objectReference: {fileID: 0}
-    - target: {fileID: 231321374078173079, guid: 526b15a27193945468dc10f58dbd1d4e, type: 3}
       propertyPath: m_LocalRotation.w
       value: 0.7100643
       objectReference: {fileID: 0}
@@ -1707,11 +1699,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6269474084448481966, guid: 526b15a27193945468dc10f58dbd1d4e, type: 3}
       propertyPath: 'Upgrades.Array.data[1]'
-      value: 12
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 6269474084448481966, guid: 526b15a27193945468dc10f58dbd1d4e, type: 3}
       propertyPath: 'Upgrades.Array.data[2]'
-      value: 15
+      value: 13
       objectReference: {fileID: 0}
     - target: {fileID: 8861739009010495522, guid: 526b15a27193945468dc10f58dbd1d4e, type: 3}
       propertyPath: m_LightType

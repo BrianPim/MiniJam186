@@ -5614,7 +5614,6 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 5854451570946934951}
-  - {fileID: 8122960178272589486}
   - {fileID: 6269474084278338157}
   - {fileID: 231321374078173079}
   - {fileID: 8728730592848331767}
@@ -5852,7 +5851,7 @@ MonoBehaviour:
   IFramesDuration: 0.5
   DodgeModifier: 5
   DodgeDuration: 0.1
-  Upgrades: 0a000000
+  Upgrades: 0d000000070000000a000000
   DeadVolume: {fileID: 1315568836930854994}
 --- !u!50 &6269474084448481967
 Rigidbody2D:
@@ -6077,12 +6076,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6705355365415939528}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: -0.7071068, w: 0.7071068}
-  m_LocalPosition: {x: 0.5, y: -0.01, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0.9999913, w: 0.004191309}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 6269474084448481936}
+  m_Father: {fileID: 231321374078173079}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: -90}
 --- !u!114 &188932435914398394
 MonoBehaviour:
@@ -6340,10 +6339,11 @@ Transform:
   m_GameObject: {fileID: 8382736311885332673}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: 0.70413685, w: 0.7100643}
-  m_LocalPosition: {x: 0.022043705, y: -0.21973568, z: 0}
+  m_LocalPosition: {x: 1.1549997, y: -0.418, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 8122960178272589486}
   m_Father: {fileID: 6269474084448481936}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &3346504980242006535
@@ -6360,7 +6360,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   skeletonRenderer: {fileID: 3810261644456530910}
   boneName: weapon1
-  followXYPosition: 1
+  followXYPosition: 0
   followZPosition: 1
   followBoneRotation: 1
   followSkeletonFlip: 1

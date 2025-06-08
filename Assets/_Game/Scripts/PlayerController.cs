@@ -643,7 +643,8 @@ public enum Upgrade
                     yield return new WaitForSeconds(.1f);
                 }
                 
-                Animator.SetBool("false", true);
+                if (!IsShooting) 
+                    Animator.SetBool("shooting", false);
                 
                 AllowShootInput = true;
                 CurrentCryoCooldown = BaseCryoCooldown * CryoCooldownModifier;
