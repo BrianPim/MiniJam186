@@ -45,44 +45,24 @@ public class TransitionUI : Singleton<TransitionUI>
         sequence.Append(TimeBonus.DOMove(ScoreText.position, 0.7f).SetEase(Ease.InBack)
             .OnComplete(() =>
             {
-                // Pulse effect when merged
-                ScoreText.DOScale(Vector3.one * 1.2f, 0.2f)
-                    .SetEase(Ease.OutBounce)
-                    .OnComplete(() =>
-                    {
-                        // Color pulse
-                        var textComponent = ScoreText.GetComponent<TextMeshProUGUI>();
-                        if (textComponent != null)
-                        {
-                            DOTween.Sequence()
-                                .Append(textComponent.DOColor(Color.green, 0.2f))
-                                .Append(textComponent.DOColor(Color.white, 0.2f));
-                        }
-                    });
+                PulseScoreText(Color.green);
                 TimeBonus.gameObject.SetActive(false);
             }));
 
         // Short pause
         sequence.AppendInterval(0.3f);
 
+        // Spawn and animate hearts
+        sequence.AppendCallback(() =>
+        {
+            StartCoroutine(SpawnHearts(deathCount));
+        });
+
         // Move deaths text to score
         sequence.Append(DeathsText.DOMove(ScoreText.position, 0.7f).SetEase(Ease.InBack)
             .OnComplete(() =>
             {
-                // Pulse effect when merged
-                ScoreText.DOScale(Vector3.one * 1.2f, 0.2f)
-                    .SetEase(Ease.OutBounce)
-                    .OnComplete(() =>
-                    {
-                        // Color pulse
-                        var textComponent = ScoreText.GetComponent<TextMeshProUGUI>();
-                        if (textComponent != null)
-                        {
-                            DOTween.Sequence()
-                                .Append(textComponent.DOColor(Color.red, 0.2f))
-                                .Append(textComponent.DOColor(Color.white, 0.2f));
-                        }
-                    });
+                PulseScoreText(Color.red);
                 DeathsRoot.SetActive(false);
             }));
 
@@ -90,6 +70,66 @@ public class TransitionUI : Singleton<TransitionUI>
         yield return sequence.WaitForCompletion();
     }
 
+    private void PulseScoreText(Color pulseColor)
+    {
+        ScoreText.DOScale(Vector3.one * 1.2f, 0.2f)
+            .SetEase(Ease.OutBounce)
+            .OnComplete(() =>
+            {
+                var textComponent = ScoreText.GetComponent<TextMeshProUGUI>();
+                if (textComponent != null)
+                {
+                    textComponent.DOColorPulse(pulseColor, 0.2f);
+                }
+            });
+    }
+
+    private IEnumerator SpawnHearts(int count)
+    {
+        for (int i = 0; i < count; i++)
+        {
+            GameObject heart = Instantiate(CrackedHeartPrefab, DeathsRoot.transform);
+            RectTransform heartRect = heart.GetComponent<RectTransform>();
+        
+            // Random starting position around the deaths text
+            float randomX = Random.Range(-50f, 50f);
+            float randomY = Random.Range(-50f, 50f);
+            heartRect.anchoredPosition = DeathsText.anchoredPosition + new Vector2(randomX, randomY);
+        
+            // Random rotation
+            heart.transform.rotation = Quaternion.Euler(0, 0, Random.Range(-30f, 30f));
+        
+            // Create heart movement sequence
+            Sequence heartSequence = DOTween.Sequence();
+        
+            // Add some floating motion
+            Vector2 midPoint = Vector2.Lerp(heartRect.anchoredPosition, ScoreText.anchoredPosition, 0.5f);
+            midPoint += new Vector2(Random.Range(-40f, 40f), Random.Range(20f, 60f));
+        
+            // Path to score with arc motion
+            heartSequence.Append(heartRect.DOAnchorPos(midPoint, 0.4f).SetEase(Ease.OutQuad))
+                        .Append(heartRect.DOAnchorPos(ScoreText.anchoredPosition, 0.3f).SetEase(Ease.InQuad));
+        
+            // Rotate during movement
+            heartSequence.Join(heart.transform.DORotate(
+                new Vector3(0, 0, Random.Range(-180f, 180f)), 
+                0.7f, 
+                RotateMode.FastBeyond360)
+            );
+        
+            // Scale down at the end
+            heartSequence.Join(heart.transform.DOScale(Vector3.zero, 0.2f).SetDelay(0.5f));
+        
+            // Trigger score pulse when heart reaches it
+            heartSequence.OnComplete(() =>
+            {
+                PulseScoreText(Color.red);
+                Destroy(heart);
+            });
+
+            yield return new WaitForSeconds(0.1f); // Delay between heart spawns
+        }
+    }
 }
     
 public static class TextMeshProExtensions
