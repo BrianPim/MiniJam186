@@ -46,7 +46,7 @@ namespace Projectiles
         {
             var player = collision.GetComponent<PlayerController>();
 
-            if (player == null || !Active)
+            if (player == null || !Active || player.IsDead)
                 return;
 
             OnHit();
