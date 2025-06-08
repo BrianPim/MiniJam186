@@ -24,7 +24,7 @@ public class MusicPlayer : Singleton<MusicPlayer>
 
     private void Update()
     {
-        musicSource.pitch = Mathf.SmoothDamp(musicSource.pitch, target, ref vel, 300f * Time.deltaTime);
+        musicSource.pitch = Mathf.SmoothDamp(musicSource.pitch, target, ref vel, 100f * Time.deltaTime);
     }
 
     public void SetDead(bool dead)
