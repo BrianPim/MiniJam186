@@ -465,6 +465,78 @@ Transform:
   m_Children: []
   m_Father: {fileID: 860742339}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &364024162
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 364024164}
+  - component: {fileID: 364024163}
+  m_Layer: 0
+  m_Name: FinalRankingManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &364024163
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 364024162}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8818fd59f7f447efa9a16a628f0eaa0a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _doNotDestroyOnLoad: 0
+  Rankings:
+  - Rank: D-
+    ScoreThreshold: 0
+  - Rank: D
+    ScoreThreshold: 1000
+  - Rank: D+
+    ScoreThreshold: 2000
+  - Rank: C-
+    ScoreThreshold: 3000
+  - Rank: C
+    ScoreThreshold: 4000
+  - Rank: C+
+    ScoreThreshold: 5000
+  - Rank: B-
+    ScoreThreshold: 6000
+  - Rank: B
+    ScoreThreshold: 7000
+  - Rank: B+
+    ScoreThreshold: 8000
+  - Rank: A-
+    ScoreThreshold: 9000
+  - Rank: A
+    ScoreThreshold: 10000
+  - Rank: A+
+    ScoreThreshold: 11000
+  - Rank: S
+    ScoreThreshold: 12000
+--- !u!4 &364024164
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 364024162}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &389484346
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2379,3 +2451,4 @@ SceneRoots:
   - {fileID: 1744085481}
   - {fileID: 923813933}
   - {fileID: 751434404}
+  - {fileID: 364024164}
