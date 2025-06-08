@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: f19d412506b5278448d256e5ebe1895a
+guid: 41479e094bd45ae47b6df644d38963be
 TrueTypeFontImporter:
   externalObjects: {}
   serializedVersion: 4
@@ -9,7 +9,7 @@ TrueTypeFontImporter:
   characterPadding: 1
   includeFontData: 1
   fontNames:
-  - Jersey 10
+  - Permanent Marker
   fallbackFontReferences: []
   customCharacters: 
   fontRenderingMode: 0

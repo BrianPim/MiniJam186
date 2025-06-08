@@ -206,7 +206,7 @@ public class HudManager : Singleton<HudManager>
             {
                 for (int i = 0; i < 3; i++)
                 {
-                    if (GameManager.Instance.IntermissionUpgradeOptions.Count >= i)
+                    if (GameManager.Instance.IntermissionUpgradeOptions.Count <= i)
                     {
                         UpgradeScreenPanels[i].SetActive(false);
                     }

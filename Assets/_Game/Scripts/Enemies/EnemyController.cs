@@ -100,7 +100,7 @@ namespace Enemies
                 }
                 else
                 {
-                    TakeDamage(OnFireChipDamage, Element.Fire, Color.red, 0.75f);
+                    TakeDamage(OnFireChipDamage, Element.Fire, GameManager.Instance.GetElementColor(Element.Fire), 0.75f);
                     OnFireStacks--;
                     OnFireDurationRemaining = OnFireStackDuration;
                 }

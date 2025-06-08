@@ -24,21 +24,21 @@ public class GameManager : Singleton<GameManager>
          public Parallax Image;
      }
 
-     public List<EnemyController> Enemies = new List<EnemyController>();
+     public List<EnemyController> Enemies = new();
      
      public LevelInfos Levels;
      [Space]
      public PulseText PulseTextPrefab;
      
-     private Dictionary<Element, Color> ElementColors = new Dictionary<Element, Color>();
+     private Dictionary<Element, Color> ElementColors = new();
      
      private bool GameInProgress;
-     private bool Paused;
+     private bool ChoosingNewUpgrade;
      private int Score;
      
-     [NonSerialized] public List<Upgrade> IntermissionUpgradeOptions = new List<Upgrade>();
+     [NonSerialized] public List<Upgrade> IntermissionUpgradeOptions = new();
      
-     private List<Upgrade> UpgradePool = new List<Upgrade>
+     private List<Upgrade> UpgradePool = new()
      {
          Upgrade.EngineSpeed1,
          Upgrade.Laser1,
@@ -95,12 +95,30 @@ public class GameManager : Singleton<GameManager>
          StartCoroutine(GameTransition());
      }
 
+     public void HandleIntermissionUpgrade()
+     {
+         ChoosingNewUpgrade = true;
+
+         UpgradePool.Shuffle();
+         
+         for (int i = 0; i < 3; i++)
+         {
+             if (UpgradePool.Count <= i) break;
+             
+             IntermissionUpgradeOptions.Add(UpgradePool[i]);
+         }
+
+         HudManager.Instance.ShowUpgradeScreen(true);
+     }
+
      public void HandleAddUpgrade(Upgrade upgrade)
      {
          IntermissionUpgradeOptions.Clear();
          UpgradePool.Remove(upgrade);
          
          Player.AddUpgrade(upgrade);
+
+         ChoosingNewUpgrade = false;
 
          switch (upgrade)
          {
@@ -115,6 +133,7 @@ public class GameManager : Singleton<GameManager>
                  break;
              case Upgrade.Laser2:
                  UpgradePool.Add(Upgrade.Laser3);
+                 UpgradePool.Add(Upgrade.Shotgun);
                  break;
              case Upgrade.Flamethrower1:
                  UpgradePool.Add(Upgrade.Flamethrower2);
@@ -255,7 +274,15 @@ public class GameManager : Singleton<GameManager>
      {
          //Debug.Log("transition on the way to the ");
          HudManager.Instance.Toast($"{levelName} complete");
-         yield return new WaitForSeconds(2);
+         
+         HandleIntermissionUpgrade();
+
+         while (ChoosingNewUpgrade)
+         {
+             yield return null;
+         }
+         
+         yield return new WaitForSeconds(1);
      }
 
      public Color GetElementColor(Element element)
@@ -265,7 +292,7 @@ public class GameManager : Singleton<GameManager>
     
      public void Update()
      {
-         if (!GameInProgress || Paused)
+         if (!GameInProgress)
              return;
      }
 
