@@ -63,13 +63,13 @@ public class TransitionUI : Singleton<TransitionUI>
     private void PulseScoreText(Color pulseColor)
     {
         ScoreText.DOComplete();
-        ScoreText.DOShakeScale(0.3f).SetEase(Ease.OutBounce);
+        ScoreText.DOShakeScale(0.5f).SetEase(Ease.OutBounce);
 
         
         CurrentColorPulse?.Complete();
         
         ScoreBG.color = pulseColor;
-        CurrentColorPulse = ScoreBG.DOColor(Color.white, 0.5f);
+        CurrentColorPulse = ScoreBG.DOColor(Color.white, 0.5f).SetEase(Ease.InSine);
     }
 
     private IEnumerator SpawnHearts(int count)

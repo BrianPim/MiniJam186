@@ -175,8 +175,10 @@ public class GameManager : Singleton<GameManager>
 
              yield return EnemyDirector.Instance.SpawnWaves(level.Waves);
 
-             yield return LevelTransition(level.LevelName);
+             yield return LevelTransition(level.LevelName, i == Levels.Infos.Length-1);
          }
+
+         FinalRankingUI.Instance.Show(Score);
      }
 
      private void ResetDeaths()
@@ -227,11 +229,11 @@ public class GameManager : Singleton<GameManager>
 
      private void OnGUI()
      {
-         return;
-         if (!Debug.isDebugBuild)
+         //return;
+         /*if (!Debug.isDebugBuild)
          {
              return;
-         }
+         }*/
         // Define dimensions and positions
         float barWidth = 200f;
         float barHeight = 20f;
@@ -290,7 +292,7 @@ public class GameManager : Singleton<GameManager>
      /// Ask the player to pick a weapon.
      /// </summary>
      /// <returns></returns>
-     IEnumerator LevelTransition(string levelName)
+     IEnumerator LevelTransition(string levelName, bool lastOne)
      {
          //Debug.Log("transition on the way to the ");
          InIntermission = true;
@@ -300,13 +302,15 @@ public class GameManager : Singleton<GameManager>
 
          yield return TransitionUI.Instance.DoTallying(DeathsThisLevel);
          ResetTimeBonus();
-         
-         
-         HandleIntermissionUpgrade();
 
-         while (ChoosingNewUpgrade)
+         //skip picking an upgrade if we won
+         if (!lastOne)
          {
-             yield return null;
+             HandleIntermissionUpgrade();
+             while (ChoosingNewUpgrade)
+             {
+                 yield return null;
+             }
          }
          
          yield return new WaitForSeconds(1);

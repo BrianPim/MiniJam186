@@ -5,6 +5,8 @@ using CamLib;
 public class FinalRankingManager : Singleton<FinalRankingManager>
 {
     public List<Ranking> Rankings = new List<Ranking>();
+    
+    
         
     [Serializable]
     public class Ranking
