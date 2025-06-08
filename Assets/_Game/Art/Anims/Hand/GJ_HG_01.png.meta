@@ -156,6 +156,32 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WindowsStoreApps
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
@@ -634,7 +660,28 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      GJ_HG_01_0: 6050088111320746650
+      GJ_HG_01_1: -4149727086071871639
+      GJ_HG_01_10: -227547591302445916
+      GJ_HG_01_11: -5019426549086387153
+      GJ_HG_01_12: -9049211439132059775
+      GJ_HG_01_13: -954761031389542902
+      GJ_HG_01_14: 6224230648778546655
+      GJ_HG_01_15: 7102320792894862143
+      GJ_HG_01_16: -573792412228789950
+      GJ_HG_01_17: -1767883859019120718
+      GJ_HG_01_18: 8397804349076718601
+      GJ_HG_01_19: -3348769269825197277
+      GJ_HG_01_2: 3302300373423742130
+      GJ_HG_01_20: 770412640146767741
+      GJ_HG_01_3: -8306532771700740765
+      GJ_HG_01_4: -2654756298833480623
+      GJ_HG_01_5: 6890503333353928662
+      GJ_HG_01_6: -7044421417373726497
+      GJ_HG_01_7: 5384448331248111272
+      GJ_HG_01_8: 6852062011293557840
+      GJ_HG_01_9: 6979860465386237596
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

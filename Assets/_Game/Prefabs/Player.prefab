@@ -5840,6 +5840,7 @@ MonoBehaviour:
   RigidBody: {fileID: 6269474084448481967}
   ProjectileSpawnPosition: {fileID: 231321374078173079}
   Animator: {fileID: 845251487082182840}
+  Skeleton: {fileID: 3810261644456530910}
   MeshRenderer: {fileID: 5226075027261085195}
   FlamethrowerCone: {fileID: 188932435914398394}
   SfxHurt: {fileID: 4650752101390773118}
