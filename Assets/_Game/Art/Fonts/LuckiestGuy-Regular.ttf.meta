@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 6000d9e1b93bfed49bf55739547866ee
+guid: 82689051bccdf7d4db886119640ccb15
 TrueTypeFontImporter:
   externalObjects: {}
   serializedVersion: 4
@@ -9,7 +9,7 @@ TrueTypeFontImporter:
   characterPadding: 1
   includeFontData: 1
   fontNames:
-  - Pixelify Sans
+  - Luckiest Guy
   fallbackFontReferences: []
   customCharacters: 
   fontRenderingMode: 0

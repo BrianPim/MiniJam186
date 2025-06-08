@@ -3,15 +3,24 @@ using CamLib;
 using System.Collections;
 using System.Collections.Generic;
 using DG.Tweening;
+using NUnit.Framework;
 using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
+
+[Serializable]
+public class UpgradePanelData
+{
+    public Upgrade Upgrade;
+    public Sprite Sprite;
+    public string NameText;
+    public string DescriptionText;
+}
 
 public class HudManager : Singleton<HudManager>
 {
     public MainMenu MainMenu;
     [Space]
-    public Canvas GameHudCanvas;
     public Image ColourOverlay;
     [Space]
     public Transform WeaponWheelRotator;
@@ -20,9 +29,20 @@ public class HudManager : Singleton<HudManager>
     [Space] 
     public GameObject[] HideUntilGameStarts;
 
+    [Space] 
+    public GameObject UpgradeScreen;
+    public GameObject[] UpgradeScreenPanels;
+    public Image[] UpgradeScreenImages;
+    public TextMeshProUGUI[] UpgradeScreenNameTexts;
+    public TextMeshProUGUI[] UpgradeScreenDescriptionTexts;
+
     public TextMeshProUGUI ScoreText;
     
     public TMP_Text ToastText;
+    
+    [Space]
+    
+    [SerializeField] private List<UpgradePanelData> UpgradePanelDataList;
 
     private Coroutine ActiveWeaponWheelRoutine;
 
@@ -41,6 +61,8 @@ public class HudManager : Singleton<HudManager>
             image.enabled = false;
         }
         WeaponWheelImagesSelected[0].enabled = true;
+        
+        UpgradeScreen.SetActive(false);
     }
 
     public void Update()
@@ -172,6 +194,58 @@ public class HudManager : Singleton<HudManager>
         }
         
         ActiveWeaponWheelRoutine = StartCoroutine(WeaponWheelRoutine());
+    }
+
+    public void ShowUpgradeScreen(bool show, bool refresh = true)
+    {
+        if (show)
+        {
+            UpgradeScreen.SetActive(true);
+
+            if (refresh)
+            {
+                for (int i = 0; i < 3; i++)
+                {
+                    if (GameManager.Instance.IntermissionUpgradeOptions.Count <= i)
+                    {
+                        UpgradeScreenPanels[i].SetActive(false);
+                    }
+                    
+                    UpgradePanelData data = UpgradePanelDataList.Find(p => p.Upgrade == GameManager.Instance.IntermissionUpgradeOptions[i]);
+
+                    UpgradeScreenImages[i].sprite = data.Sprite;
+                    UpgradeScreenNameTexts[i].text = data.NameText;
+                    UpgradeScreenDescriptionTexts[i].text = data.DescriptionText;
+                    
+                    UpgradeScreenPanels[i].SetActive(true);
+                }
+            }
+        }
+        else
+        {
+            UpgradeScreen.SetActive(false);
+        }
+    }
+
+    public void ChooseUpgrade1()
+    {
+        GameManager.Instance.HandleAddUpgrade(GameManager.Instance.IntermissionUpgradeOptions[0]);
+        
+        UpgradeScreen.SetActive(false);
+    }
+
+    public void ChooseUpgrade2()
+    {
+        GameManager.Instance.HandleAddUpgrade(GameManager.Instance.IntermissionUpgradeOptions[1]);
+        
+        UpgradeScreen.SetActive(false);
+    }
+
+    public void ChooseUpgrade3()
+    {
+        GameManager.Instance.HandleAddUpgrade(GameManager.Instance.IntermissionUpgradeOptions[2]);
+        
+        UpgradeScreen.SetActive(false);
     }
 
     private void LateUpdate()

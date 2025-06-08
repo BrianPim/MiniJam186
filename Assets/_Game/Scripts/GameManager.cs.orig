@@ -42,6 +42,7 @@ public class GameManager : Singleton<GameManager>
      {
          Upgrade.EngineSpeed1,
          Upgrade.Laser1,
+         Upgrade.Shotgun,
          Upgrade.Flamethrower1,
          Upgrade.Cryo1,
          Upgrade.Lightning1
@@ -162,7 +163,6 @@ public class GameManager : Singleton<GameManager>
              LevelInfo level = Levels.Infos[i];
              Debug.Log($"startup level {level.LevelName}");
              LevelProgress = i;
-             ResetDeaths();
              UpdateTotalProgress();
 
              HudManager.Instance.Toast(level.LevelName);
@@ -175,20 +175,7 @@ public class GameManager : Singleton<GameManager>
          }
      }
 
-     private void ResetDeaths()
-     {
-         DeathsThisLevel = 0;
-         HudDeaths.Instance.SetDeaths(0);
-     }
-
      public float LevelProgress;
-
-     [ContextMenu("AddDeath")]
-     public void AddDeath()
-     {
-         DeathsThisLevel++;
-         HudDeaths.Instance.SetDeaths(DeathsThisLevel);
-     }
      
      public void UpdateTotalProgress()
      {
@@ -278,8 +265,6 @@ public class GameManager : Singleton<GameManager>
          }
      }
 
-     public int DeathsThisLevel;
-     
      /// <summary>
      /// Indicate the score and what events changed the score. show it going down and up here.
      /// Ask the player to pick a weapon.
@@ -289,10 +274,7 @@ public class GameManager : Singleton<GameManager>
      {
          //Debug.Log("transition on the way to the ");
          HudManager.Instance.Toast($"{levelName} complete");
-         yield return new WaitForSeconds(2);
-
-         yield return TransitionUI.Instance.DoTallying(DeathsThisLevel);
-         
+<<<<<<< HEAD
          
          HandleIntermissionUpgrade();
 
@@ -302,6 +284,11 @@ public class GameManager : Singleton<GameManager>
          }
          
          yield return new WaitForSeconds(1);
+=======
+         yield return new WaitForSeconds(2);
+
+         yield return TransitionUI.Instance.DoTallying(5);
+>>>>>>> 84ef02ce67f39b28122f76d234504c52a0e19b3b
      }
 
      public Color GetElementColor(Element element)

@@ -100,7 +100,7 @@ namespace Enemies
                 }
                 else
                 {
-                    TakeDamage(OnFireChipDamage, Element.Fire, Color.red, 0.75f);
+                    TakeDamage(OnFireChipDamage, Element.Fire, GameManager.Instance.GetElementColor(Element.Fire), 0.75f);
                     OnFireStacks--;
                     OnFireDurationRemaining = OnFireStackDuration;
                 }
@@ -178,6 +178,8 @@ namespace Enemies
         
         public void TakeDamage(float damage, Element element, Color textColor, float textSizeMultiplier = 1)
         {
+            if (Destroying) return;
+            
             var pulseText = Instantiate(GameManager.Instance.PulseTextPrefab, transform.position + Vector3.up, Quaternion.identity);
             pulseText.ShowText(damage.ToString(), textColor, textSizeMultiplier);
 
