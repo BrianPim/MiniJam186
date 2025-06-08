@@ -1,0 +1,62 @@
+GJ_HG_01.png
+	size: 2024, 212
+	filter: Linear, Linear
+1
+	bounds: 1758, 68, 27, 31
+eye_hand_idle_1/eye
+	bounds: 1957, 139, 59, 66
+	offsets: 1, 1, 61, 68
+eye_hand_idle_1/finger1
+	bounds: 1809, 107, 78, 98
+	offsets: 0, 7, 78, 105
+eye_hand_idle_1/finger2
+	bounds: 1892, 93, 112, 60
+	rotate: 90
+eye_hand_idle_1/finger3
+	bounds: 1795, 45, 110, 57
+eye_hand_idle_2/finger3
+	bounds: 1795, 45, 110, 57
+eye_hand_idle_1/finger4
+	bounds: 1709, 13, 50, 86
+eye_hand_idle_1/hand
+	bounds: 1257, 74, 131, 124
+	offsets: 1, 36, 133, 161
+	rotate: 90
+eye_hand_idle_1/thumb
+	bounds: 1588, 90, 65, 115
+eye_hand_idle_2/eye
+	bounds: 1958, 70, 60, 63
+	offsets: 1, 1, 62, 66
+eye_hand_idle_2/finger1
+	bounds: 1725, 104, 78, 101
+	offsets: 0, 4, 78, 105
+eye_hand_idle_2/finger2
+	bounds: 1659, 93, 112, 60
+	rotate: 90
+eye_hand_idle_2/finger4
+	bounds: 1569, 34, 50, 86
+	rotate: 90
+eye_hand_idle_2/hand
+	bounds: 1387, 80, 125, 122
+	offsets: 1, 38, 133, 161
+	rotate: 90
+eye_hand_idle_2/thumb
+	bounds: 1515, 88, 67, 117
+eye_hand_shoot_1/Capa 71
+	bounds: 1019, 29, 232, 176
+	offsets: 1, 1, 267, 178
+eye_hand_shoot_2/Capa 71
+	bounds: 1019, 29, 232, 176
+	offsets: 1, 1, 267, 178
+eye_hand_shoot_1/Layer 3
+	bounds: 267, 6, 255, 199
+	offsets: 1, 1, 286, 201
+eye_hand_shoot_1/Line1
+	bounds: 777, 23, 236, 182
+	offsets: 1, 1, 271, 184
+eye_hand_shoot_2/Layer 3
+	bounds: 6, 6, 255, 199
+	offsets: 1, 1, 286, 201
+eye_hand_shoot_2/Lines2
+	bounds: 528, 25, 243, 180
+	offsets: 1, 1, 274, 182
