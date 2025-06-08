@@ -12,6 +12,7 @@ public class EnemySpawner : Singleton<EnemySpawner>
     public AnimationCurve DifficultyCurve;
     public AnimationCurve BrainSpawnCurve;
 
+    public Transform EnemyDespawnPoint;
     public List<EnemyPrefab> Prefabs;
     
     [Serializable]
@@ -43,6 +44,7 @@ public class EnemySpawner : Singleton<EnemySpawner>
     public void SpawnEnemy(EnemyType enemyType)
     {
         EnemyPrefab prefab = Prefabs.Find(p => p.Type == enemyType);
+        
         EnemyController enemy = Instantiate(prefab.Prefab, prefab.SpawnPoint, Quaternion.identity);
 
         if (IsNextElemental())

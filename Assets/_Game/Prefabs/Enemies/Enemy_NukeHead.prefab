@@ -16,6 +16,14 @@ PrefabInstance:
       propertyPath: Type
       value: 5
       objectReference: {fileID: 0}
+    - target: {fileID: 5791156330443965231, guid: ed52ef1d45e80eb448c217ec766061f3, type: 3}
+      propertyPath: MoveSpeed
+      value: 1000
+      objectReference: {fileID: 0}
+    - target: {fileID: 5791156330443965231, guid: ed52ef1d45e80eb448c217ec766061f3, type: 3}
+      propertyPath: DistanceToAttackPlayer
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5814259317205686307, guid: ed52ef1d45e80eb448c217ec766061f3, type: 3}
       propertyPath: m_Sprite
       value: 
@@ -87,4 +95,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Render: {fileID: 0}
   Controller: {fileID: 0}
-  JoinFormation: 1
+  JoinFormation: 0

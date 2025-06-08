@@ -10,6 +10,22 @@ namespace Enemies
     public class Jetpack : EnemyBehaviour
     {
         public EnemyProjectile Projectile;
+
+        public override bool AllowedToDoAction()
+        {
+            var hits = Physics2D.RaycastAll(transform.position, Vector2.left, Controller.GetDistanceToAttackPlayer());
+
+            foreach(var hit in hits)
+            {
+                if (hit.collider.gameObject.layer == LayerMask.NameToLayer("Player")) 
+                {
+                    return true;
+                } 
+            }
+
+            return false;
+        }
+
         public override void DoAction()
         {
             base.DoAction();

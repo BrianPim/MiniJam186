@@ -74,14 +74,14 @@ namespace Enemies
             {
                 CooldownRemaining -= Time.deltaTime;
             }
-            else
+            else if (!BlockActions && EnemyBehaviour && EnemyBehaviour.AllowedToDoAction())
             {
                 CooldownRemaining = ActionCooldownDuration;
                 
-                if (!BlockActions && !Destroying && Vector2.Distance(GameManager.Instance.Player.transform.position, transform.position) <= DistanceToAttackPlayer)
+                if (!Destroying && Vector2.Distance(GameManager.Instance.Player.transform.position, transform.position) <= DistanceToAttackPlayer)
                 {
                     CooldownRemaining = ActionCooldownDuration;
-                    if (EnemyBehaviour) DoAction();
+                    DoAction();
                 }
             }
 
@@ -150,6 +150,8 @@ namespace Enemies
             SpawnComplete = true;
             BlockActions = false;
             MoveSpeedModifier = 1f;
+            
+            if (EnemyBehaviour) EnemyBehaviour.OnSpawnComplete();
         }
 
         public void SetOverrideDestination(Vector3 overrideDestination)
@@ -168,7 +170,7 @@ namespace Enemies
         
         public void TakeDamage(float damage, Element element, Color textColor, float textSizeMultiplier = 1)
         {
-            var pulseText = Instantiate(GameManager.Instance.PulseTextPrefab, transform.position, Quaternion.identity);
+            var pulseText = Instantiate(GameManager.Instance.PulseTextPrefab, transform.position + Vector3.up, Quaternion.identity);
             pulseText.ShowText(damage.ToString(), textColor, textSizeMultiplier);
             
             Health -= damage;
@@ -204,6 +206,11 @@ namespace Enemies
         public void BecomeElemental(Element element)
         {
             Debug.Log($"Enemy given {element}");
+        }
+
+        public float GetDistanceToAttackPlayer()
+        {
+            return DistanceToAttackPlayer;
         }
 
         public void DefeatEnemy(Element element)

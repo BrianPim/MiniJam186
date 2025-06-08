@@ -87,7 +87,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ea3986255e5858647b6777a4b2cd09ae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Health: 0
+  Health: 50
   MoveSpeed: 10000
   ActionCooldownDuration: 2
   DistanceToAttackPlayer: 50
@@ -96,10 +96,10 @@ MonoBehaviour:
   EnemyBehaviour: {fileID: 0}
   Animator: {fileID: 0}
   Rigidbody: {fileID: 8418310971456854764}
+  ProjectileSpawnPosition: {fileID: 2222854970769983633}
   SfxHurt: {fileID: 7231458133403615010}
   SfxDeath: {fileID: 6491336647712915504}
   SfxShoot: {fileID: 2132917224947027461}
-  ProjectileSpawnPosition: {fileID: 2222854970769983633}
 --- !u!50 &8418310971456854764
 Rigidbody2D:
   serializedVersion: 5

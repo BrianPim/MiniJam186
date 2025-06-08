@@ -158,6 +158,7 @@ public enum Upgrade
         private float CurrentLightningCooldown;
         private float CurrentDodgeCooldown;
         private bool IsShooting;
+        private bool AllowSwitchWeapons = true;
 
         #region Modifiers
         private float SpeedModifier
@@ -602,10 +603,16 @@ public enum Upgrade
 
             CurrentLightningCooldown = LightningCooldownModifier;
         }
+
+        public void SetAllowSwitchWeapons(bool allow)
+        {
+            AllowSwitchWeapons = allow;
+        }
         
         private void NextWeapon(InputAction.CallbackContext CallbackContext)
         {
             if (IsDead) return;
+            if (!AllowSwitchWeapons) return;
             
             var oldIndex = CurrentWeaponIndex;
             
