@@ -475,6 +475,7 @@ public enum Upgrade
                 Animator.SetTrigger("die");
                 SfxDeath.Play();
                 StopShooting(default);
+                GameManager.Instance.AddDeath();
 
                 DoRevive();
             }

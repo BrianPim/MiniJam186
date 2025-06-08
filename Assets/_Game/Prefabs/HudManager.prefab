@@ -1972,6 +1972,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6929746666416811472}
+  - component: {fileID: 6025929396425109281}
+  - component: {fileID: 8771096416398213912}
   m_Layer: 0
   m_Name: DeathsRoot
   m_TagString: Untagged
@@ -2001,6 +2003,33 @@ RectTransform:
   m_AnchoredPosition: {x: -305, y: 497.5}
   m_SizeDelta: {x: 117.6, y: 54}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &6025929396425109281
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3838656222629502260}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d6b7ceb0067b434f99823a5b7e79f311, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _doNotDestroyOnLoad: 0
+  text: {fileID: 8760034126490234866}
+  canvasGroup: {fileID: 8771096416398213912}
+--- !u!225 &8771096416398213912
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3838656222629502260}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!1 &3989565230211850996
 GameObject:
   m_ObjectHideFlags: 0

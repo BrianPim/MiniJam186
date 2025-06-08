@@ -71,9 +71,13 @@ public class TransitionUI : Singleton<TransitionUI>
 
     private IEnumerator SpawnHearts(int count)
     {
+        int deathsLeft = count;
 
         for (int i = 0; i < count; i++)
         {
+            deathsLeft--;
+            HudDeaths.Instance.SetDeathsKeepUI(deathsLeft);
+            
             if (i == count - 1)
             {
                 yield return StartCoroutine(HeartMovement());
@@ -90,6 +94,8 @@ public class TransitionUI : Singleton<TransitionUI>
         {
             GameObject heart = Instantiate(CrackedHeartPrefab, DeathsRoot.transform);
             RectTransform heartRect = heart.GetComponent<RectTransform>();
+            
+            
         
             // Random starting position around the deaths text
             //float randomX = Random.Range(-50f, 50f);

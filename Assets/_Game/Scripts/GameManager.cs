@@ -90,6 +90,7 @@ public class GameManager : Singleton<GameManager>
              LevelInfo level = Levels.Infos[i];
              Debug.Log($"startup level {level.LevelName}");
              LevelProgress = i;
+             ResetDeaths();
              UpdateTotalProgress();
 
              HudManager.Instance.Toast(level.LevelName);
@@ -102,7 +103,20 @@ public class GameManager : Singleton<GameManager>
          }
      }
 
+     private void ResetDeaths()
+     {
+         DeathsThisLevel = 0;
+         HudDeaths.Instance.SetDeaths(0);
+     }
+
      public float LevelProgress;
+
+     [ContextMenu("AddDeath")]
+     public void AddDeath()
+     {
+         DeathsThisLevel++;
+         HudDeaths.Instance.SetDeaths(DeathsThisLevel);
+     }
      
      public void UpdateTotalProgress()
      {
@@ -192,6 +206,8 @@ public class GameManager : Singleton<GameManager>
          }
      }
 
+     public int DeathsThisLevel;
+     
      /// <summary>
      /// Indicate the score and what events changed the score. show it going down and up here.
      /// Ask the player to pick a weapon.
@@ -203,7 +219,8 @@ public class GameManager : Singleton<GameManager>
          HudManager.Instance.Toast($"{levelName} complete");
          yield return new WaitForSeconds(2);
 
-         yield return TransitionUI.Instance.DoTallying(5);
+         yield return TransitionUI.Instance.DoTallying(DeathsThisLevel);
+         
      }
 
      public Color GetElementColor(Element element)
