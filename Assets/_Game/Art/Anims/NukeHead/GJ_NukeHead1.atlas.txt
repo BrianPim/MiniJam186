@@ -1,0 +1,53 @@
+GJ_NukeHead1.png
+	size: 512, 512
+	filter: Linear, Linear
+Images/body
+	bounds: 6, 6, 128, 95
+	offsets: 1, 1, 130, 97
+Images/body2
+	bounds: 140, 6, 128, 95
+	offsets: 1, 1, 130, 97
+Images/eye
+	bounds: 241, 180, 53, 51
+	offsets: 1, 1, 55, 53
+	rotate: 90
+Images/eye2
+	bounds: 242, 121, 53, 51
+	offsets: 1, 1, 55, 53
+	rotate: 90
+Images/nuke
+	bounds: 6, 107, 163, 183
+	offsets: 1, 1, 165, 185
+Images/nuke2
+	bounds: 6, 296, 164, 185
+	offsets: 1, 1, 166, 187
+Images/tentacle1
+	bounds: 175, 107, 61, 49
+	offsets: 1, 1, 63, 51
+Images/tentacle12
+	bounds: 241, 239, 61, 49
+	offsets: 1, 1, 63, 51
+	rotate: 90
+Images/tentacle2
+	bounds: 175, 229, 61, 60
+	offsets: 1, 1, 63, 62
+	rotate: 90
+Images/tentacle22
+	bounds: 175, 162, 61, 60
+	offsets: 1, 1, 63, 62
+	rotate: 90
+Images/tentacle3
+	bounds: 176, 306, 65, 33
+	offsets: 1, 1, 67, 35
+Images/tentacle32
+	bounds: 274, 50, 65, 33
+	offsets: 1, 1, 67, 35
+	rotate: 90
+Images/tentacle4
+	bounds: 176, 416, 65, 51
+	offsets: 1, 1, 67, 53
+	rotate: 90
+Images/tentacle42
+	bounds: 176, 345, 65, 51
+	offsets: 1, 1, 67, 53
+	rotate: 90
