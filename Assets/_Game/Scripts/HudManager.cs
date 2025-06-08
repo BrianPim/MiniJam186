@@ -16,7 +16,7 @@ public class HudManager : Singleton<HudManager>
     [Space]
     public Transform WeaponWheelRotator;
     public Image[] WeaponWheelImages;
-    public Image WeaponWheelSelected;
+    public Image[] WeaponWheelImagesSelected;
     [Space] 
     public GameObject[] HideUntilGameStarts;
 
@@ -35,6 +35,12 @@ public class HudManager : Singleton<HudManager>
         ToastText.transform.localScale = Vector3.zero;
 
         HideGameHud(true);
+        
+        foreach (Image image in WeaponWheelImagesSelected)
+        {
+            image.enabled = false;
+        }
+        WeaponWheelImagesSelected[0].enabled = true;
     }
 
     public void Update()
@@ -113,7 +119,12 @@ public class HudManager : Singleton<HudManager>
         
         IEnumerator WeaponWheelRoutine()
         {
-            WeaponWheelSelected.enabled = false;
+            foreach (Image image in WeaponWheelImagesSelected)
+            {
+                image.enabled = false;
+            }
+            
+            
             var targetRotation = 0f;
             
             GameManager.Instance.Player.SetAllowSwitchWeapons(false);
@@ -146,7 +157,7 @@ public class HudManager : Singleton<HudManager>
                 WeaponWheelRotator.rotation = Quaternion.identity;    
             }
             
-            WeaponWheelSelected.enabled = true;
+            WeaponWheelImagesSelected[newIndex].enabled = true;
             GameManager.Instance.Player.SetAllowSwitchWeapons(true);
         }
         
@@ -161,5 +172,17 @@ public class HudManager : Singleton<HudManager>
         }
         
         ActiveWeaponWheelRoutine = StartCoroutine(WeaponWheelRoutine());
+    }
+
+    private void LateUpdate()
+    {
+        foreach (Image image in WeaponWheelImages)
+        {
+            image.transform.rotation = Quaternion.identity;
+        }
+        foreach (Image image in WeaponWheelImagesSelected)
+        {
+            image.transform.rotation = Quaternion.identity;
+        }
     }
 }

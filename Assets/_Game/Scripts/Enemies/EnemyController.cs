@@ -175,7 +175,7 @@ namespace Enemies
             var pulseText = Instantiate(GameManager.Instance.PulseTextPrefab, transform.position + Vector3.up, Quaternion.identity);
             pulseText.ShowText(damage.ToString(), textColor, textSizeMultiplier);
 
-            
+            GameManager.Instance.AddPoints((int)damage);
             
             Health -= damage;
 

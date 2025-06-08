@@ -131,13 +131,13 @@ public class GameManager : Singleton<GameManager>
 
          ParallaxMaster.Instance.SetProgress(progress);
          MusicPlayer.Instance.SetProgress(progress);
-         
+         HudBarProgress.Instance.Set(progress);
          
      }
 
      private void OnGUI()
      {
-
+         return;
          if (!Debug.isDebugBuild)
          {
              return;
