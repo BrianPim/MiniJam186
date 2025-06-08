@@ -42,8 +42,10 @@ namespace Enemies
         [NonSerialized] public bool InFlamethrower;
         [NonSerialized] public bool InCryoBeam;
 
-        private bool BlockActions = true;
-        private bool BlockMovement;
+        [NonSerialized] public bool BlockActions = true;
+        [NonSerialized] public bool BlockMovement;
+
+        private Element Element;
         
         private Vector3 OverrideDestination;
         
@@ -192,14 +194,14 @@ namespace Enemies
         
         public void HitByFlamethrower(float damageTaken)
         {
-            TakeDamage(damageTaken, Element.Fire, Color.red);
+            TakeDamage(damageTaken, Element.Fire, GameManager.Instance.GetElementColor(Element.Fire));
             OnFireStacks = MaxOnFireStacks;
             OnFireDurationRemaining = OnFireStackDuration;
         }
         
         public void HitByCryo(float damageTaken, float frozenModifier)
         {
-            TakeDamage(damageTaken, Element.Ice, Color.cyan);
+            TakeDamage(damageTaken, Element.Ice, GameManager.Instance.GetElementColor(Element.Ice));
             FrozenSlowModifier = frozenModifier;
             FrozenStacks = MaxFrozenStacks;
             FrozenDurationRemaining = FrozenStackDuration;
@@ -207,7 +209,12 @@ namespace Enemies
 
         public void BecomeElemental(Element element)
         {
-            Debug.Log($"Enemy given {element}");
+            Element = element;
+        }
+
+        public Element GetElement()
+        {
+            return Element;
         }
 
         public float GetDistanceToAttackPlayer()
