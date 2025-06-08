@@ -1,0 +1,171 @@
+fileFormatVersion: 2
+guid: 7efdabbb458733842bfb54769855ebc4
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -4301044211079299198
+    second: GJ_NukeHead1_0
+  - first:
+      213: -8532321644127634659
+    second: GJ_NukeHead1_1
+  - first:
+      213: 3589271062049397295
+    second: GJ_NukeHead1_2
+  - first:
+      213: 4805823534038769488
+    second: GJ_NukeHead1_3
+  - first:
+      213: 2700163761388297835
+    second: GJ_NukeHead1_4
+  - first:
+      213: -8463339980805245942
+    second: GJ_NukeHead1_5
+  - first:
+      213: 4423372917086091931
+    second: GJ_NukeHead1_6
+  - first:
+      213: -3485866860038272795
+    second: GJ_NukeHead1_7
+  - first:
+      213: 5725749448783670505
+    second: GJ_NukeHead1_8
+  - first:
+      213: -6244380309477972176
+    second: GJ_NukeHead1_9
+  - first:
+      213: 1085485562476713079
+    second: GJ_NukeHead1_10
+  - first:
+      213: -7934743616663031104
+    second: GJ_NukeHead1_11
+  - first:
+      213: 4515115340186364969
+    second: GJ_NukeHead1_12
+  - first:
+      213: 2992224872342460782
+    second: GJ_NukeHead1_13
+  - first:
+      213: -5438739205899156550
+    second: GJ_NukeHead1_14
+  - first:
+      213: -5665013963184371186
+    second: GJ_NukeHead1_15
+  - first:
+      213: -6229799985092589974
+    second: GJ_NukeHead1_16
+  - first:
+      213: -2267755504065313063
+    second: GJ_NukeHead1_17
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 0
+    wrapV: 0
+    wrapW: 0
+  nPOTScale: 1
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 0
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 0
+  spriteTessellationDetail: -1
+  textureType: 0
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 1
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 1
+  spriteSheet:
+    serializedVersion: 2
+    sprites: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable: {}
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
