@@ -203,7 +203,21 @@ public class GameManager : Singleton<GameManager>
              yield return LevelTransition(level.LevelName, i == Levels.Infos.Length-1);
          }
 
+         yield return OutroScreen.DOFade(1, 1).WaitForCompletion();
+         yield return new WaitUntil(() =>
+         {
+             if (Gamepad.current != null)
+             {
+                 if (Gamepad.current.IsPressed())
+                 {
+                     return true;
+                 }
+             }
+             return Input.GetMouseButtonDown(0) || Input.anyKeyDown;
+         });
          FinalRankingUI.Instance.Show(Score);
+         //OutroScreen.DOFade(0, 1);
+         
      }
 
      private void ResetDeaths()

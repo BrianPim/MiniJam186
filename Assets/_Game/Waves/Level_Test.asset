@@ -16,4 +16,4 @@ MonoBehaviour:
   BackgroundToShow: 0
   Waves:
   - MaxOnScreen: 3
-    Enemies: 05000000
+    Enemies: 01000000
