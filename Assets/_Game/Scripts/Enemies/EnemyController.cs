@@ -236,7 +236,7 @@ namespace Enemies
         }
 
         public List<ElementParticle> ElementParticles = new List<ElementParticle>();
-        
+        public ParticleSystem CurrentElementParticles;
         
         
         public void BecomeElemental(Element element)
@@ -247,6 +247,8 @@ namespace Enemies
             ActionCooldownDuration *= 0.5f;
 
             ElementParticle part = ElementParticles.Find(p => p.element == element);
+
+            CurrentElementParticles = part.Obj.GetComponent<ParticleSystem>();
             part.Obj.SetActive(true);
         }
 
@@ -272,6 +274,11 @@ namespace Enemies
             IEnumerator CoDefeated()
             {
                 SetTrigger(AnimDeath);
+
+                if (CurrentElementParticles)
+                {
+                    CurrentElementParticles.Stop();
+                }
                 
                 yield return new WaitForSeconds(AnimDeathTiming);
 
