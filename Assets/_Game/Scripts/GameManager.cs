@@ -203,6 +203,9 @@ public class GameManager : Singleton<GameManager>
              yield return LevelTransition(level.LevelName, i == Levels.Infos.Length-1);
          }
 
+         //to disable player controls. hacky
+         Player.SetHealth(0);
+         
          yield return OutroScreen.DOFade(1, 1).WaitForCompletion();
          yield return new WaitUntil(() =>
          {
