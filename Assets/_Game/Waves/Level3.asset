@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d44d4388d59b45688f7b12c7243a22e1, type: 3}
   m_Name: Level3
   m_EditorClassIdentifier: 
-  LevelName: 3
+  LevelName: Asteroid Belt
   BackgroundToShow: 0
   Waves:
   - MaxOnScreen: 3
