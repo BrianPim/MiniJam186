@@ -693,6 +693,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: ElementParticle_Normal
       objectReference: {fileID: 0}
+    - target: {fileID: 6186412325380923868, guid: 59860d8c5acb7264faeee6b45561a8c1, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6899246136643772780, guid: 59860d8c5acb7264faeee6b45561a8c1, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -759,6 +763,10 @@ PrefabInstance:
     - target: {fileID: 6186412325380923868, guid: d85d6c92ddf47d6448c0ec7730a75f0c, type: 3}
       propertyPath: m_Name
       value: ElementParticle_Fire
+      objectReference: {fileID: 0}
+    - target: {fileID: 6186412325380923868, guid: d85d6c92ddf47d6448c0ec7730a75f0c, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6899246136643772780, guid: d85d6c92ddf47d6448c0ec7730a75f0c, type: 3}
       propertyPath: m_LocalPosition.x
@@ -827,6 +835,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: ElementParticle_Ice
       objectReference: {fileID: 0}
+    - target: {fileID: 6186412325380923868, guid: c641b4e44ccf8764aa2f15ebe71d88b1, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6899246136643772780, guid: c641b4e44ccf8764aa2f15ebe71d88b1, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -893,6 +905,10 @@ PrefabInstance:
     - target: {fileID: 6186412325380923868, guid: c76e7ca865f40b248986d0a605ec5d7d, type: 3}
       propertyPath: m_Name
       value: ElementParticle_Electric
+      objectReference: {fileID: 0}
+    - target: {fileID: 6186412325380923868, guid: c76e7ca865f40b248986d0a605ec5d7d, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6899246136643772780, guid: c76e7ca865f40b248986d0a605ec5d7d, type: 3}
       propertyPath: m_LocalPosition.x

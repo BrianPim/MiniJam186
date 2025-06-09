@@ -6,6 +6,7 @@ using DG.Tweening;
 using Enemies;
 using TMPro;
 using UnityEngine;
+using UnityEngine.InputSystem;
 using UnityEngine.UI;
 
 public class GameManager : Singleton<GameManager>
@@ -76,14 +77,23 @@ public class GameManager : Singleton<GameManager>
          {
              HudManager.Instance.FadeIntoBlack(0.5f);
              yield return new WaitForSeconds(0.5f);
-             
-             IntroScreen.DOFade(1, 0.5f);
-             yield return new WaitForSeconds(1);
-             
              HudManager.Instance.MainMenu.Canvas.enabled = false;
-             IntroScreen.DOFade(0, 1);
-
              
+             yield return IntroScreen.DOFade(1, 1).WaitForCompletion();
+             yield return new WaitUntil(() =>
+             {
+                 if (Gamepad.current != null)
+                 {
+                     if (Gamepad.current.IsPressed())
+                     {
+                         return true;
+                     }
+                 }
+                 
+                 return Input.GetMouseButtonDown(0) || Input.anyKeyDown;
+             });
+             
+             IntroScreen.DOFade(0, 1);
              
              HudManager.Instance.ActivateGameHud();
     

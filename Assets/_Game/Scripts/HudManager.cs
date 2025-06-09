@@ -77,7 +77,9 @@ public class HudManager : Singleton<HudManager>
 
     public void FadeIntoBlack(float duration)
     {
-        IEnumerator FadeRoutine()
+        ColourOverlay.DOColor(Color.black, duration);
+        
+        /*IEnumerator FadeRoutine()
         {
             ColourOverlay.color = new Color(0, 0, 0, 0);
 
@@ -91,11 +93,14 @@ public class HudManager : Singleton<HudManager>
             ColourOverlay.color = Color.black;
         }
 
-        StartCoroutine(FadeRoutine());
+        StartCoroutine(FadeRoutine());*/
     }
 
     public void FadeOutOfBlack(float duration)
     {
+        ColourOverlay.DOColor(Color.clear, duration);
+        
+        /*
         IEnumerator FadeRoutine()
         {
             ColourOverlay.color = new Color(0, 0, 0, 1);
@@ -110,7 +115,7 @@ public class HudManager : Singleton<HudManager>
             ColourOverlay.color = Color.clear;
         }
 
-        StartCoroutine(FadeRoutine());
+        StartCoroutine(FadeRoutine());*/
     }
     
     public void Toast(string msg)
