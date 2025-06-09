@@ -164,15 +164,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 176656445493565734, guid: ed52ef1d45e80eb448c217ec766061f3, type: 3}
       propertyPath: m_Radius
-      value: 0.7775697
+      value: 0.9711816
       objectReference: {fileID: 0}
     - target: {fileID: 176656445493565734, guid: ed52ef1d45e80eb448c217ec766061f3, type: 3}
       propertyPath: m_Offset.x
-      value: 0.059791982
+      value: 0.028471053
       objectReference: {fileID: 0}
     - target: {fileID: 176656445493565734, guid: ed52ef1d45e80eb448c217ec766061f3, type: 3}
       propertyPath: m_Offset.y
-      value: 0.62638915
+      value: 0.40145737
       objectReference: {fileID: 0}
     - target: {fileID: 2222854970769983633, guid: ed52ef1d45e80eb448c217ec766061f3, type: 3}
       propertyPath: m_LocalPosition.x
@@ -184,7 +184,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5791156330443965231, guid: ed52ef1d45e80eb448c217ec766061f3, type: 3}
       propertyPath: Health
-      value: 1
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 5791156330443965231, guid: ed52ef1d45e80eb448c217ec766061f3, type: 3}
       propertyPath: Animator
