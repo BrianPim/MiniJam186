@@ -10685,7 +10685,7 @@ MonoBehaviour:
   IFramesDuration: 0.5
   DodgeModifier: 5
   DodgeDuration: 0.1
-  Upgrades: 0d000000070000000a000000
+  Upgrades: 
   DeadVolume: {fileID: 1315568836930854994}
 --- !u!50 &6269474084448481967
 Rigidbody2D:

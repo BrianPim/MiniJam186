@@ -1714,16 +1714,20 @@ PrefabInstance:
       value: Player
       objectReference: {fileID: 0}
     - target: {fileID: 6269474084448481966, guid: 526b15a27193945468dc10f58dbd1d4e, type: 3}
-      propertyPath: 'Upgrades.Array.data[0]'
-      value: 10
+      propertyPath: Upgrades.Array.size
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6269474084448481966, guid: 526b15a27193945468dc10f58dbd1d4e, type: 3}
-      propertyPath: 'Upgrades.Array.data[1]'
+      propertyPath: 'Upgrades.Array.data[0]'
       value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 6269474084448481966, guid: 526b15a27193945468dc10f58dbd1d4e, type: 3}
+      propertyPath: 'Upgrades.Array.data[1]'
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 6269474084448481966, guid: 526b15a27193945468dc10f58dbd1d4e, type: 3}
       propertyPath: 'Upgrades.Array.data[2]'
-      value: 13
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 8861739009010495522, guid: 526b15a27193945468dc10f58dbd1d4e, type: 3}
       propertyPath: m_LightType
