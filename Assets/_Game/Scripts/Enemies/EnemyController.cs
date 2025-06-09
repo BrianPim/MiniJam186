@@ -1,5 +1,6 @@
 using System;
 using System.Collections;
+using System.Collections.Generic;
 using CamLib;
 using UnityEngine;
 
@@ -227,9 +228,26 @@ namespace Enemies
             FrozenDurationRemaining = FrozenStackDuration;
         }
 
+        [Serializable]
+        public class ElementParticle
+        {
+            public GameObject Obj;
+            public Element element;
+        }
+
+        public List<ElementParticle> ElementParticles = new List<ElementParticle>();
+        
+        
+        
         public void BecomeElemental(Element element)
         {
             Element = element;
+
+            transform.localScale *= 1.2f;
+            ActionCooldownDuration *= 0.5f;
+
+            ElementParticle part = ElementParticles.Find(p => p.element == element);
+            part.Obj.SetActive(true);
         }
 
         public Element GetElement()
