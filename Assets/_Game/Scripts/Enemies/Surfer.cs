@@ -45,6 +45,8 @@ namespace Enemies
 
                 if (Controller.IsBeingDestroyed())
                     yield break;
+                
+                Controller.SfxShoot.Play();
 
                 var laser = Instantiate(Projectile);
                 laser.transform.position = Controller.ProjectileSpawnPosition.position;

@@ -151,6 +151,11 @@ public enum Upgrade
         public AudioSource SfxHurt;
         public AudioSource SfxDeath;
         public AudioSource SfxShoot;
+        public AudioSource SfxShootFlamethrower;
+        public AudioSource SfxShootCryo;
+        public AudioSource SfxShootLightning;
+        
+        [Space]
         public ParticleSystem ParticlesShoot;
         public GameObject ReviveHeart;
         
@@ -569,6 +574,7 @@ public enum Upgrade
             if (CurrentWeaponIndex == 1)
             {
                 Animator.SetBool("shooting", false);
+                SfxShootFlamethrower.Stop();
                 FlamethrowerCone.gameObject.SetActive(false);
             }
         }
@@ -634,6 +640,9 @@ public enum Upgrade
         {
             Animator.SetBool("shooting", true);
             
+            if (!SfxShootFlamethrower.isPlaying)
+                SfxShootFlamethrower.Play();
+            
             FlamethrowerCone.pointLightOuterRadius = FlamethrowerConeDistanceModifier;
             FlamethrowerCone.pointLightInnerAngle = FlamethrowerConeAngleModifier;
             FlamethrowerCone.pointLightOuterAngle = FlamethrowerConeAngleModifier;
@@ -669,6 +678,8 @@ public enum Upgrade
                 
                 for (int i = 0; i < 3; i++)
                 {
+                    SfxShootCryo.Play();
+                    
                     var cryo = Instantiate(CryoProjectile);
                     cryo.transform.position = ProjectileSpawnPosition.position;
 
@@ -693,6 +704,8 @@ public enum Upgrade
         {
             if (CurrentLightningCooldown > 0)
                 return;
+            
+            SfxShootLightning.Play();
 
             Animator.SetTrigger("shoot");
             
