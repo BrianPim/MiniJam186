@@ -1,0 +1,55 @@
+GJ_BrainJar_1.png
+	size: 1100, 184
+	filter: Linear, Linear
+images/brain_jar1/Valve
+	bounds: 630, 120, 56, 58
+	offsets: 1, 1, 58, 60
+images/brain_jar1/brain
+	bounds: 739, 127, 51, 41
+	offsets: 1, 1, 53, 43
+	rotate: 90
+images/brain_jar1/cord
+	bounds: 486, 46, 132, 76
+	offsets: 1, 1, 134, 78
+	rotate: 90
+images/brain_jar1/eye_1
+	bounds: 1001, 128, 50, 39
+	rotate: 90
+images/brain_jar1/eye_2
+	bounds: 918, 120, 32, 58
+images/brain_jar1/jar_body
+	bounds: 205, 6, 193, 172
+	offsets: 1, 2, 195, 175
+images/brain_jar1/particle_1
+	bounds: 832, 137, 41, 40
+	offsets: 1, 1, 43, 42
+	rotate: 90
+images/brain_jar1/particle_2
+	bounds: 1072, 151, 20, 27
+	offsets: 1, 1, 22, 29
+images/brain_jar2/Valve2
+	bounds: 568, 120, 56, 58
+	offsets: 1, 1, 58, 60
+images/brain_jar2/brain2
+	bounds: 692, 126, 52, 41
+	offsets: 1, 1, 54, 43
+	rotate: 90
+images/brain_jar2/cord2
+	bounds: 404, 46, 132, 76
+	offsets: 1, 1, 134, 78
+	rotate: 90
+images/brain_jar2/eye_12
+	bounds: 956, 130, 48, 39
+	rotate: 90
+images/brain_jar2/eye_22
+	bounds: 878, 121, 34, 57
+images/brain_jar2/jar_body2
+	bounds: 6, 6, 193, 172
+	offsets: 1, 1, 195, 174
+images/brain_jar2/particle_12
+	bounds: 786, 137, 41, 40
+	offsets: 1, 1, 43, 42
+	rotate: 90
+images/brain_jar2/particle_22
+	bounds: 1046, 151, 20, 27
+	offsets: 1, 1, 22, 29
