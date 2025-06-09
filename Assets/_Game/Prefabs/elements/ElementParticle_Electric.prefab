@@ -48,9 +48,17 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4970109410986431717, guid: 89b90e4abaf377c4c962f8f218de8ed0, type: 3}
+      propertyPath: UVModule.sprites.Array.data[0].sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: ba92dbf765d28f24bb614fde8a2d49a7, type: 3}
+    - target: {fileID: 4970109410986431717, guid: 89b90e4abaf377c4c962f8f218de8ed0, type: 3}
+      propertyPath: UVModule.sprites.Array.data[1].sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 2674f1eeaffd8f045a0a1cbe87beacfa, type: 3}
     - target: {fileID: 5652195047105434995, guid: 89b90e4abaf377c4c962f8f218de8ed0, type: 3}
       propertyPath: m_Name
-      value: ElementParticle
+      value: ElementParticle_Electric
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
