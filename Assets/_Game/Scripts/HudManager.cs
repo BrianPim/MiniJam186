@@ -88,6 +88,7 @@ public class HudManager : Singleton<HudManager>
 
                 yield return new WaitForSeconds(.01f * duration);
             }
+            ColourOverlay.color = Color.black;
         }
 
         StartCoroutine(FadeRoutine());
@@ -106,6 +107,7 @@ public class HudManager : Singleton<HudManager>
 
                 yield return new WaitForSeconds(.01f * duration);
             }
+            ColourOverlay.color = Color.clear;
         }
 
         StartCoroutine(FadeRoutine());

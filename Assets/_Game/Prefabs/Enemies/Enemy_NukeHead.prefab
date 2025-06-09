@@ -284,3 +284,4 @@ MonoBehaviour:
   JoinFormation: 0
   ExplosionCircleCastRadius: 4.5
   ExplosionDamageToFriendlies: 50
+  ExplosionPrefab: {fileID: 8301230131132351810, guid: 5397f8c10fe50d642b470be02449c59e, type: 3}

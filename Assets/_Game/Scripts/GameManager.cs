@@ -16,6 +16,9 @@ public class GameManager : Singleton<GameManager>
      public Transform Background;
 
      public List<BackdropInstance> Backdrops;
+
+     public CanvasGroup IntroScreen;
+     public CanvasGroup OutroScreen;
      
      [Serializable]
      public class BackdropInstance
@@ -54,6 +57,9 @@ public class GameManager : Singleton<GameManager>
      {
          base.Awake();
 
+         IntroScreen.alpha = 0;
+         OutroScreen.alpha = 0;
+         
          Player.gameObject.SetActive(false);
          
          ElementColors.Add(Element.Normal, Color.white);
@@ -68,11 +74,17 @@ public class GameManager : Singleton<GameManager>
          
          IEnumerator GameTransition() 
          {
-             HudManager.Instance.FadeIntoBlack(1);
-    
+             HudManager.Instance.FadeIntoBlack(0.5f);
+             yield return new WaitForSeconds(0.5f);
+             
+             IntroScreen.DOFade(1, 0.5f);
              yield return new WaitForSeconds(1);
-
+             
              HudManager.Instance.MainMenu.Canvas.enabled = false;
+             IntroScreen.DOFade(0, 1);
+
+             
+             
              HudManager.Instance.ActivateGameHud();
     
              Player.gameObject.SetActive(true);
@@ -361,4 +373,25 @@ public class GameManager : Singleton<GameManager>
      {
          Score = Mathf.Max(Score - points, 0);
      }
+     
+     
+
+}
+
+public static class CanvasGroupExtensions
+{
+    /// <summary>
+    /// Tweens a CanvasGroup's alpha value
+    /// </summary>
+    /// <param name="canvasGroup">The CanvasGroup to fade</param>
+    /// <param name="endValue">Target alpha value (0-1)</param>
+    /// <param name="duration">Duration of the tween in seconds</param>
+    /// <returns>The tween for further chaining</returns>
+    public static Tweener DOFade(this CanvasGroup canvasGroup, float endValue, float duration)
+    {
+        return DOTween.To(() => canvasGroup.alpha,
+            x => canvasGroup.alpha = x,
+            endValue,
+            duration);
+    }
 }
