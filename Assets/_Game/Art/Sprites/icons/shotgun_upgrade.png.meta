@@ -1,10 +1,13 @@
 fileFormatVersion: 2
-guid: 9638b672ab29b734a93b976fefcd67c9
+guid: 7a7a5359fd8656e49b21ab455627222d
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 2090082454602116431
-    second: blue_2_0
+      213: 6890679037746473593
+    second: shotgun_upgrade_0
+  - first:
+      213: -17987486683895354
+    second: shotgun_upgrade_1
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -126,13 +129,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: blue_2_0
+      name: shotgun_upgrade_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 22
-        height: 29
+        width: 154
+        height: 156
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -141,8 +144,30 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: f4de5d13be6710d10800000000000000
-      internalID: 2090082454602116431
+      spriteID: 97aeb12931c90af50800000000000000
+      internalID: 6890679037746473593
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: shotgun_upgrade_1
+      rect:
+        serializedVersion: 2
+        x: 157
+        y: 96
+        width: 96
+        height: 109
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6c9edc5e97810cff0800000000000000
+      internalID: -17987486683895354
       vertices: []
       indices: 
       edges: []
@@ -160,8 +185,7 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable:
-      blue_2_0: 2090082454602116431
+    nameFileIdTable: {}
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

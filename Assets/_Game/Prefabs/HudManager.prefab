@@ -573,7 +573,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 1, y: 0.5}
-  m_AnchoredPosition: {x: 57.85, y: -8.8}
+  m_AnchoredPosition: {x: 57.85, y: -6}
   m_SizeDelta: {x: -115.7, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &3027147966457644622
@@ -631,8 +631,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 51.46
-  m_fontSizeBase: 51.46
+  m_fontSize: 42
+  m_fontSizeBase: 42
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -669,7 +669,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: 0, w: 0}
+  m_margin: {x: 10.244751, y: 0, z: 9.598869, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -1479,9 +1479,9 @@ MonoBehaviour:
   - {fileID: 1135199736953809401}
   - {fileID: 4594430044477375141}
   UpgradeScreenImages:
-  - {fileID: 2170212079126903084}
-  - {fileID: 462869165013363878}
-  - {fileID: 3922576866205042682}
+  - {fileID: 2121142293132936339}
+  - {fileID: 368620910140952857}
+  - {fileID: 3827533218285943365}
   UpgradeScreenNameTexts:
   - {fileID: 9044044272750456122}
   - {fileID: 7345568044866271408}
@@ -1494,80 +1494,80 @@ MonoBehaviour:
   ToastText: {fileID: 4524916538866108424}
   UpgradePanelDataList:
   - Upgrade: 0
-    Sprite: {fileID: 0}
+    Sprite: {fileID: -6083873222179450433, guid: 41a8c7e38df7a4848ae32f4a0672072f, type: 3}
     NameText: Speed Boost I
     DescriptionText: "Your space suit now has modest rear propulsion. It\u2019s not
       fast, but you\u2019ll drift into danger slightly quicker than before."
   - Upgrade: 1
-    Sprite: {fileID: 0}
+    Sprite: {fileID: -6083873222179450433, guid: 41a8c7e38df7a4848ae32f4a0672072f, type: 3}
     NameText: Speed Boost II
     DescriptionText: Upgraded thrusters give you the speed of a mildly annoyed space
       pigeon. Danger can't catch what it can't comprehend.
   - Upgrade: 2
-    Sprite: {fileID: 0}
+    Sprite: {fileID: -6083873222179450433, guid: 41a8c7e38df7a4848ae32f4a0672072f, type: 3}
     NameText: Speed Boost III
     DescriptionText: "You've transcended mortal space travel. You're less astronaut,
       more caffeinated space bullet. Hope your spine\u2019s insured."
   - Upgrade: 3
-    Sprite: {fileID: 0}
+    Sprite: {fileID: 2446604926369764427, guid: 3393c4ec7f6f1394784190ee93e7b7dd, type: 3}
     NameText: Laser Boost I
     DescriptionText: A modest laser upgrade. Sounds cool, feels warm, but still safe
       enough to toast marshmallows.
   - Upgrade: 4
-    Sprite: {fileID: 0}
+    Sprite: {fileID: 2446604926369764427, guid: 3393c4ec7f6f1394784190ee93e7b7dd, type: 3}
     NameText: Laser Boost II
     DescriptionText: Double the beams, double the pews, triple the insurance premiums.
   - Upgrade: 5
-    Sprite: {fileID: 0}
+    Sprite: {fileID: 2446604926369764427, guid: 3393c4ec7f6f1394784190ee93e7b7dd, type: 3}
     NameText: Laser Boost III
     DescriptionText: "This laser screams. Literally. You fire it, and it yells. We
       don\u2019t know why. It just does."
   - Upgrade: 6
-    Sprite: {fileID: 0}
+    Sprite: {fileID: 6890679037746473593, guid: 7a7a5359fd8656e49b21ab455627222d, type: 3}
     NameText: Laser Shotgun
     DescriptionText: Point it at things. Regret nothing. May cause spontaneous enemy
       unexistence.
   - Upgrade: 7
-    Sprite: {fileID: 0}
+    Sprite: {fileID: -4834836478881760359, guid: 9772f0b3912d26543aa4cd5a9818470b, type: 3}
     NameText: Flamethrower I
     DescriptionText: "Shoots warm encouragement at enemies. Encourages them to flee\u2014while
       on fire."
   - Upgrade: 8
-    Sprite: {fileID: 0}
+    Sprite: {fileID: -4834836478881760359, guid: 9772f0b3912d26543aa4cd5a9818470b, type: 3}
     NameText: Flamethrower II
     DescriptionText: Turns foes into fondue. Now with extra sizzle and 3 flame emojis
       of approval.
   - Upgrade: 9
-    Sprite: {fileID: 0}
+    Sprite: {fileID: -4834836478881760359, guid: 9772f0b3912d26543aa4cd5a9818470b, type: 3}
     NameText: Flamethrower III
     DescriptionText: Unleashes enough fire to make dragons blush. Comes with a complimentary
       smoke detector.
   - Upgrade: 10
-    Sprite: {fileID: 0}
+    Sprite: {fileID: -7925216746654544369, guid: c9db0859374367245a13f005100910bc, type: 3}
     NameText: Cryo Beam I
     DescriptionText: Freezes enemies just enough to ruin their day but not their
       weekend plans.
   - Upgrade: 11
-    Sprite: {fileID: 0}
+    Sprite: {fileID: -7925216746654544369, guid: c9db0859374367245a13f005100910bc, type: 3}
     NameText: Cryo Beam II
     DescriptionText: "Delivers a brisk chill and passive-aggressive frostbite. Sweaters
       won\u2019t help."
   - Upgrade: 12
-    Sprite: {fileID: 0}
+    Sprite: {fileID: -7925216746654544369, guid: c9db0859374367245a13f005100910bc, type: 3}
     NameText: Cryo Beam III
     DescriptionText: Summons the wrath of a thousand angry snowmen. Expect sudden
       blizzards. And regret.
   - Upgrade: 13
-    Sprite: {fileID: 0}
+    Sprite: {fileID: 3522216725745048452, guid: eeb5dd0595099484293ed7a62d49a542, type: 3}
     NameText: Lightning Gun I
     DescriptionText: "Zap! Like rubbing a balloon on the carpet\u2014except way more
       lethal. Lightning chains to other enemies!"
   - Upgrade: 14
-    Sprite: {fileID: 0}
+    Sprite: {fileID: 3522216725745048452, guid: eeb5dd0595099484293ed7a62d49a542, type: 3}
     NameText: Lightning Gun II
     DescriptionText: Now chains for even longer! Battery sold separately. Good luck.
   - Upgrade: 15
-    Sprite: {fileID: 0}
+    Sprite: {fileID: 3522216725745048452, guid: eeb5dd0595099484293ed7a62d49a542, type: 3}
     NameText: Lightning Gun III
     DescriptionText: So powerful, it zaps the past, present, and maybe even your
       save file. Use responsibly.
@@ -4115,7 +4115,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 1, y: 0.5}
-  m_AnchoredPosition: {x: 44.1, y: 0}
+  m_AnchoredPosition: {x: 44.1, y: -7}
   m_SizeDelta: {x: -60.7, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &9217006288604210856
@@ -4148,8 +4148,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: 12
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 6d9ef5fd0fa44de4a99509c7f568679d, type: 2}
-  m_sharedMaterial: {fileID: 7278385319066771584, guid: 6d9ef5fd0fa44de4a99509c7f568679d, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 63e01a94c43b4ea41845e8e1844d927b, type: 2}
+  m_sharedMaterial: {fileID: -403472398144349496, guid: 63e01a94c43b4ea41845e8e1844d927b, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -4173,8 +4173,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 49.6
-  m_fontSizeBase: 49.6
+  m_fontSize: 42
+  m_fontSizeBase: 42
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -4211,7 +4211,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: 0, w: 0}
+  m_margin: {x: 0, y: 0, z: 24.286032, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -5637,9 +5637,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &3922576866205042682 stripped
+--- !u!114 &3827533218285943365 stripped
 MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 3025101657854423872, guid: 3d1d3e7f6b1d95341a2d80290fc05ebf, type: 3}
+  m_CorrespondingSourceObject: {fileID: 3065467144163184383, guid: 3d1d3e7f6b1d95341a2d80290fc05ebf, type: 3}
   m_PrefabInstance: {fileID: 2275614198703240378}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
@@ -5794,9 +5794,9 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3d1d3e7f6b1d95341a2d80290fc05ebf, type: 3}
---- !u!114 &462869165013363878 stripped
+--- !u!114 &368620910140952857 stripped
 MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 3025101657854423872, guid: 3d1d3e7f6b1d95341a2d80290fc05ebf, type: 3}
+  m_CorrespondingSourceObject: {fileID: 3065467144163184383, guid: 3d1d3e7f6b1d95341a2d80290fc05ebf, type: 3}
   m_PrefabInstance: {fileID: 3429245802806108134}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
@@ -5967,9 +5967,9 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 2330096891095578143, guid: 3d1d3e7f6b1d95341a2d80290fc05ebf, type: 3}
   m_PrefabInstance: {fileID: 4027754690778581612}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &2170212079126903084 stripped
+--- !u!114 &2121142293132936339 stripped
 MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 3025101657854423872, guid: 3d1d3e7f6b1d95341a2d80290fc05ebf, type: 3}
+  m_CorrespondingSourceObject: {fileID: 3065467144163184383, guid: 3d1d3e7f6b1d95341a2d80290fc05ebf, type: 3}
   m_PrefabInstance: {fileID: 4027754690778581612}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}

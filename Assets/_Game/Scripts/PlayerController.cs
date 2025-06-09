@@ -52,6 +52,8 @@ public enum Upgrade
         
         private const float BaseDodgeModifier = 5f;
         private const float BaseDodgeDuration = 0.1f;
+        
+        public bool IsDodging => CurrentDodgeCooldown > 0;
 
         //Lasers
         private const float BaseLaserCooldown = 0.33f;
@@ -445,8 +447,21 @@ public enum Upgrade
 
         private void Dodge(InputAction.CallbackContext CallbackContext)
         {
+            if (CurrentDodgeCooldown > 0) return;
+            
+            IEnumerator DodgeIFrames()
+            {
+                Invincible = true;
+                
+                yield return new WaitForSeconds(DodgeDuration/2f);
+
+                Invincible = false;
+            }
+            
             CurrentDodgeCooldown = DodgeDuration;
             Animator.SetTrigger("dodge");
+
+            StartCoroutine(DodgeIFrames());
         }
 
         public int GetHealth()
@@ -516,7 +531,6 @@ public enum Upgrade
         {
             return CurrentWeaponIndex;
         }
-
         private void StartShooting(InputAction.CallbackContext CallbackContext)
         {
             if (IsDead) return;

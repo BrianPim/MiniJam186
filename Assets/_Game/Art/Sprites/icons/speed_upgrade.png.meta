@@ -1,10 +1,16 @@
 fileFormatVersion: 2
-guid: 9638b672ab29b734a93b976fefcd67c9
+guid: 41a8c7e38df7a4848ae32f4a0672072f
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 2090082454602116431
-    second: blue_2_0
+      213: -6083873222179450433
+    second: speed_upgrade_0
+  - first:
+      213: -5651753062540941974
+    second: speed_upgrade_1
+  - first:
+      213: -1220505792670941025
+    second: speed_upgrade_2
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -126,13 +132,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: blue_2_0
+      name: speed_upgrade_0
       rect:
         serializedVersion: 2
         x: 0
-        y: 0
-        width: 22
-        height: 29
+        y: 110
+        width: 111
+        height: 73
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -141,8 +147,52 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: f4de5d13be6710d10800000000000000
-      internalID: 2090082454602116431
+      spriteID: fb19b75c98db19ba0800000000000000
+      internalID: -6083873222179450433
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: speed_upgrade_1
+      rect:
+        serializedVersion: 2
+        x: 24
+        y: 0
+        width: 167
+        height: 142
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a65650da880f091b0800000000000000
+      internalID: -5651753062540941974
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: speed_upgrade_2
+      rect:
+        serializedVersion: 2
+        x: 7
+        y: 66
+        width: 18
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f90ca85b274ef0fe0800000000000000
+      internalID: -1220505792670941025
       vertices: []
       indices: 
       edges: []
@@ -160,8 +210,7 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable:
-      blue_2_0: 2090082454602116431
+    nameFileIdTable: {}
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
