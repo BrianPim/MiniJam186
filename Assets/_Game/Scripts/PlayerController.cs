@@ -80,8 +80,12 @@ public enum Upgrade
         private const float FlamethrowerConeDistance3Modifier = 10f;
         
         private const float FlamethrowerConeAngle1Modifier = 30f;
-        private const float FlamethrowerConeAngle2Modifier = 37.5f;
-        private const float FlamethrowerConeAngle3Modifier = 45f;
+        private const float FlamethrowerConeAngle2Modifier = 35f;
+        private const float FlamethrowerConeAngle3Modifier = 40f;
+        
+        private const float FlamethrowerParticles1Modifier = 0.3f;
+        private const float FlamethrowerParticles2Modifier = 0.6f;
+        private const float FlamethrowerParticles3Modifier = 0.9f;
         
         //Cryo
         private const float BaseCryoCooldown = 0.5f;
@@ -138,6 +142,7 @@ public enum Upgrade
         public MeshRenderer MeshRenderer;
 
         public Light2D FlamethrowerCone;
+        public ParticleSystem FlamethrowerParticles;
 
         [Space] 
         
@@ -256,6 +261,21 @@ public enum Upgrade
                     return FlamethrowerConeAngle2Modifier;
                 if (Upgrades.Contains(Upgrade.Flamethrower1))
                     return FlamethrowerConeAngle1Modifier;
+
+                return 0;
+            }
+        }
+        
+        private float FlamethrowerParticleModifier
+        {
+            get
+            {
+                if (Upgrades.Contains(Upgrade.Flamethrower3))
+                    return FlamethrowerParticles3Modifier;
+                if (Upgrades.Contains(Upgrade.Flamethrower2))
+                    return FlamethrowerParticles2Modifier;
+                if (Upgrades.Contains(Upgrade.Flamethrower1))
+                    return FlamethrowerParticles1Modifier;
 
                 return 0;
             }
@@ -603,6 +623,8 @@ public enum Upgrade
             FlamethrowerCone.pointLightOuterRadius = FlamethrowerConeDistanceModifier;
             FlamethrowerCone.pointLightInnerAngle = FlamethrowerConeAngleModifier;
             FlamethrowerCone.pointLightOuterAngle = FlamethrowerConeAngleModifier;
+
+            FlamethrowerParticles.startLifetime = FlamethrowerParticleModifier;
             
             FlamethrowerCone.gameObject.SetActive(true);
 

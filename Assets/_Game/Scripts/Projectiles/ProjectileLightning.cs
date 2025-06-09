@@ -24,6 +24,8 @@ namespace Projectiles
 
         protected override void OnHit(EnemyController enemy)
         {
+            base.OnHit(enemy);
+            
             if (IllegalTargets.Contains(enemy)) return;
             
             if (enemy.GetElement() == Element.Electric)
@@ -34,9 +36,7 @@ namespace Projectiles
             }
             else
             {
-                enemy.TakeDamage(ProjectileDamage * DamageModifier, Element.Electric, GameManager.Instance.GetElementColor(Element.Electric));
-            
-                if (EnemiesHit < Chain)
+                if (EnemiesHit < Chain && GameManager.Instance.Enemies.Count > 1)
                 {
                     IllegalTargets.Add(enemy);
                     var newEnemy = GetNearestEnemy();
@@ -49,6 +49,8 @@ namespace Projectiles
                 {
                     Destroy(gameObject);
                 }
+                
+                enemy.TakeDamage(ProjectileDamage * DamageModifier, Element.Electric, GameManager.Instance.GetElementColor(Element.Electric));
             }
         }
         

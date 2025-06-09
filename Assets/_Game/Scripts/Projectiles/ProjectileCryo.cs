@@ -22,6 +22,8 @@ namespace Projectiles
         
         protected override void OnHit(EnemyController enemy)
         {
+            base.OnHit(enemy);
+            
             if (enemy.GetElement() == Element.Ice)
             {
                 enemy.TakeDamage(ProjectileDamage * DamageModifier * HitIceEnemyModifier, Element.Ice, Color.gray);
