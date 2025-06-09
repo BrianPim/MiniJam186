@@ -340,7 +340,7 @@ public class GameManager : Singleton<GameManager>
          InIntermission = true;
          
          //HudManager.Instance.Toast($"{levelName} complete");
-         yield return new WaitForSeconds(2);
+         yield return new WaitForSeconds(1);
 
          yield return TransitionUI.Instance.DoTallying(DeathsThisLevel);
          ResetTimeBonus();

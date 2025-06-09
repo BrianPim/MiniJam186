@@ -23,6 +23,11 @@ public class TransitionUI : Singleton<TransitionUI>
     public RectTransform TimeBonus;
 
     public GameObject CrackedHeartPrefab;
+
+    public AudioSource LosePoints;
+    public AudioSource GainPoints;
+    
+    
     
 
     public IEnumerator DoTallying(int deathCount)
@@ -42,6 +47,7 @@ public class TransitionUI : Singleton<TransitionUI>
         TimeBonus.gameObject.SetActive(false);
         TimeBonus.localPosition = initialTimePosition;
 
+        GainPoints.Play();
         GameManager.Instance.AddPoints(GameManager.Instance.CurrentTimeBonus);
         
         yield return new WaitForSeconds(0.2f);
@@ -118,6 +124,7 @@ public class TransitionUI : Singleton<TransitionUI>
         
             //heart.transform.DOScale(Vector3.zero, 0.2f).SetDelay(0.5f).WaitForCompletion();
         
+            LosePoints.Play();
             GameManager.Instance.LosePoints(1000);
             PulseScoreText(Color.red);
             
