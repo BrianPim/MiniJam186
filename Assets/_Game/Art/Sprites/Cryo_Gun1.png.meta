@@ -160,7 +160,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Cryo_Gun1_0: -7925216746654544369
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

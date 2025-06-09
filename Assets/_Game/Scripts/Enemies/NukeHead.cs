@@ -7,6 +7,8 @@ namespace Enemies
     {
         [SerializeField] private float ExplosionCircleCastRadius = 4.5f;
         [SerializeField] private float ExplosionDamageToFriendlies = 50f;
+
+        public GameObject ExplosionPrefab;
         
         public override void Awake()
         {
@@ -63,6 +65,8 @@ namespace Enemies
                         GameManager.Instance.Player.TakeDamage(1);
                     }
                 }
+                
+                Instantiate(ExplosionPrefab, transform.position, Quaternion.identity);
                 
                 yield return new WaitForSeconds(.3f);
 
