@@ -83,8 +83,6 @@ namespace Enemies
             }
             else if (!BlockActions && EnemyBehaviour && EnemyBehaviour.AllowedToDoAction())
             {
-                CooldownRemaining = ActionCooldownDuration;
-                
                 if (!Destroying && Vector2.Distance(GameManager.Instance.Player.transform.position, transform.position) <= DistanceToAttackPlayer)
                 {
                     CooldownRemaining = ActionCooldownDuration;
