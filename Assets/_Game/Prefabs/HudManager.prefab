@@ -1103,8 +1103,8 @@ MonoBehaviour:
   m_text: The little astronaut is stuck in space, far from home, lonely. He decides
     he needs to get home to his family. But danger lies ahead...
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 6d9ef5fd0fa44de4a99509c7f568679d, type: 2}
-  m_sharedMaterial: {fileID: 7278385319066771584, guid: 6d9ef5fd0fa44de4a99509c7f568679d, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: c4ff2e6a6eef258428af9acc6e82f2c2, type: 2}
+  m_sharedMaterial: {fileID: 7278385319066771584, guid: c4ff2e6a6eef258428af9acc6e82f2c2, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -1469,8 +1469,8 @@ MonoBehaviour:
 
     resulting in a ranking of...'
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 6d9ef5fd0fa44de4a99509c7f568679d, type: 2}
-  m_sharedMaterial: {fileID: 7278385319066771584, guid: 6d9ef5fd0fa44de4a99509c7f568679d, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -1659,6 +1659,135 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
+--- !u!1 &2528124260005343785
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5434825948389892544}
+  - component: {fileID: 4277643005747538910}
+  m_Layer: 0
+  m_Name: Audio_Click
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5434825948389892544
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2528124260005343785}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 3105952672990751506}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!82 &4277643005747538910
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2528124260005343785}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: -656278353749609857, guid: 62458b7cad621ba4c92f6fed122c2afd, type: 2}
+  m_audioClip: {fileID: 8300000, guid: c99a843c5d3de194d8326f67f563fe5f, type: 3}
+  m_Resource: {fileID: 8300000, guid: c99a843c5d3de194d8326f67f563fe5f, type: 3}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &2597475272948685175
 GameObject:
   m_ObjectHideFlags: 0
@@ -1835,8 +1964,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Toast Text
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 4871efce1f0db834f9b19bcd0a4173d7, type: 2}
-  m_sharedMaterial: {fileID: -403472398144349496, guid: 4871efce1f0db834f9b19bcd0a4173d7, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: adb555901715815498f77e3d489e944b, type: 2}
+  m_sharedMaterial: {fileID: -403472398144349496, guid: adb555901715815498f77e3d489e944b, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -1934,6 +2063,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 5434825948389892544}
   - {fileID: 3105952674490559124}
   - {fileID: 3105952674535465228}
   - {fileID: 7130821377565836232}
@@ -1992,6 +2122,7 @@ MonoBehaviour:
   - {fileID: 1772869763978565642}
   ScoreText: {fileID: 3105952673891505742}
   ToastText: {fileID: 4524916538866108424}
+  UIButtonSFX: {fileID: 0}
   UpgradePanelDataList:
   - Upgrade: 0
     Sprite: {fileID: -6083873222179450433, guid: 41a8c7e38df7a4848ae32f4a0672072f, type: 3}
@@ -3997,8 +4128,8 @@ MonoBehaviour:
   m_text: He's done it! He's fought his way through the strange creatures of space
     and reunited with those he loves most.
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 6d9ef5fd0fa44de4a99509c7f568679d, type: 2}
-  m_sharedMaterial: {fileID: 7278385319066771584, guid: 6d9ef5fd0fa44de4a99509c7f568679d, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: c4ff2e6a6eef258428af9acc6e82f2c2, type: 2}
+  m_sharedMaterial: {fileID: 7278385319066771584, guid: c4ff2e6a6eef258428af9acc6e82f2c2, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -5046,8 +5177,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: 'Bonus:'
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 6d9ef5fd0fa44de4a99509c7f568679d, type: 2}
-  m_sharedMaterial: {fileID: 7278385319066771584, guid: 6d9ef5fd0fa44de4a99509c7f568679d, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -6349,6 +6480,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1167528337711094492}
     m_Modifications:
+    - target: {fileID: 508595213136276656, guid: 3d1d3e7f6b1d95341a2d80290fc05ebf, type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+    - target: {fileID: 508595213136276656, guid: 3d1d3e7f6b1d95341a2d80290fc05ebf, type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
     - target: {fileID: 2330096891095578143, guid: 3d1d3e7f6b1d95341a2d80290fc05ebf, type: 3}
       propertyPath: m_Name
       value: UpgradePanel (2)
@@ -6517,6 +6656,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1167528337711094492}
     m_Modifications:
+    - target: {fileID: 508595213136276656, guid: 3d1d3e7f6b1d95341a2d80290fc05ebf, type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+    - target: {fileID: 508595213136276656, guid: 3d1d3e7f6b1d95341a2d80290fc05ebf, type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
     - target: {fileID: 2330096891095578143, guid: 3d1d3e7f6b1d95341a2d80290fc05ebf, type: 3}
       propertyPath: m_Name
       value: UpgradePanel (1)
@@ -6685,6 +6832,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1167528337711094492}
     m_Modifications:
+    - target: {fileID: 508595213136276656, guid: 3d1d3e7f6b1d95341a2d80290fc05ebf, type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+    - target: {fileID: 508595213136276656, guid: 3d1d3e7f6b1d95341a2d80290fc05ebf, type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
     - target: {fileID: 2330096891095578143, guid: 3d1d3e7f6b1d95341a2d80290fc05ebf, type: 3}
       propertyPath: m_Name
       value: UpgradePanel

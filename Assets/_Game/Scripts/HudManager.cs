@@ -39,6 +39,8 @@ public class HudManager : Singleton<HudManager>
     public TextMeshProUGUI ScoreText;
     
     public TMP_Text ToastText;
+
+    [Space] public AudioSource UIButtonSFX;
     
     [Space]
     
@@ -239,6 +241,7 @@ public class HudManager : Singleton<HudManager>
     public void ChooseUpgrade1()
     {
         GameManager.Instance.HandleUpgradeEnd(GameManager.Instance.CurrentUpgradeOptions[0]);
+        UIButtonSFX.Play();
         
         ShowUpgradeScreen(false);
     }
@@ -246,6 +249,7 @@ public class HudManager : Singleton<HudManager>
     public void ChooseUpgrade2()
     {
         GameManager.Instance.HandleUpgradeEnd(GameManager.Instance.CurrentUpgradeOptions[1]);
+        UIButtonSFX.Play();
         
         ShowUpgradeScreen(false);
     }
@@ -253,6 +257,7 @@ public class HudManager : Singleton<HudManager>
     public void ChooseUpgrade3()
     {
         GameManager.Instance.HandleUpgradeEnd(GameManager.Instance.CurrentUpgradeOptions[2]);
+        UIButtonSFX.Play();
         
         ShowUpgradeScreen(false);
     }
