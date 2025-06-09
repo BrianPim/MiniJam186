@@ -37,6 +37,7 @@ public class EnemySpawner : Singleton<EnemySpawner>
     
     public bool ShouldSpawnBrain()
     {
+        return false;
         float chance = BrainSpawnCurve.Evaluate(DifficultyFactor);
         return Random.value < chance;
     }
