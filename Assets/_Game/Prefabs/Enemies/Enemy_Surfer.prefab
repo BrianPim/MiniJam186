@@ -66,7 +66,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 0}
+  - {fileID: 2100000, guid: bbe9d060e4d9d584daa51de682249452, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -168,7 +168,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5791156330443965231, guid: ed52ef1d45e80eb448c217ec766061f3, type: 3}
       propertyPath: Health
-      value: 20
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5791156330443965231, guid: ed52ef1d45e80eb448c217ec766061f3, type: 3}
       propertyPath: Animator
