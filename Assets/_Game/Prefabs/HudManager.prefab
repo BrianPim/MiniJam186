@@ -2311,17 +2311,17 @@ MonoBehaviour:
       smoke detector.
   - Upgrade: 10
     Sprite: {fileID: -7925216746654544369, guid: c9db0859374367245a13f005100910bc, type: 3}
-    NameText: Cryo Beam I
+    NameText: Cryo Gun I
     DescriptionText: Freezes enemies just enough to ruin their day but not their
       weekend plans.
   - Upgrade: 11
     Sprite: {fileID: -7925216746654544369, guid: c9db0859374367245a13f005100910bc, type: 3}
-    NameText: Cryo Beam II
+    NameText: Cryo Gun II
     DescriptionText: "Delivers a brisk chill and passive-aggressive frostbite. Sweaters
       won\u2019t help."
   - Upgrade: 12
     Sprite: {fileID: -7925216746654544369, guid: c9db0859374367245a13f005100910bc, type: 3}
-    NameText: Cryo Beam III
+    NameText: Cryo Gun III
     DescriptionText: Summons the wrath of a thousand angry snowmen. Expect sudden
       blizzards. And regret.
   - Upgrade: 13
