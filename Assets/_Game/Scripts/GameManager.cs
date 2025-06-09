@@ -300,7 +300,7 @@ public class GameManager : Singleton<GameManager>
          //Debug.Log("transition on the way to the ");
          InIntermission = true;
          
-         HudManager.Instance.Toast($"{levelName} complete");
+         //HudManager.Instance.Toast($"{levelName} complete");
          yield return new WaitForSeconds(2);
 
          yield return TransitionUI.Instance.DoTallying(DeathsThisLevel);
