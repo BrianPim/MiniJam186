@@ -15,7 +15,7 @@ MonoBehaviour:
   LevelName: Home
   BackgroundToShow: 0
   Waves:
-  - MaxOnScreen: 3
-    Enemies: 0500000005000000050000000500000005000000
-  - MaxOnScreen: 3
+  - MaxOnScreen: 2
+    Enemies: 05000000050000000500000005000000
+  - MaxOnScreen: 5
     Enemies: 0100000003000000020000000500000004000000

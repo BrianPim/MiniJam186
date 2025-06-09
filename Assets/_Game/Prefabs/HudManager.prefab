@@ -2258,7 +2258,7 @@ MonoBehaviour:
   - {fileID: 1772869763978565642}
   ScoreText: {fileID: 3105952673891505742}
   ToastText: {fileID: 4524916538866108424}
-  UIButtonSFX: {fileID: 0}
+  UIButtonSFX: {fileID: 4277643005747538910}
   UpgradePanelDataList:
   - Upgrade: 0
     Sprite: {fileID: -6083873222179450433, guid: 41a8c7e38df7a4848ae32f4a0672072f, type: 3}

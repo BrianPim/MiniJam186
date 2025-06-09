@@ -16,6 +16,6 @@ MonoBehaviour:
   BackgroundToShow: 0
   Waves:
   - MaxOnScreen: 3
-    Enemies: 0100000001000000010000000100000001000000
-  - MaxOnScreen: 3
-    Enemies: 02000000020000000200000002000000
+    Enemies: 0100000001000000
+  - MaxOnScreen: 1
+    Enemies: 0200000002000000

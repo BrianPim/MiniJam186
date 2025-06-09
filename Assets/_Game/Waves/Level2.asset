@@ -15,7 +15,9 @@ MonoBehaviour:
   LevelName: Star Field
   BackgroundToShow: 0
   Waves:
-  - MaxOnScreen: 3
-    Enemies: 0300000003000000030000000300000003000000
-  - MaxOnScreen: 3
-    Enemies: 04000000040000000400000004000000
+  - MaxOnScreen: 1
+    Enemies: 0200000005000000010000000100000003000000
+  - MaxOnScreen: 1
+    Enemies: 040000000400000004000000
+  - MaxOnScreen: 1
+    Enemies: 05000000

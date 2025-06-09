@@ -517,14 +517,19 @@ public enum Upgrade
                 StopShooting(default);
                 GameManager.Instance.AddDeath();
 
+                StartCoroutine(UpgradeDelayRoutine());
                 IEnumerator UpgradeDelayRoutine()
                 {
+                    MusicPlayer.Instance.SetDead(true);
+                    DeadVolume.DoFade(1, 0.5f);
+                    
                     yield return new WaitForSeconds(2f);
+                    
+                    
                     
                     GameManager.Instance.HandleUpgradeStart();
                 }
 
-                StartCoroutine(UpgradeDelayRoutine());
             }
             else
             {
@@ -801,8 +806,7 @@ public enum Upgrade
             ReviveHeart.transform.localPosition = Vector2.up * 10;
             ReviveHeart.transform.DOLocalMoveY(0, 2).OnComplete(Revive).SetDelay(1);
             
-            MusicPlayer.Instance.SetDead(true);
-            DeadVolume.DoFade(1, 0.5f);
+            
         }
 
         private void Revive()
