@@ -176,13 +176,28 @@ public class HudManager : Singleton<HudManager>
                     break;
             }
             
-            while (WeaponWheelRotator.rotation != Quaternion.Euler(0, 0, targetRotation))
+            float rotationSpeed = 360f; // Degrees per second
+            float currentAngle = WeaponWheelRotator.eulerAngles.z;
+
+            // Ensure target is greater than current by adding 360 if needed
+            float adjustedTarget = targetRotation;
+            while (adjustedTarget <= currentAngle)
             {
-                WeaponWheelRotator.Rotate(Vector3.forward, -1);
-                
-                yield return new WaitForSeconds(.002f);
+                adjustedTarget += 360f;
             }
 
+            while (Mathf.Abs(currentAngle - adjustedTarget) > 0.1f)
+            {
+                currentAngle = WeaponWheelRotator.eulerAngles.z;
+                float step = rotationSpeed * Time.deltaTime;
+                WeaponWheelRotator.Rotate(Vector3.forward, -step);
+                
+                yield return null;
+            }
+
+            // Snap to final rotation
+            WeaponWheelRotator.rotation = Quaternion.Euler(0, 0, targetRotation);
+            
             if (newIndex == 0)
             {
                 WeaponWheelRotator.rotation = Quaternion.identity;    
