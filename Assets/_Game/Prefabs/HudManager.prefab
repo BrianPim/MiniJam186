@@ -397,10 +397,10 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 4332663023475844992}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 1920, y: 1080}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1518254613364439007
 CanvasRenderer:
@@ -510,7 +510,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
-  m_AnchoredPosition: {x: 0, y: -492}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 763.923, y: 251.185}
   m_Pivot: {x: 0.5, y: 0}
 --- !u!222 &3480041915782452140
@@ -805,10 +805,10 @@ RectTransform:
   - {fileID: 2413248480807927593}
   m_Father: {fileID: 3105952674535465228}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 100, y: 100}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!225 &4938010191676004667
 CanvasGroup:
@@ -1128,10 +1128,10 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 3080620903795324719}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 1920, y: 1080}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &8638067199085926754
 CanvasRenderer:
@@ -2016,10 +2016,10 @@ RectTransform:
   - {fileID: 2533689861696953733}
   m_Father: {fileID: 3105952674535465228}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 362.3, y: 495.787}
-  m_SizeDelta: {x: 246.5, y: 62.67}
+  m_AnchorMin: {x: 0.5, y: 1}
+  m_AnchorMax: {x: 0.5, y: 1}
+  m_AnchoredPosition: {x: 362.3, y: -44.213013}
+  m_SizeDelta: {x: 246.5, y: 62.669983}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!225 &863823082358497740
 CanvasGroup:
@@ -4015,9 +4015,9 @@ RectTransform:
   - {fileID: 687241888395889338}
   m_Father: {fileID: 3105952674535465228}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -305, y: 497.5}
+  m_AnchorMin: {x: 0.5, y: 1}
+  m_AnchorMax: {x: 0.5, y: 1}
+  m_AnchoredPosition: {x: -305, y: -42.5}
   m_SizeDelta: {x: 144.2, y: 54}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &6025929396425109281
@@ -4540,10 +4540,10 @@ RectTransform:
   - {fileID: 6231628017241623694}
   m_Father: {fileID: 7130821377565836232}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 100, y: 100}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!225 &8068498837838052126
 CanvasGroup:
@@ -5069,10 +5069,10 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 3080620903795324719}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 496, y: -473}
-  m_SizeDelta: {x: 663.923, y: 151.185}
+  m_AnchorMin: {x: 1, y: 0}
+  m_AnchorMax: {x: 1, y: 0}
+  m_AnchoredPosition: {x: -464, y: 67}
+  m_SizeDelta: {x: 2583.9229, y: 1231.185}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &6414957410375605499
 CanvasRenderer:
@@ -6109,7 +6109,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: 0, y: -44.49994}
+  m_AnchoredPosition: {x: 0, y: -44.499878}
   m_SizeDelta: {x: 412.4, y: 69}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &8973631054493075374
@@ -6259,11 +6259,11 @@ RectTransform:
   - {fileID: 1607022774232285635}
   m_Father: {fileID: 4332663023475844992}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -383}
-  m_SizeDelta: {x: 1417.749, y: 198.512}
-  m_Pivot: {x: 0.5, y: 0.5}
+  m_AnchorMin: {x: 0.5, y: 0}
+  m_AnchorMax: {x: 0.5, y: 0}
+  m_AnchoredPosition: {x: 0, y: 60}
+  m_SizeDelta: {x: 1417.749, y: 198.51196}
+  m_Pivot: {x: 0.5, y: 0}
 --- !u!222 &1804173787890107123
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -6703,9 +6703,9 @@ RectTransform:
   - {fileID: 1449977357214483924}
   m_Father: {fileID: 3080620903795324719}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 494, y: -262}
+  m_AnchorMin: {x: 1, y: 0}
+  m_AnchorMax: {x: 1, y: 0}
+  m_AnchoredPosition: {x: -466, y: 278}
   m_SizeDelta: {x: 833.923, y: 331.185}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &3264945021908390418
@@ -6754,14 +6754,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1167528337711094492}
     m_Modifications:
-    - target: {fileID: 508595213136276656, guid: 3d1d3e7f6b1d95341a2d80290fc05ebf, type: 3}
-      propertyPath: m_fontAsset
-      value: 
-      objectReference: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-    - target: {fileID: 508595213136276656, guid: 3d1d3e7f6b1d95341a2d80290fc05ebf, type: 3}
-      propertyPath: m_sharedMaterial
-      value: 
-      objectReference: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
     - target: {fileID: 2330096891095578143, guid: 3d1d3e7f6b1d95341a2d80290fc05ebf, type: 3}
       propertyPath: m_Name
       value: UpgradePanel (2)
@@ -6846,34 +6838,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 6220031079580243021, guid: 3d1d3e7f6b1d95341a2d80290fc05ebf, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6220031079580243021, guid: 3d1d3e7f6b1d95341a2d80290fc05ebf, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6220031079580243021, guid: 3d1d3e7f6b1d95341a2d80290fc05ebf, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 3105952672990751507}
-    - target: {fileID: 6220031079580243021, guid: 3d1d3e7f6b1d95341a2d80290fc05ebf, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 6220031079580243021, guid: 3d1d3e7f6b1d95341a2d80290fc05ebf, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: ChooseUpgrade3
-      objectReference: {fileID: 0}
-    - target: {fileID: 6220031079580243021, guid: 3d1d3e7f6b1d95341a2d80290fc05ebf, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: HudManager, Game
-      objectReference: {fileID: 0}
-    - target: {fileID: 6220031079580243021, guid: 3d1d3e7f6b1d95341a2d80290fc05ebf, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
-      value: UnityEngine.Object, UnityEngine
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -6930,14 +6894,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1167528337711094492}
     m_Modifications:
-    - target: {fileID: 508595213136276656, guid: 3d1d3e7f6b1d95341a2d80290fc05ebf, type: 3}
-      propertyPath: m_fontAsset
-      value: 
-      objectReference: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-    - target: {fileID: 508595213136276656, guid: 3d1d3e7f6b1d95341a2d80290fc05ebf, type: 3}
-      propertyPath: m_sharedMaterial
-      value: 
-      objectReference: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
     - target: {fileID: 2330096891095578143, guid: 3d1d3e7f6b1d95341a2d80290fc05ebf, type: 3}
       propertyPath: m_Name
       value: UpgradePanel (1)
@@ -7106,14 +7062,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1167528337711094492}
     m_Modifications:
-    - target: {fileID: 508595213136276656, guid: 3d1d3e7f6b1d95341a2d80290fc05ebf, type: 3}
-      propertyPath: m_fontAsset
-      value: 
-      objectReference: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-    - target: {fileID: 508595213136276656, guid: 3d1d3e7f6b1d95341a2d80290fc05ebf, type: 3}
-      propertyPath: m_sharedMaterial
-      value: 
-      objectReference: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
     - target: {fileID: 2330096891095578143, guid: 3d1d3e7f6b1d95341a2d80290fc05ebf, type: 3}
       propertyPath: m_Name
       value: UpgradePanel
