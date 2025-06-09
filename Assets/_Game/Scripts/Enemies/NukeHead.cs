@@ -5,7 +5,7 @@ namespace Enemies
 {
     public class NukeHead : EnemyBehaviour
     {
-        [SerializeField] private float ExplosionCircleCastRadius = 2f;
+        [SerializeField] private float ExplosionCircleCastRadius = 4.5f;
         [SerializeField] private float ExplosionDamageToFriendlies = 50f;
         
         public override void Awake()
@@ -53,7 +53,7 @@ namespace Enemies
 
                     hit.transform.gameObject.TryGetComponent<EnemyController>(out var enemy);
 
-                    if (enemy)
+                    if (enemy && enemy != Controller)
                     {
                         var element = Controller.GetElement();
                         enemy.TakeDamage(ExplosionDamageToFriendlies, element, GameManager.Instance.GetElementColor(element),1.5f);
