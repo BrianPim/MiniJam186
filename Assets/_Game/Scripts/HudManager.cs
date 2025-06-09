@@ -178,9 +178,9 @@ public class HudManager : Singleton<HudManager>
             
             while (WeaponWheelRotator.rotation != Quaternion.Euler(0, 0, targetRotation))
             {
-                WeaponWheelRotator.Rotate(Vector3.forward, -4);
+                WeaponWheelRotator.Rotate(Vector3.forward, -2);
                 
-                yield return new WaitForSeconds(.008f);
+                yield return new WaitForSeconds(.004f);
             }
 
             if (newIndex == 0)
