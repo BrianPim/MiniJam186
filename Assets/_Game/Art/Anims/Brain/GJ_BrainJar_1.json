@@ -1,0 +1,744 @@
+{
+"skeleton": { "hash": "us9wSb7581M", "spine": "4.0.64", "x": -97.5, "y": -21.63, "width": 257.87, "height": 251.75 },
+"bones": [
+	{ "name": "root" },
+	{ "name": "General", "parent": "root", "x": -2.39, "y": 15.42 },
+	{ "name": "General2", "parent": "General", "x": 81.18, "y": 139.22 },
+	{ "name": "General8", "parent": "General", "x": -23.51, "y": 87.54 },
+	{ "name": "General3", "parent": "General8", "x": 10.01, "y": 15.34 },
+	{ "name": "General4", "parent": "General3", "length": 23.58, "rotation": -104.93, "x": -0.99, "y": -25.63 },
+	{ "name": "General5", "parent": "General4", "length": 22.44, "rotation": -9.03, "x": 23.58 },
+	{ "name": "General6", "parent": "General3", "length": 30.54, "rotation": -145.12, "x": -17.7, "y": -7.4 },
+	{ "name": "General7", "parent": "General6", "length": 16.72, "rotation": 15.65, "x": 30.54 },
+	{ "name": "bone", "parent": "root", "x": 118.59, "y": 208.03 },
+	{ "name": "bone2", "parent": "root", "x": 150.62, "y": 216.96 },
+	{ "name": "bone3", "parent": "root", "x": 118.59, "y": 208.03 }
+],
+"slots": [
+	{ "name": "images/brain_jar1/cord", "bone": "General", "attachment": "images/brain_jar1/cord" },
+	{ "name": "images/brain_jar1/particle_1", "bone": "bone", "attachment": "images/brain_jar1/particle_1" },
+	{ "name": "images/brain_jar1/particle_3", "bone": "bone3", "attachment": "images/brain_jar1/particle_1" },
+	{ "name": "images/brain_jar1/particle_2", "bone": "bone2", "attachment": "images/brain_jar1/particle_2" },
+	{ "name": "images/brain_jar1/Valve", "bone": "General2", "attachment": "images/brain_jar1/Valve" },
+	{ "name": "images/brain_jar1/jar_body", "bone": "General", "attachment": "images/brain_jar1/jar_body" },
+	{ "name": "images/brain_jar1/brain", "bone": "General3", "attachment": "images/brain_jar1/brain" },
+	{ "name": "images/brain_jar1/eye_2", "bone": "General4", "attachment": "images/brain_jar2/eye_22" },
+	{ "name": "images/brain_jar1/eye_1", "bone": "General6", "attachment": "images/brain_jar2/eye_12" }
+],
+"skins": [
+	{
+		"name": "default",
+		"attachments": {
+			"images/brain_jar1/brain": {
+				"images/brain_jar1/brain": { "x": -8.49, "y": -8.55, "width": 53, "height": 43 },
+				"images/brain_jar2/brain2": { "x": -8.49, "y": -8.55, "width": 54, "height": 43 }
+			},
+			"images/brain_jar1/cord": {
+				"images/brain_jar1/cord": { "x": 3.64, "y": 1.94, "width": 134, "height": 78 },
+				"images/brain_jar2/cord2": { "x": 3.64, "y": 1.94, "width": 134, "height": 78 }
+			},
+			"images/brain_jar1/eye_1": {
+				"images/brain_jar1/eye_1": {
+					"type": "mesh",
+					"uvs": [ 0.57885, 0, 0.20791, 0.26542, 0, 0.52388, 0.06276, 1, 0.74819, 1, 0.82883, 0.57557, 1, 0.30678, 1, 0, 0.32632, 0.6528, 0.61466, 0.46797 ],
+					"triangles": [ 3, 8, 4, 8, 9, 4, 4, 9, 5, 3, 2, 8, 2, 1, 8, 8, 1, 9, 5, 9, 6, 1, 0, 9, 9, 0, 6, 0, 7, 6 ],
+					"vertices": [ 2, 7, 20.51, -10.55, 0.95637, 8, -12.51, -7.45, 0.04363, 2, 7, 41.64, -12.66, 0.00496, 8, 7.27, -15.18, 0.99504, 1, 8, 21.66, -16.8, 1, 1, 8, 34, -2.57, 1, 2, 7, 35.86, 26.29, 0.27361, 8, 12.21, 23.88, 0.72639, 2, 7, 23.09, 15.02, 0.76405, 8, -3.13, 16.47, 0.23595, 2, 7, 10.07, 11.31, 0.99862, 8, -16.66, 16.41, 0.00138, 1, 7, 3.23, 1.49, 1, 1, 8, 15.17, -1.01, 1, 2, 7, 29.47, 5.45, 0.62789, 8, 0.44, 5.54, 0.37211 ],
+					"hull": 8
+				},
+				"images/brain_jar2/eye_12": {
+					"type": "mesh",
+					"uvs": [ 0.64093, 0, 0.32047, 0.17923, 0, 0.35847, 0, 1, 0.60734, 1, 0.96013, 0.74098, 0.90133, 0.49287, 1, 0.26542, 1, 0, 0.30936, 0.60995, 0.6226, 0.50511 ],
+					"triangles": [ 4, 10, 5, 10, 6, 5, 3, 9, 4, 4, 9, 10, 3, 2, 9, 9, 1, 10, 9, 2, 1, 10, 0, 6, 10, 1, 0, 6, 0, 7, 0, 8, 7 ],
+					"vertices": [ 2, 7, 18.19, -8.93, 0.99961, 8, -14.3, -5.27, 3.9E-4, 2, 7, 34.81, -11.99, 0.21669, 8, 0.87, -12.7, 0.78331, 1, 8, 16.05, -20.13, 1, 1, 8, 35.36, -4.22, 1, 2, 7, 41.81, 22.14, 0.03741, 8, 16.83, 18.28, 0.96259, 2, 7, 22.15, 23.54, 0.3597, 8, -1.74, 24.93, 0.6403, 2, 7, 18.93, 13.98, 0.6499, 8, -7.41, 16.6, 0.3501, 2, 7, 9.97, 9.41, 0.96008, 8, -17.27, 14.62, 0.03992, 1, 7, 4.05, 0.92, 1, 1, 8, 14.18, -2.43, 1, 2, 7, 30.18, 6.73, 0.31686, 8, 1.46, 6.57, 0.68314 ],
+					"hull": 9
+				}
+			},
+			"images/brain_jar1/eye_2": {
+				"images/brain_jar1/eye_2": {
+					"type": "mesh",
+					"uvs": [ 0.4241, 0.0573, 0.2351, 0.35622, 0, 0.6899, 0, 1, 0.5, 1, 1, 1, 1, 0.4605, 1, 0, 0.5123, 0, 0.41198, 0.71634, 0.72949, 0.79373 ],
+					"triangles": [ 4, 10, 5, 10, 6, 5, 3, 9, 4, 4, 9, 10, 3, 2, 9, 10, 9, 6, 2, 1, 9, 9, 1, 6, 1, 0, 6, 6, 0, 7, 0, 8, 7 ],
+					"vertices": [ 1, 5, 0.52, -11.18, 1, 2, 5, 18.83, -12.55, 0.66366, 6, -2.72, -13.14, 0.33634, 1, 6, 18.02, -12.16, 1, 1, 6, 34.46, -4.85, 1, 1, 6, 27.96, 9.77, 1, 1, 6, 21.46, 24.39, 1, 2, 5, 18.36, 12.66, 0.83196, 6, -7.13, 11.68, 0.16804, 1, 5, -7.44, 5.77, 1, 1, 5, -3.42, -9.31, 1, 1, 6, 14.07, 0.51, 1, 2, 5, 39.27, 9.27, 0.01618, 6, 14.04, 11.62, 0.98382 ],
+					"hull": 9
+				},
+				"images/brain_jar2/eye_22": {
+					"type": "mesh",
+					"uvs": [ 0.39299, 0, 0.39299, 0.31833, 0, 0.53054, 0.00165, 1, 0.50083, 1, 1, 1, 1, 0.53761, 1, 0, 0.5098, 0.67029, 0.66121, 0.30528 ],
+					"triangles": [ 4, 8, 5, 8, 6, 5, 4, 3, 8, 3, 2, 8, 2, 1, 8, 8, 9, 6, 8, 1, 9, 9, 7, 6, 1, 0, 9, 9, 0, 7 ],
+					"vertices": [ 1, 5, -1.9, -13.07, 1, 2, 5, 15.63, -8.4, 0.83976, 6, -6.53, -9.54, 0.16024, 2, 5, 30.76, -18.19, 0.00684, 6, 9.95, -16.84, 0.99316, 1, 6, 34.38, -5.92, 1, 1, 6, 27.49, 9.59, 1, 1, 6, 20.6, 25.1, 1, 2, 5, 22.39, 14.76, 0.44174, 6, -3.49, 14.4, 0.55826, 1, 5, -7.22, 6.87, 1, 1, 6, 10.19, 2.24, 1, 1, 5, 12.56, 0.22, 1 ],
+					"hull": 8
+				}
+			},
+			"images/brain_jar1/jar_body": {
+				"images/brain_jar1/jar_body": { "x": 2.39, "y": 83.07, "width": 195, "height": 175 },
+				"images/brain_jar2/jar_body2": { "x": 2.39, "y": 83.07, "width": 195, "height": 174 }
+			},
+			"images/brain_jar1/particle_1": {
+				"images/brain_jar1/particle_1": { "x": -1.1, "y": 1.08, "width": 43, "height": 42 },
+				"images/brain_jar2/particle_12": { "x": -1.1, "y": 1.08, "width": 43, "height": 42 }
+			},
+			"images/brain_jar1/particle_2": {
+				"images/brain_jar1/particle_2": { "x": -1.25, "y": -2.84, "width": 22, "height": 29 },
+				"images/brain_jar2/particle_22": { "x": -1.25, "y": -2.84, "width": 22, "height": 29 }
+			},
+			"images/brain_jar1/particle_3": {
+				"images/brain_jar1/particle_1": { "x": -1.1, "y": 1.08, "width": 43, "height": 42 },
+				"images/brain_jar2/particle_12": { "x": -1.1, "y": 1.08, "width": 43, "height": 42 }
+			},
+			"images/brain_jar1/Valve": {
+				"images/brain_jar1/Valve": { "x": 13.7, "y": 16.97, "width": 58, "height": 60 },
+				"images/brain_jar2/Valve2": { "x": 13.7, "y": 16.97, "width": 58, "height": 60 }
+			}
+		}
+	}
+],
+"events": {
+	"Fire": {}
+},
+"animations": {
+	"Attack": {
+		"slots": {
+			"images/brain_jar1/brain": {
+				"attachment": [
+					{ "time": 0.1667, "name": "images/brain_jar2/brain2" },
+					{ "time": 0.3333, "name": "images/brain_jar1/brain" },
+					{ "time": 0.5, "name": "images/brain_jar2/brain2" },
+					{ "time": 0.6, "name": "images/brain_jar1/brain" }
+				]
+			},
+			"images/brain_jar1/cord": {
+				"attachment": [
+					{ "time": 0.1667, "name": "images/brain_jar2/cord2" },
+					{ "time": 0.3333, "name": "images/brain_jar1/cord" },
+					{ "time": 0.5, "name": "images/brain_jar2/cord2" },
+					{ "time": 0.7667, "name": "images/brain_jar1/cord" }
+				]
+			},
+			"images/brain_jar1/eye_1": {
+				"attachment": [
+					{ "name": "images/brain_jar1/eye_1" },
+					{ "time": 0.1667, "name": "images/brain_jar2/eye_12" },
+					{ "time": 0.3333, "name": "images/brain_jar1/eye_1" },
+					{ "time": 0.5, "name": "images/brain_jar2/eye_12" },
+					{ "time": 0.6333, "name": "images/brain_jar1/eye_1" }
+				]
+			},
+			"images/brain_jar1/eye_2": {
+				"attachment": [
+					{ "name": "images/brain_jar1/eye_2" },
+					{ "time": 0.1667, "name": "images/brain_jar2/eye_22" },
+					{ "time": 0.3333, "name": "images/brain_jar1/eye_2" },
+					{ "time": 0.5, "name": "images/brain_jar2/eye_22" },
+					{ "time": 0.6333, "name": "images/brain_jar1/eye_2" }
+				]
+			},
+			"images/brain_jar1/jar_body": {
+				"attachment": [
+					{ "time": 0.1667, "name": "images/brain_jar2/jar_body2" },
+					{ "time": 0.5, "name": "images/brain_jar1/jar_body" }
+				]
+			},
+			"images/brain_jar1/particle_1": {
+				"attachment": [
+					{ "name": null }
+				]
+			},
+			"images/brain_jar1/particle_2": {
+				"attachment": [
+					{ "name": null }
+				]
+			},
+			"images/brain_jar1/particle_3": {
+				"attachment": [
+					{ "name": null }
+				]
+			},
+			"images/brain_jar1/Valve": {
+				"attachment": [
+					{ "time": 0.1667, "name": "images/brain_jar2/Valve2" },
+					{ "time": 0.5, "name": "images/brain_jar1/Valve" }
+				]
+			}
+		},
+		"bones": {
+			"General": {
+				"rotate": [
+					{ "curve": "stepped" },
+					{ "time": 0.0667, "value": -5.61, "curve": "stepped" },
+					{ "time": 0.2, "value": -6.73, "curve": "stepped" },
+					{ "time": 0.2667, "value": 5.52, "curve": "stepped" },
+					{ "time": 0.4, "value": 6.32, "curve": "stepped" },
+					{ "time": 0.5, "value": 8.5, "curve": "stepped" },
+					{ "time": 0.6, "value": -3.55, "curve": "stepped" },
+					{ "time": 0.7667 }
+				],
+				"translate": [
+					{ "curve": "stepped" },
+					{ "time": 0.0667, "x": 6.61, "y": 0.94, "curve": "stepped" },
+					{ "time": 0.2, "x": 8.5, "y": 0.94, "curve": "stepped" },
+					{ "time": 0.2667, "x": -54.8, "y": 1.89, "curve": "stepped" },
+					{ "time": 0.4, "x": -58.58, "y": 1.89, "curve": "stepped" },
+					{ "time": 0.5, "x": -53.85, "y": 1.89, "curve": "stepped" },
+					{ "time": 0.6, "x": 5.67, "y": 0.94, "curve": "stepped" },
+					{ "time": 0.7667 }
+				]
+			},
+			"General3": {
+				"rotate": [
+					{ "curve": "stepped" },
+					{ "time": 0.0667, "value": -11.2, "curve": "stepped" },
+					{ "time": 0.2, "value": -12.57, "curve": "stepped" },
+					{ "time": 0.2667, "value": 62.02, "curve": "stepped" },
+					{ "time": 0.5, "value": 60.63, "curve": "stepped" },
+					{ "time": 0.6, "value": -3.61, "curve": "stepped" },
+					{ "time": 0.7 }
+				],
+				"translate": [
+					{ "x": 6.58, "curve": "stepped" },
+					{ "time": 0.0667, "x": 16.35, "y": -2.84, "curve": "stepped" },
+					{ "time": 0.2, "x": 18.22, "y": -2.62, "curve": "stepped" },
+					{ "time": 0.2667, "x": -47.94, "y": -9.51, "curve": "stepped" },
+					{ "time": 0.5, "x": -36.31, "y": -8.38, "curve": "stepped" },
+					{ "time": 0.6, "x": 15.3, "y": -3.25, "curve": "stepped" },
+					{ "time": 0.7, "x": 6.58 }
+				]
+			},
+			"General4": {
+				"rotate": [
+					{ "curve": "stepped" },
+					{ "time": 0.1, "value": -11.41, "curve": "stepped" },
+					{ "time": 0.2, "value": -14.2, "curve": "stepped" },
+					{ "time": 0.2667, "value": 51.89, "curve": "stepped" },
+					{ "time": 0.4333, "value": 69.82, "curve": "stepped" },
+					{ "time": 0.5333, "value": 31.51, "curve": "stepped" },
+					{ "time": 0.6333, "value": -2.75, "curve": "stepped" },
+					{ "time": 0.7333 }
+				]
+			},
+			"General6": {
+				"rotate": [
+					{ "curve": "stepped" },
+					{ "time": 0.1, "value": -11.41, "curve": "stepped" },
+					{ "time": 0.2, "value": -14.2, "curve": "stepped" },
+					{ "time": 0.2667, "value": 51.89, "curve": "stepped" },
+					{ "time": 0.4333, "value": 69.82, "curve": "stepped" },
+					{ "time": 0.5333, "value": 31.51, "curve": "stepped" },
+					{ "time": 0.6333, "value": -2.75, "curve": "stepped" },
+					{ "time": 0.7333 }
+				]
+			},
+			"bone": {
+				"translate": [
+					{ "x": -4.38, "y": -13.88 }
+				]
+			},
+			"General7": {
+				"rotate": [
+					{ "value": -58.23, "curve": "stepped" },
+					{ "time": 0.1, "value": -69.65, "curve": "stepped" },
+					{ "time": 0.2, "value": -72.43, "curve": "stepped" },
+					{ "time": 0.2667, "value": -6.34, "curve": "stepped" },
+					{ "time": 0.4333, "value": 11.59, "curve": "stepped" },
+					{ "time": 0.5333, "value": -26.72, "curve": "stepped" },
+					{ "time": 0.6333, "value": -60.98, "curve": "stepped" },
+					{ "time": 0.7333, "value": -58.23 }
+				]
+			},
+			"General5": {
+				"rotate": [
+					{ "value": -57.77, "curve": "stepped" },
+					{ "time": 0.1, "value": -69.19, "curve": "stepped" },
+					{ "time": 0.2, "value": -71.97, "curve": "stepped" },
+					{ "time": 0.2667, "value": -5.88, "curve": "stepped" },
+					{ "time": 0.4333, "value": 12.05, "curve": "stepped" },
+					{ "time": 0.5333, "value": -26.26, "curve": "stepped" },
+					{ "time": 0.6333, "value": -60.52, "curve": "stepped" },
+					{ "time": 0.7333, "value": -57.77 }
+				]
+			}
+		},
+		"events": [
+			{ "time": 0.2667, "name": "Fire" }
+		]
+	},
+	"Defeated": {
+		"slots": {
+			"images/brain_jar1/brain": {
+				"rgba": [
+					{ "time": 0.3, "color": "ffffffff" },
+					{ "time": 0.4333, "color": "ffffff00" }
+				]
+			},
+			"images/brain_jar1/cord": {
+				"rgba": [
+					{ "time": 0.3, "color": "ffffffff" },
+					{ "time": 0.4333, "color": "ffffff00" }
+				]
+			},
+			"images/brain_jar1/eye_1": {
+				"rgba": [
+					{ "time": 0.3, "color": "ffffffff" },
+					{ "time": 0.4333, "color": "ffffff00" }
+				],
+				"attachment": [
+					{ "name": "images/brain_jar1/eye_1" }
+				]
+			},
+			"images/brain_jar1/eye_2": {
+				"rgba": [
+					{ "time": 0.3, "color": "ffffffff" },
+					{ "time": 0.4333, "color": "ffffff00" }
+				],
+				"attachment": [
+					{ "name": "images/brain_jar1/eye_2" }
+				]
+			},
+			"images/brain_jar1/jar_body": {
+				"rgba": [
+					{ "time": 0.3, "color": "ffffffff" },
+					{ "time": 0.4333, "color": "ffffff00" }
+				]
+			},
+			"images/brain_jar1/particle_1": {
+				"rgba": [
+					{ "time": 0.3, "color": "ffffffff" },
+					{ "time": 0.4333, "color": "ffffff00" }
+				],
+				"attachment": [
+					{ "name": null }
+				]
+			},
+			"images/brain_jar1/particle_2": {
+				"rgba": [
+					{ "time": 0.3, "color": "ffffffff" },
+					{ "time": 0.4333, "color": "ffffff00" }
+				],
+				"attachment": [
+					{ "name": null },
+					{ "time": 0.1333, "name": "images/brain_jar1/particle_2" }
+				]
+			},
+			"images/brain_jar1/particle_3": {
+				"rgba": [
+					{ "time": 0.4, "color": "ffffffff" },
+					{ "time": 0.5333, "color": "ffffff00" }
+				],
+				"attachment": [
+					{ "name": null },
+					{ "time": 0.2333, "name": "images/brain_jar1/particle_1" }
+				]
+			},
+			"images/brain_jar1/Valve": {
+				"rgba": [
+					{ "time": 0.3, "color": "ffffffff" },
+					{ "time": 0.4333, "color": "ffffff00" }
+				]
+			}
+		},
+		"bones": {
+			"General": {
+				"rotate": [
+					{ "curve": "stepped" },
+					{ "time": 0.0333, "value": -18.27, "curve": "stepped" },
+					{ "time": 0.1333, "value": -38.77, "curve": "stepped" },
+					{ "time": 0.2, "value": -50.07, "curve": "stepped" },
+					{ "time": 0.2667, "value": -69.69, "curve": "stepped" },
+					{ "time": 0.3333, "value": -82.79, "curve": "stepped" },
+					{ "time": 0.4, "value": -91.32 }
+				],
+				"translate": [
+					{ "curve": "stepped" },
+					{ "time": 0.0333, "x": 21.23, "y": 38.93, "curve": "stepped" },
+					{ "time": 0.1333, "x": 52.51, "y": 73.19, "curve": "stepped" },
+					{ "time": 0.2, "x": 61.45, "y": 65.74, "curve": "stepped" },
+					{ "time": 0.2667, "x": 77.84, "y": -13.21, "curve": "stepped" },
+					{ "time": 0.3333, "x": 77.84, "y": -63.86, "curve": "stepped" },
+					{ "time": 0.4, "x": 83.8, "y": -93.65, "curve": "stepped" },
+					{ "time": 0.6333, "x": 83.8, "y": -93.65 }
+				]
+			},
+			"General3": {
+				"rotate": [
+					{ "curve": "stepped" },
+					{ "time": 0.0333, "value": 17.55, "curve": "stepped" },
+					{ "time": 0.3333, "value": -19.28 }
+				],
+				"translate": [
+					{ "x": 6.58, "curve": "stepped" },
+					{ "time": 0.0333, "x": -17.12, "y": -6.7, "curve": "stepped" },
+					{ "time": 0.3333, "x": 10.27, "y": 3.98 }
+				]
+			},
+			"General4": {
+				"rotate": [
+					{ "curve": "stepped" },
+					{ "time": 0.0333, "value": 24.42 }
+				]
+			},
+			"General6": {
+				"rotate": [
+					{ "curve": "stepped" },
+					{ "time": 0.0333, "value": 24.42 }
+				]
+			},
+			"bone": {
+				"translate": [
+					{ "x": -4.38, "y": -13.88 }
+				]
+			},
+			"General7": {
+				"rotate": [
+					{ "value": -58.23, "curve": "stepped" },
+					{ "time": 0.0333, "value": -33.81 }
+				]
+			},
+			"General5": {
+				"rotate": [
+					{ "value": -57.77, "curve": "stepped" },
+					{ "time": 0.0333, "value": -33.35 }
+				]
+			},
+			"bone3": {
+				"translate": [
+					{ "time": 0.2333, "x": 135.56, "y": -59.58, "curve": "stepped" },
+					{ "time": 0.3, "x": 113.21, "y": -5.96, "curve": "stepped" },
+					{ "time": 0.4, "x": 102.78, "y": 10.43, "curve": "stepped" },
+					{ "time": 0.5, "x": 99.8, "y": 14.9 }
+				]
+			},
+			"bone2": {
+				"translate": [
+					{ "time": 0.1333, "x": 84.91, "y": -31.28, "curve": "stepped" },
+					{ "time": 0.2, "x": 72.99, "y": 35.75, "curve": "stepped" },
+					{ "time": 0.2667, "x": 65.54, "y": 56.61, "curve": "stepped" },
+					{ "time": 0.3333, "x": 58.09, "y": 75.97 }
+				]
+			}
+		}
+	},
+	"Hit": {
+		"slots": {
+			"images/brain_jar1/eye_1": {
+				"attachment": [
+					{ "name": "images/brain_jar1/eye_1" }
+				]
+			},
+			"images/brain_jar1/eye_2": {
+				"attachment": [
+					{ "name": "images/brain_jar1/eye_2" }
+				]
+			},
+			"images/brain_jar1/particle_1": {
+				"attachment": [
+					{ "name": null }
+				]
+			},
+			"images/brain_jar1/particle_2": {
+				"attachment": [
+					{ "name": null }
+				]
+			},
+			"images/brain_jar1/particle_3": {
+				"attachment": [
+					{ "name": null }
+				]
+			}
+		},
+		"bones": {
+			"General": {
+				"rotate": [
+					{ "curve": "stepped" },
+					{ "time": 0.0333, "value": -18.27, "curve": "stepped" },
+					{ "time": 0.1333, "value": -22.55, "curve": "stepped" },
+					{ "time": 0.2333, "value": -26.44, "curve": "stepped" },
+					{ "time": 0.3, "value": 5.85, "curve": "stepped" },
+					{ "time": 0.3667, "value": 10.86, "curve": "stepped" },
+					{ "time": 0.4333, "value": -0.75, "curve": "stepped" },
+					{ "time": 0.5 }
+				],
+				"translate": [
+					{ "curve": "stepped" },
+					{ "time": 0.0333, "x": 21.23, "y": 38.93, "curve": "stepped" },
+					{ "time": 0.1333, "x": 34.21, "y": 34.21, "curve": "stepped" },
+					{ "time": 0.2333, "x": 28.31, "y": 24.77, "curve": "stepped" },
+					{ "time": 0.3, "x": 1.18, "y": -20.05, "curve": "stepped" },
+					{ "time": 0.3667, "x": -12.98, "y": -40.11, "curve": "stepped" },
+					{ "time": 0.4333, "x": 2.36, "y": 1.18, "curve": "stepped" },
+					{ "time": 0.5 }
+				]
+			},
+			"General3": {
+				"rotate": [
+					{ "curve": "stepped" },
+					{ "time": 0.0333, "value": 17.55, "curve": "stepped" },
+					{ "time": 0.1333, "value": -35.75, "curve": "stepped" },
+					{ "time": 0.2667, "value": -41.3, "curve": "stepped" },
+					{ "time": 0.3, "value": -36.03, "curve": "stepped" },
+					{ "time": 0.3667, "value": -14.88, "curve": "stepped" },
+					{ "time": 0.4333, "value": -12.02, "curve": "stepped" },
+					{ "time": 0.5, "value": -4.75, "curve": "stepped" },
+					{ "time": 0.5667 }
+				],
+				"translate": [
+					{ "x": 6.58, "curve": "stepped" },
+					{ "time": 0.0333, "x": -17.12, "y": -6.7, "curve": "stepped" },
+					{ "time": 0.1333, "x": 24.19, "y": -5.76, "curve": "stepped" },
+					{ "time": 0.2667, "x": 23.69, "y": -14.37, "curve": "stepped" },
+					{ "time": 0.3, "x": 7.92, "y": -21.36, "curve": "stepped" },
+					{ "time": 0.3667, "x": 3.06, "y": -21.72, "curve": "stepped" },
+					{ "time": 0.4333, "x": 6.28, "y": 1.35, "curve": "stepped" },
+					{ "time": 0.5, "x": 7.64, "y": 5.35, "curve": "stepped" },
+					{ "time": 0.5667, "x": 6.58 }
+				]
+			},
+			"General4": {
+				"rotate": [
+					{ "curve": "stepped" },
+					{ "time": 0.0333, "value": 24.42, "curve": "stepped" },
+					{ "time": 0.1667, "value": -9.65, "curve": "stepped" },
+					{ "time": 0.3, "value": -38.93, "curve": "stepped" },
+					{ "time": 0.3667, "value": 10.96, "curve": "stepped" },
+					{ "time": 0.4333, "value": 18.94, "curve": "stepped" },
+					{ "time": 0.4667, "value": -4.67, "curve": "stepped" },
+					{ "time": 0.5, "value": -8.58, "curve": "stepped" },
+					{ "time": 0.5667 }
+				]
+			},
+			"General6": {
+				"rotate": [
+					{ "curve": "stepped" },
+					{ "time": 0.0333, "value": 24.42, "curve": "stepped" },
+					{ "time": 0.1667, "value": -9.65, "curve": "stepped" },
+					{ "time": 0.3, "value": -38.93, "curve": "stepped" },
+					{ "time": 0.3667, "value": 10.96, "curve": "stepped" },
+					{ "time": 0.4333, "value": 18.94, "curve": "stepped" },
+					{ "time": 0.4667, "value": -4.67, "curve": "stepped" },
+					{ "time": 0.5, "value": -8.58, "curve": "stepped" },
+					{ "time": 0.5667 }
+				]
+			},
+			"bone": {
+				"translate": [
+					{ "x": -4.38, "y": -13.88 }
+				]
+			},
+			"General7": {
+				"rotate": [
+					{ "value": -58.23, "curve": "stepped" },
+					{ "time": 0.0333, "value": -33.81, "curve": "stepped" },
+					{ "time": 0.1667, "value": -67.88, "curve": "stepped" },
+					{ "time": 0.3, "value": -97.16, "curve": "stepped" },
+					{ "time": 0.3667, "value": -47.27, "curve": "stepped" },
+					{ "time": 0.4333, "value": -39.29, "curve": "stepped" },
+					{ "time": 0.4667, "value": -62.9, "curve": "stepped" },
+					{ "time": 0.5, "value": -66.81, "curve": "stepped" },
+					{ "time": 0.5667, "value": -58.23 }
+				]
+			},
+			"General5": {
+				"rotate": [
+					{ "value": -57.77, "curve": "stepped" },
+					{ "time": 0.0333, "value": -33.35, "curve": "stepped" },
+					{ "time": 0.1667, "value": -67.42, "curve": "stepped" },
+					{ "time": 0.3, "value": -96.7, "curve": "stepped" },
+					{ "time": 0.3667, "value": -46.81, "curve": "stepped" },
+					{ "time": 0.4333, "value": -38.83, "curve": "stepped" },
+					{ "time": 0.4667, "value": -62.44, "curve": "stepped" },
+					{ "time": 0.5, "value": -66.35, "curve": "stepped" },
+					{ "time": 0.5667, "value": -57.77 }
+				]
+			}
+		}
+	},
+	"Idle": {
+		"slots": {
+			"images/brain_jar1/brain": {
+				"attachment": [
+					{ "time": 0.1667, "name": "images/brain_jar2/brain2" },
+					{ "time": 0.3333, "name": "images/brain_jar1/brain" },
+					{ "time": 0.5, "name": "images/brain_jar2/brain2" },
+					{ "time": 0.6667, "name": "images/brain_jar1/brain" }
+				]
+			},
+			"images/brain_jar1/cord": {
+				"attachment": [
+					{ "time": 0.1667, "name": "images/brain_jar2/cord2" },
+					{ "time": 0.3333, "name": "images/brain_jar1/cord" },
+					{ "time": 0.5, "name": "images/brain_jar2/cord2" },
+					{ "time": 0.6667, "name": "images/brain_jar1/cord" }
+				]
+			},
+			"images/brain_jar1/eye_1": {
+				"attachment": [
+					{ "name": "images/brain_jar1/eye_1" },
+					{ "time": 0.1667, "name": "images/brain_jar2/eye_12" },
+					{ "time": 0.3333, "name": "images/brain_jar1/eye_1" },
+					{ "time": 0.5, "name": "images/brain_jar2/eye_12" },
+					{ "time": 0.6667, "name": "images/brain_jar1/eye_1" }
+				]
+			},
+			"images/brain_jar1/eye_2": {
+				"attachment": [
+					{ "name": "images/brain_jar1/eye_2" },
+					{ "time": 0.1667, "name": "images/brain_jar2/eye_22" },
+					{ "time": 0.3333, "name": "images/brain_jar1/eye_2" },
+					{ "time": 0.5, "name": "images/brain_jar2/eye_22" },
+					{ "time": 0.6667, "name": "images/brain_jar1/eye_2" }
+				]
+			},
+			"images/brain_jar1/jar_body": {
+				"attachment": [
+					{ "time": 0.1667, "name": "images/brain_jar2/jar_body2" },
+					{ "time": 0.3333, "name": "images/brain_jar1/jar_body" },
+					{ "time": 0.5, "name": "images/brain_jar2/jar_body2" },
+					{ "time": 0.6667, "name": "images/brain_jar1/jar_body" }
+				]
+			},
+			"images/brain_jar1/particle_1": {
+				"rgba": [
+					{ "time": 0.2667, "color": "ffffffff" },
+					{ "time": 0.4667, "color": "ffffff00" }
+				],
+				"attachment": [
+					{ "name": null },
+					{ "time": 0.1667, "name": "images/brain_jar1/particle_1" }
+				]
+			},
+			"images/brain_jar1/particle_2": {
+				"attachment": [
+					{ "name": null }
+				]
+			},
+			"images/brain_jar1/particle_3": {
+				"rgba": [
+					{ "time": 0.6, "color": "ffffffff" },
+					{ "time": 0.8, "color": "ffffff00" }
+				],
+				"attachment": [
+					{ "name": null },
+					{ "time": 0.5, "name": "images/brain_jar1/particle_1" }
+				]
+			},
+			"images/brain_jar1/Valve": {
+				"attachment": [
+					{ "time": 0.1667, "name": "images/brain_jar2/Valve2" },
+					{ "time": 0.3333, "name": "images/brain_jar1/Valve" },
+					{ "time": 0.5, "name": "images/brain_jar2/Valve2" },
+					{ "time": 0.6667, "name": "images/brain_jar1/Valve" }
+				]
+			}
+		},
+		"bones": {
+			"General": {
+				"translate": [
+					{ "curve": "stepped" },
+					{ "time": 0.1, "y": -8.04, "curve": "stepped" },
+					{ "time": 0.2333, "y": -9.5, "curve": "stepped" },
+					{ "time": 0.4, "curve": "stepped" },
+					{ "time": 0.5333, "y": 3.65, "curve": "stepped" },
+					{ "time": 0.7, "y": 2.19 }
+				],
+				"scale": [
+					{
+						"curve": [ 0.089, 1, 0.178, 1.038, 0.089, 1, 0.178, 0.937 ]
+					},
+					{
+						"time": 0.2667,
+						"x": 1.038,
+						"y": 0.937,
+						"curve": [ 0.378, 1.038, 0.489, 0.962, 0.378, 0.937, 0.489, 1.025 ]
+					},
+					{
+						"time": 0.6,
+						"x": 0.962,
+						"y": 1.025,
+						"curve": [ 0.667, 0.962, 0.733, 1, 0.667, 1.025, 0.733, 1 ]
+					},
+					{ "time": 0.8 }
+				]
+			},
+			"General2": {
+				"translate": [
+					{ "time": 0.1, "x": -12.42, "y": -10.96, "curve": "stepped" },
+					{ "time": 0.1667, "x": -1.46, "y": 3.65, "curve": "stepped" },
+					{ "time": 0.3, "x": -2.92, "y": 0.73, "curve": "stepped" },
+					{ "time": 0.4667, "x": -12.42, "y": -10.96, "curve": "stepped" },
+					{ "time": 0.5333, "x": -1.46, "y": 3.65, "curve": "stepped" },
+					{ "time": 0.6667, "x": -2.92, "y": 0.73 }
+				]
+			},
+			"General3": {
+				"translate": [
+					{ "x": 6.58 }
+				]
+			},
+			"General4": {
+				"rotate": [
+					{ "curve": "stepped" },
+					{ "time": 0.1, "value": 15.39, "curve": "stepped" },
+					{ "time": 0.2667, "value": 16.16, "curve": "stepped" },
+					{ "time": 0.4, "value": -10.72, "curve": "stepped" },
+					{ "time": 0.5333, "value": -12.69, "curve": "stepped" },
+					{ "time": 0.7, "value": -10.22 }
+				]
+			},
+			"General6": {
+				"rotate": [
+					{ "curve": "stepped" },
+					{ "time": 0.1, "value": 15.39, "curve": "stepped" },
+					{ "time": 0.2667, "value": 16.16, "curve": "stepped" },
+					{ "time": 0.4, "value": -10.72, "curve": "stepped" },
+					{ "time": 0.5333, "value": -12.69, "curve": "stepped" },
+					{ "time": 0.7, "value": -10.22 }
+				]
+			},
+			"bone": {
+				"translate": [
+					{ "x": -4.38, "y": -13.88, "curve": "stepped" },
+					{ "time": 0.1, "x": 5.84, "y": 15.34, "curve": "stepped" },
+					{ "time": 0.2333, "x": 13.15, "y": 18.99, "curve": "stepped" },
+					{ "time": 0.4, "x": 18.26, "y": 18.99 }
+				]
+			},
+			"General8": {
+				"translate": [
+					{ "curve": "stepped" },
+					{ "time": 0.1, "y": -4.38, "curve": "stepped" },
+					{ "time": 0.2333, "y": -6.58, "curve": "stepped" },
+					{ "time": 0.4, "y": 3.65, "curve": "stepped" },
+					{ "time": 0.5333, "y": 5.84, "curve": "stepped" },
+					{ "time": 0.6667, "y": 6.58 }
+				]
+			},
+			"General7": {
+				"rotate": [
+					{ "value": -58.23, "curve": "stepped" },
+					{ "time": 0.1, "value": 15.39, "curve": "stepped" },
+					{ "time": 0.2667, "value": 48.12, "curve": "stepped" },
+					{ "time": 0.4, "value": 50.7, "curve": "stepped" },
+					{ "time": 0.5333, "value": -19.74, "curve": "stepped" },
+					{ "time": 0.7, "value": -58.13 }
+				]
+			},
+			"General5": {
+				"rotate": [
+					{ "value": -57.77, "curve": "stepped" },
+					{ "time": 0.1, "value": 15.39, "curve": "stepped" },
+					{ "time": 0.2667, "value": 48.12, "curve": "stepped" },
+					{ "time": 0.4, "value": 50.7, "curve": "stepped" },
+					{ "time": 0.5333, "value": -19.74, "curve": "stepped" },
+					{ "time": 0.7, "value": -58.13 }
+				]
+			},
+			"bone3": {
+				"translate": [
+					{ "time": 0.3667, "x": -4.38, "y": -13.88, "curve": "stepped" },
+					{ "time": 0.4667, "x": 5.84, "y": 15.34, "curve": "stepped" },
+					{ "time": 0.5667, "x": 13.15, "y": 18.99, "curve": "stepped" },
+					{ "time": 0.7333, "x": 18.26, "y": 18.99 }
+				]
+			}
+		}
+	}
+}
+}
