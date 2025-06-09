@@ -9,6 +9,8 @@ namespace Projectiles
         
         protected override void OnHit(EnemyController enemy)
         {
+            base.OnHit(enemy);
+            
             enemy.TakeDamage(ProjectileDamage * DamageModifier, Element.Normal, GameManager.Instance.GetElementColor(Element.Normal));
 
             HitParticle.Play();

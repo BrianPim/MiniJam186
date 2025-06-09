@@ -1585,34 +1585,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 188932435914398394, guid: 526b15a27193945468dc10f58dbd1d4e, type: 3}
-      propertyPath: m_Color.b
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 188932435914398394, guid: 526b15a27193945468dc10f58dbd1d4e, type: 3}
-      propertyPath: m_Color.g
-      value: 0.54509807
-      objectReference: {fileID: 0}
-    - target: {fileID: 188932435914398394, guid: 526b15a27193945468dc10f58dbd1d4e, type: 3}
-      propertyPath: m_Color.r
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 188932435914398394, guid: 526b15a27193945468dc10f58dbd1d4e, type: 3}
-      propertyPath: m_Intensity
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 188932435914398394, guid: 526b15a27193945468dc10f58dbd1d4e, type: 3}
-      propertyPath: m_LightType
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 188932435914398394, guid: 526b15a27193945468dc10f58dbd1d4e, type: 3}
-      propertyPath: m_ShadowsEnabled
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 188932435914398394, guid: 526b15a27193945468dc10f58dbd1d4e, type: 3}
-      propertyPath: m_LightVolumeEnabled
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 231321374078173079, guid: 526b15a27193945468dc10f58dbd1d4e, type: 3}
       propertyPath: m_LocalRotation.w
       value: 0.7100643

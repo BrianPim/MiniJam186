@@ -51,14 +51,14 @@ namespace Projectiles
             if (enemy == null || !Active)
                 return;
 
-            if (Destroying) return;
+            if (Destroying || enemy.IsBeingDestroyed()) return;
             
             OnHit(enemy);
         }
 
         protected virtual void OnHit(EnemyController enemy)
         {
-
+            
         }
 
         private bool Destroying;
