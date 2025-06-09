@@ -6838,6 +6838,34 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6220031079580243021, guid: 3d1d3e7f6b1d95341a2d80290fc05ebf, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6220031079580243021, guid: 3d1d3e7f6b1d95341a2d80290fc05ebf, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6220031079580243021, guid: 3d1d3e7f6b1d95341a2d80290fc05ebf, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 3105952672990751507}
+    - target: {fileID: 6220031079580243021, guid: 3d1d3e7f6b1d95341a2d80290fc05ebf, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6220031079580243021, guid: 3d1d3e7f6b1d95341a2d80290fc05ebf, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: ChooseUpgrade3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6220031079580243021, guid: 3d1d3e7f6b1d95341a2d80290fc05ebf, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: HudManager, Game
+      objectReference: {fileID: 0}
+    - target: {fileID: 6220031079580243021, guid: 3d1d3e7f6b1d95341a2d80290fc05ebf, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
